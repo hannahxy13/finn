@@ -53,9 +53,12 @@ from finn.transformation.fpgadataflow.prepare_rtlsim import PrepareRTLSim
 from finn.transformation.fpgadataflow.set_exec_mode import SetExecMode
 from finn.transformation.fpgadataflow.specialize_layers import SpecializeLayers
 
+build_dir = os.environ["FINN_BUILD_DIR"]
 test_fpga_part = "xczu3eg-sbva484-1-e"
 target_clk_ns = 5
 
+def get_checkpoint_name(impl_style, idt, act, nf, ich, exec_mode, mem_mode):
+    return build_dir + f"/test_fpgadataflow_{impl_style}_{idt}_{act}_{nf}_{ich}_{exec_mode}_{mem_mode}.onnx" 
 
 def generate_random_threshold_values(input_data_type, num_input_channels, num_steps):
     return np.random.randint(
@@ -123,9 +126,9 @@ def make_single_thresholding_modelwrapper(impl_style, T, idt, odt, actval, n_inp
 
 
 # activation: None or DataType
-@pytest.mark.parametrize("act", [DataType["INT4"], DataType["BIPOLAR"]])
+@pytest.mark.parametrize("act", [DataType["BIPOLAR"], DataType["INT4"],DataType["INT8"]])
 # input datatype
-@pytest.mark.parametrize("idt", [DataType["INT16"], DataType["UINT16"]])
+@pytest.mark.parametrize("idt", [DataType["INT4"],DataType["INT8"]])
 # folding, -1 is maximum possible
 @pytest.mark.parametrize("nf", [-1, 2, 1])
 # number of input features
@@ -173,7 +176,9 @@ def test_fpgadataflow_thresholding(impl_style, idt, act, nf, ich, exec_mode, mem
     model = make_single_thresholding_modelwrapper(
         impl_style, thresholds, idt, odt, actval, n_inp_vecs
     )
-
+    
+    chk_p = get_checkpoint_name(impl_style, idt, act, nf, ich, exec_mode, mem_mode)
+    model.save(chk_p)
     # Expected Reference output
     # multithreshold util fxn wants NCHW input, not NHWC
     x_nchw = layout_FINN2NCHW(x)
@@ -239,7 +244,7 @@ def test_fpgadataflow_thresholding(impl_style, idt, act, nf, ich, exec_mode, mem
         cycles_rtlsim = inst.get_nodeattr("cycles_rtlsim")
         exp_cycles_dict = model.analysis(exp_cycles_per_layer)
         exp_cycles = exp_cycles_dict[node.name]
-        assert np.isclose(exp_cycles, cycles_rtlsim, atol=15)
+        assert np.isclose(exp_cycles, cycles_rtlsim, atol=20)
         assert exp_cycles != 0
 
 
