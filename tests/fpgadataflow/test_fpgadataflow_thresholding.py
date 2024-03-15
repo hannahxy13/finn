@@ -53,14 +53,14 @@ from finn.transformation.fpgadataflow.prepare_rtlsim import PrepareRTLSim
 from finn.transformation.fpgadataflow.set_exec_mode import SetExecMode
 from finn.transformation.fpgadataflow.specialize_layers import SpecializeLayers
 
-build_dir = os.environ["FINN_BUILD_DIR"]
 test_fpga_part = "xczu3eg-sbva484-1-e"
 target_clk_ns = 5
 
-def get_checkpoint_name(impl_style, idt, act, nf, ich, exec_mode, mem_mode):
-    return build_dir + f"/test_fpgadataflow_{impl_style}_{idt}_{act}_{nf}_{ich}_{exec_mode}_{mem_mode}.onnx" 
-
-def generate_random_threshold_values(input_data_type, num_input_channels, num_steps):
+def generate_random_threshold_values(input_data_type, num_input_channels, num_steps, qt="channel"):
+    # Create a single threshold weight for per tensor quantization type
+    if qt == "tensor":
+        num_input_channels = 1
+        num_steps = 1
     return np.random.randint(
         input_data_type.min(),
         input_data_type.max() + 1,
@@ -84,8 +84,7 @@ def layout_NCHW2FINN(data):
     return np.transpose(data, (0, 2, 3, 1))
 
 
-def make_single_thresholding_modelwrapper(impl_style, T, idt, odt, actval, n_inp_vecs):
-    NumChannels = T.shape[0]
+def make_single_thresholding_modelwrapper(impl_style, T, idt, odt, actval, n_inp_vecs, NumChannels):
 
     inp = helper.make_tensor_value_info("inp", TensorProto.FLOAT, n_inp_vecs + [NumChannels])
     outp = helper.make_tensor_value_info("outp", TensorProto.FLOAT, n_inp_vecs + [NumChannels])
@@ -129,6 +128,8 @@ def make_single_thresholding_modelwrapper(impl_style, T, idt, odt, actval, n_inp
 @pytest.mark.parametrize("act", [DataType["BIPOLAR"], DataType["INT4"],DataType["INT8"]])
 # input datatype
 @pytest.mark.parametrize("idt", [DataType["INT4"],DataType["INT8"]])
+# quantization type
+@pytest.mark.parametrize("qt", ["tensor", "channel"])
 # folding, -1 is maximum possible
 @pytest.mark.parametrize("nf", [-1, 2, 1])
 # number of input features
@@ -141,7 +142,7 @@ def make_single_thresholding_modelwrapper(impl_style, T, idt, odt, actval, n_inp
 @pytest.mark.fpgadataflow
 @pytest.mark.vivado
 @pytest.mark.slow
-def test_fpgadataflow_thresholding(impl_style, idt, act, nf, ich, exec_mode, mem_mode):
+def test_fpgadataflow_thresholding(impl_style, idt, act, nf, ich, exec_mode, mem_mode, qt):
     # the mem_mode parameter can only be used for the hls thresholding
     # so the test will only be executed once for impl_style=rtl and once skipped
     # when the mem_mode is varied. Otherwise, the same test configuration would always
@@ -163,7 +164,7 @@ def test_fpgadataflow_thresholding(impl_style, idt, act, nf, ich, exec_mode, mem
     n_steps = act.get_num_possible_values() - 1
 
     # Generate random, non-decreasing thresholds
-    thresholds = generate_random_threshold_values(idt, ich, n_steps)
+    thresholds = generate_random_threshold_values(idt, ich, n_steps, qt)
 
     thresholds = sort_thresholds_increasing(thresholds)
 
@@ -174,11 +175,9 @@ def test_fpgadataflow_thresholding(impl_style, idt, act, nf, ich, exec_mode, mem
 
     # Build DUT
     model = make_single_thresholding_modelwrapper(
-        impl_style, thresholds, idt, odt, actval, n_inp_vecs
+        impl_style, thresholds, idt, odt, actval, n_inp_vecs, ich
     )
-    
-    chk_p = get_checkpoint_name(impl_style, idt, act, nf, ich, exec_mode, mem_mode)
-    model.save(chk_p)
+
     # Expected Reference output
     # multithreshold util fxn wants NCHW input, not NHWC
     x_nchw = layout_FINN2NCHW(x)
@@ -247,13 +246,21 @@ def test_fpgadataflow_thresholding(impl_style, idt, act, nf, ich, exec_mode, mem
         assert np.isclose(exp_cycles, cycles_rtlsim, atol=20)
         assert exp_cycles != 0
 
-
+# number of PE
+@pytest.mark.parametrize("pe", [1, 2, 3, 4])
+# number of channels
+@pytest.mark.parametrize("ch", [1, 6, 8])
+# activation datatype
+@pytest.mark.parametrize("act", [DataType["BIPOLAR"], DataType["INT4"],DataType["INT8"]])
+# input datatype
+@pytest.mark.parametrize("idt", [DataType["INT4"],DataType["INT8"]])
+# quantization type per tensor i.e single threshold,
+# or per channel i.e. len(threshold) == len(channel)
+@pytest.mark.parametrize("qt", ["tensor", "channel"])
 @pytest.mark.parametrize("impl_style", ["rtl", "hls"])
-# configuration (ch, pe)
-@pytest.mark.parametrize("cfg", [(1, 1), (6, 2), (6, 3), (8, 4)])
 @pytest.mark.fpgadataflow
 @pytest.mark.vivado
-def test_runtime_thresholds_read(impl_style, cfg):
+def test_runtime_thresholds_read(impl_style, ch, pe, qt, act, idt):
     """Read back threshold weights during runtime
 
     1. Create random initial weights T
@@ -261,16 +268,16 @@ def test_runtime_thresholds_read(impl_style, cfg):
     3. Read back weights via AXI
     4. Compare with initial weights T
     """
-    ch = cfg[0]
-    pe = cfg[1]
+    if ch % pe != 0:
+        pytest.skip(
+            f"Invalid PE({pe}) and Channel({ch}) combination"
+        )
     n_inp_vecs = [1, 2, 2]
     hls_mem_mode = "internal_decoupled"
-    act = DataType["INT4"]
-    idt = DataType["INT16"]
     odt = act
     n_steps = act.get_num_possible_values() - 1
     np.random.seed(2)
-    T = np.random.randint(idt.min(), idt.max() + 1, (ch, n_steps)).astype(np.float32)
+    T = generate_random_threshold_values(idt, ch, n_steps, qt)
     # provide non-decreasing thresholds
     T = np.sort(T, axis=1)
 
@@ -279,7 +286,7 @@ def test_runtime_thresholds_read(impl_style, cfg):
     else:
         actval = odt.min()
 
-    model = make_single_thresholding_modelwrapper(impl_style, T, idt, odt, actval, n_inp_vecs)
+    model = make_single_thresholding_modelwrapper(impl_style, T, idt, odt, actval, n_inp_vecs,  ch)
     model = model.transform(SpecializeLayers())
 
     # Make sure that specialize layer did not default to HLS implementation
@@ -292,7 +299,7 @@ def test_runtime_thresholds_read(impl_style, cfg):
         op_inst.set_nodeattr("mem_mode", hls_mem_mode)
     op_inst.set_nodeattr("runtime_writeable_weights", 1)
 
-    dat_fname = f"old_weights_{cfg}.dat"
+    dat_fname = f"old_weights_{ch}_{pe}.dat"
     op_inst.make_weight_file(T, "decoupled_runtime", dat_fname)
     with open(dat_fname, "r") as f:
         old_weight_stream = f.read().strip()
@@ -346,13 +353,18 @@ def test_runtime_thresholds_read(impl_style, cfg):
     # Validate the output is as expected
     assert (y == expected).all()
 
-
+# number of PE
+@pytest.mark.parametrize("pe", [1, 2, 3, 4])
+# number of channels
+@pytest.mark.parametrize("ch", [1, 6, 8])
+# activation datatype
+@pytest.mark.parametrize("act", [DataType["BIPOLAR"], DataType["INT4"],DataType["INT8"]])
+# input datatype
+@pytest.mark.parametrize("idt", [DataType["INT4"],DataType["INT8"]])
 @pytest.mark.parametrize("impl_style", ["hls", "rtl"])
-# configuration (ch, pe)
-@pytest.mark.parametrize("cfg", [(1, 1), (6, 2), (6, 3), (8, 4)])
 @pytest.mark.fpgadataflow
 @pytest.mark.vivado
-def test_runtime_thresholds_write(impl_style, cfg):
+def test_runtime_thresholds_write(impl_style, ch, pe, act, idt):
     """Write threshold weights during runtime
 
     1. Create random initial weights T_init
@@ -363,14 +375,12 @@ def test_runtime_thresholds_write(impl_style, cfg):
     6. Compare T_write and T_read
     7. Validate outputs with expected vectors
     """
-    ch = cfg[0]
-    pe = cfg[1]
-
+    if ch % pe != 0:
+        pytest.skip(
+            f"Invalid PE({pe}) and Channel({ch}) combination"
+        )
     n_inp_vecs = [1, 2, 2]
     hls_mem_mode = "internal_decoupled"
-    act = DataType["INT4"]
-    idt = DataType["INT16"]
-
     odt = act
     n_steps = act.get_num_possible_values() - 1
     np.random.seed(2)
@@ -383,7 +393,7 @@ def test_runtime_thresholds_write(impl_style, cfg):
     else:
         actval = odt.min()
 
-    model = make_single_thresholding_modelwrapper(impl_style, T_init, idt, odt, actval, n_inp_vecs)
+    model = make_single_thresholding_modelwrapper(impl_style, T_init, idt, odt, actval, n_inp_vecs, ch)
     model = model.transform(SpecializeLayers())
 
     # Validate that specialize layer did not default to HLS implementation
