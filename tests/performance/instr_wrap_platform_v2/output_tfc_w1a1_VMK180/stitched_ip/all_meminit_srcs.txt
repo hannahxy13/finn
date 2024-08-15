@@ -1,0 +1,8 @@
+./ip/verilog/rtl_ops/Thresholding_Batch_0/Thresholding_Batch_0_Thresholding_Batch_p_ZL7threshs_0_ROM_2P_BRAM_1R.dat
+./ip/verilog/rtl_ops/MatrixVectorActivation_0/memblock_MatrixVectorActivation_0.dat
+./ip/verilog/rtl_ops/Thresholding_Batch_1/Thresholding_Batch_1_threshs_ROM_2P_LUTRAM_1R.dat
+./ip/verilog/rtl_ops/MatrixVectorActivation_1/memblock_MatrixVectorActivation_1.dat
+./ip/verilog/rtl_ops/Thresholding_Batch_2/Thresholding_Batch_2_threshs_ROM_2P_LUTRAM_1R.dat
+./ip/verilog/rtl_ops/MatrixVectorActivation_2/memblock_MatrixVectorActivation_2.dat
+./ip/verilog/rtl_ops/Thresholding_Batch_3/Thresholding_Batch_3_threshs_ROM_2P_LUTRAM_1R.dat
+./ip/verilog/rtl_ops/MatrixVectorActivation_3/memblock_MatrixVectorActivation_3.dat

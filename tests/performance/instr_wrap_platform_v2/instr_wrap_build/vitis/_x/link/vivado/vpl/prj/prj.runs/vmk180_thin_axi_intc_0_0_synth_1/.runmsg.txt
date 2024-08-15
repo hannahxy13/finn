@@ -1,0 +1,2 @@
+Compiling (synthesis checkpoint) kernel/IP: vmk180_thin_axi_intc_0_0
+Log file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/runme.log

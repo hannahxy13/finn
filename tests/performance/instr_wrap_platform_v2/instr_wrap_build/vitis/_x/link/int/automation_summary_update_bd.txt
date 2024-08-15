@@ -1,0 +1,65 @@
+====================================================================
+Version:    xcd v2022.2 (64-bit)
+Copyright:  Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Created:    Thu Aug 15 10:43:31 2024
+====================================================================
+
+1. Kernel and compute unit information
+======================================
+
+Compute Unit: finn_design_0
+Kernel: finn_design
+Clock Pin: AP_CLK
+Reset Pin: ap_rst_n
+
+Compute Unit: instrumentation_wrapper_0
+Kernel: instrumentation_wrapper
+Clock Pin: ap_clk
+Reset Pin: ap_rst_n
+
+2. Interface Connections
+========================
+
+Compute Unit to Compute Unit
+----------------------------
+Source Pin: instrumentation_wrapper_0/finnix
+Destination Pin: finn_design_0/s_axis_0
+
+Source Pin: finn_design_0/m_axis_0
+Destination Pin: instrumentation_wrapper_0/finnox
+
+IP to Compute Unit
+------------------
+Source Pin: icn_ctrl/M01_AXI
+Destination Pin: instrumentation_wrapper_0/s_axi_ctrl
+
+3. Clock Connections
+====================
+
+Compute Unit: finn_design_0
+Source Pin: clk_wizard_0/clk_out1_o2
+Destination Pin: finn_design_0/ap_clk
+
+Compute Unit: instrumentation_wrapper_0
+Clock ID: 1
+Requested Kernel Clock Frequency: 303.031250 MHz
+Source Pin: clk_wizard_0/clk_out1_o2
+Destination Pin: instrumentation_wrapper_0/ap_clk
+
+Clock Instance: clk_wizard_0
+Source Pin: CIPS_0/pl0_ref_clk
+Destination Pin: clk_wizard_0/clk_in1
+
+4. Reset Connections
+====================
+
+Compute Unit: finn_design_0
+Source Pin: rst_clk_wizard_0_303M/peripheral_aresetn
+Destination Pin: finn_design_0/ap_rst_n
+Associated Clock Pin: finn_design_0/AP_CLK
+
+Compute Unit: instrumentation_wrapper_0
+Source Pin: rst_clk_wizard_0_303M/peripheral_aresetn
+Destination Pin: instrumentation_wrapper_0/ap_rst_n
+Associated Clock Pin: instrumentation_wrapper_0/ap_clk
+

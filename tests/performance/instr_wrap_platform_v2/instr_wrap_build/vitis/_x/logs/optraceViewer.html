@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+
+<html>
+<!-- Styles -->
+<style>
+    #chartdiv {
+      width: 100%;
+      height: 1000px;
+    }
+</style>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>OPTraceViewer</title>
+  <script src="https://www.amcharts.com/lib/3/amcharts.js">
+  </script>
+  <script src="https://www.amcharts.com/lib/3/serial.js">
+  </script>
+  <script src="https://www.amcharts.com/lib/3/gantt.js">
+  </script>
+  <script src="https://www.amcharts.com/lib/3/themes/light.js">
+  </script>
+  <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js">
+  </script>
+  <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all"/>
+
+  <form name="userInputForm" action="javascript:userInputFormCallback()">
+    <fieldset>
+    <legend>Graph Filters:</legend>
+    <table style="width:100%">
+      <col width="50"></col>
+      <col width="20"></col>
+      <col width="60"></col>
+      <tr>
+        <td style="text-align: center"; colspan="3"><input type="number" name="userDurationFilterSecInput" id="userDurationFilterSecInput" value="2" min="0" max="6000" step="1"> sec</td>
+        <td>Filter out run durations lower than this value</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td style="text-align: center"><input type="checkbox" name="userGroupPidSortSelected" id="userGroupPidSortSelected"></td>
+        <td>Group sort by process ID</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td bgcolor="#0099ff"></td>
+        <td style="text-align: center"><input type="checkbox" name="userRollupSelected" id="userRollupSelected"></td>
+        <td>Show rollup entries</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td bgcolor="#8dc49f"></td>
+        <td style="text-align: center"><input type="checkbox" name="userIndividualEntrySelected" id="userIndividualEntrySelected"></td>
+        <td>Show individual entries</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td bgcolor="#cd82ad"></td>
+        <td style="text-align: center"><input type="checkbox" name="userCheckpointEntrySelected" id="userCheckpointEntrySelected"></td>
+        <td>Show checkpoints entry</td>
+      </tr>
+       <tr>
+        <td></td>
+        <td bgcolor="#b9783f"></td>
+        <td style="text-align: center"><input type="checkbox" name="userReportEntrySelected" id="userReportEntrySelected"></td>
+        <td>Show report entry</td>
+      </tr>
+
+    </table>
+    <br>
+    <input name="Submit" type="submit" value="Update Graph">
+    </fieldset>
+  </form> 
+
+  <div id="chartdiv">
+  </div>
+
+  <script>
+  </script>
+
+</head>
+
+
+<body>
+<table id="myDynamicTable" cellpadding="2" cellspacing="2" border="1" onclick="tester()">
+  <tr>
+  <td>Task</td>
+  <td>Start</td>
+  <td>Duration</td>
+  </tr>
+</table>
+<script>
+  // Default User Selected variables
+  var m_secondFilter = 1;
+  var m_groupPidSort = true;
+  var m_showRollup = true;
+  var m_showIndividualEntry = false;
+  var m_showCheckpointEntry = false;
+  var m_showReportEntry = false;
+
+  function SetDefaultUserValues()
+  {
+    document.getElementById("userDurationFilterSecInput").value = m_secondFilter;
+    document.getElementById("userGroupPidSortSelected").checked = m_groupPidSort;
+    document.getElementById("userRollupSelected").checked = m_showRollup;
+    document.getElementById("userIndividualEntrySelected").checked = m_showIndividualEntry;
+    document.getElementById("userCheckpointEntrySelected").checked = m_showCheckpointEntry;
+    document.getElementById("userReportEntrySelected").checked = m_showReportEntry;
+  }
+
+  window.onload = function(){
+    SetDefaultUserValues();
+  }
+
+
+
+
+  // Header
+  var header = "Keyword|pid|Entry|SrcFile|Catagory|TimeStampMSec|Action|Task|Tags|Misc";
+                         
+  // Insert Raw Data Here
+  // Note: Do not change the following signature. 
+  var csvData =    [
+      "[OPTRACE]|1130|110|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718692460|END|Creating in-memory project|",
+      "[OPTRACE]|1130|111|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718692460|START|Adding files|",
+      "[OPTRACE]|1130|120|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718692580|END|Adding files|",
+      "[OPTRACE]|1130|121|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718692582|START|Configure IP Cache|",
+      "[OPTRACE]|1130|122|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718692583|END|Configure IP Cache|",
+      "[OPTRACE]|1130|123|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718692583|START|synth_design|",
+      "[OPTRACE]|1130|136|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718779512|END|synth_design|",
+      "[OPTRACE]|1130|137|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718779513|START|Write IP Cache|",
+      "[OPTRACE]|1130|145|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718780713|END|Write IP Cache|",
+      "[OPTRACE]|1130|146|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718780714|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1130|147|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718781040|END|write_checkpoint|",
+      "[OPTRACE]|1130|148|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718781041|START|synth reports|REPORT",
+      "[OPTRACE]|1130|152|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718781393|END|synth reports|",
+      "[OPTRACE]|1130|156|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718782244|END|vmk180_thin_clk_wizard_0_0_synth_1|",
+      "[OPTRACE]|1130|86|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718690324|START|vmk180_thin_clk_wizard_0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1130|87|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1/vmk180_thin_clk_wizard_0_0.tcl|vivado_synth|1723718690326|START|Creating in-memory project|",
+      "[OPTRACE]|1131|112|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718692500|END|Creating in-memory project|",
+      "[OPTRACE]|1131|113|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718692500|START|Adding files|",
+      "[OPTRACE]|1131|116|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718692557|END|Adding files|",
+      "[OPTRACE]|1131|117|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718692558|START|Configure IP Cache|",
+      "[OPTRACE]|1131|118|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718692560|END|Configure IP Cache|",
+      "[OPTRACE]|1131|119|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718692560|START|synth_design|",
+      "[OPTRACE]|1131|138|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718779890|END|synth_design|",
+      "[OPTRACE]|1131|139|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718779891|START|Write IP Cache|",
+      "[OPTRACE]|1131|150|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718781374|END|Write IP Cache|",
+      "[OPTRACE]|1131|151|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718781375|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1131|153|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718781786|END|write_checkpoint|",
+      "[OPTRACE]|1131|154|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718781786|START|synth reports|REPORT",
+      "[OPTRACE]|1131|155|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718782130|END|synth reports|",
+      "[OPTRACE]|1131|157|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718782975|END|vmk180_thin_proc_sys_reset_0_0_synth_1|",
+      "[OPTRACE]|1131|84|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718690282|START|vmk180_thin_proc_sys_reset_0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1131|85|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1/vmk180_thin_proc_sys_reset_0_0.tcl|vivado_synth|1723718690283|START|Creating in-memory project|",
+      "[OPTRACE]|1132|100|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718692303|END|Creating in-memory project|",
+      "[OPTRACE]|1132|101|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718692303|START|Adding files|",
+      "[OPTRACE]|1132|106|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718692383|END|Adding files|",
+      "[OPTRACE]|1132|107|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718692384|START|Configure IP Cache|",
+      "[OPTRACE]|1132|108|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718692386|END|Configure IP Cache|",
+      "[OPTRACE]|1132|109|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718692386|START|synth_design|",
+      "[OPTRACE]|1132|158|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718783232|END|synth_design|",
+      "[OPTRACE]|1132|159|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718783232|START|Write IP Cache|",
+      "[OPTRACE]|1132|160|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718784296|END|Write IP Cache|",
+      "[OPTRACE]|1132|161|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718784297|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1132|162|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718784607|END|write_checkpoint|",
+      "[OPTRACE]|1132|163|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718784607|START|synth reports|REPORT",
+      "[OPTRACE]|1132|164|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718784859|END|synth reports|",
+      "[OPTRACE]|1132|165|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718785537|END|vmk180_thin_axi_intc_0_0_synth_1|",
+      "[OPTRACE]|1132|82|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718690105|START|vmk180_thin_axi_intc_0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1132|83|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1/vmk180_thin_axi_intc_0_0.tcl|vivado_synth|1723718690106|START|Creating in-memory project|",
+      "[OPTRACE]|1133|124|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718693377|END|Creating in-memory project|",
+      "[OPTRACE]|1133|125|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718693378|START|Adding files|",
+      "[OPTRACE]|1133|126|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718693554|END|Adding files|",
+      "[OPTRACE]|1133|127|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718693556|START|Configure IP Cache|",
+      "[OPTRACE]|1133|128|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718693647|END|Configure IP Cache|",
+      "[OPTRACE]|1133|129|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718693648|START|synth_design|",
+      "[OPTRACE]|1133|182|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718863397|END|synth_design|",
+      "[OPTRACE]|1133|183|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718863397|START|Write IP Cache|",
+      "[OPTRACE]|1133|184|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718868123|END|Write IP Cache|",
+      "[OPTRACE]|1133|185|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718868131|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1133|186|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718869962|END|write_checkpoint|",
+      "[OPTRACE]|1133|187|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718869962|START|synth reports|REPORT",
+      "[OPTRACE]|1133|188|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718870322|END|synth reports|",
+      "[OPTRACE]|1133|189|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718872589|END|vmk180_thin_finn_design_0_0_synth_1|",
+      "[OPTRACE]|1133|90|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718691396|START|vmk180_thin_finn_design_0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1133|91|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1/vmk180_thin_finn_design_0_0.tcl|vivado_synth|1723718691397|START|Creating in-memory project|",
+      "[OPTRACE]|1134|114|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718692531|END|Creating in-memory project|",
+      "[OPTRACE]|1134|115|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718692531|START|Adding files|",
+      "[OPTRACE]|1134|130|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718694071|END|Adding files|",
+      "[OPTRACE]|1134|131|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718694074|START|Configure IP Cache|",
+      "[OPTRACE]|1134|132|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718694132|END|Configure IP Cache|",
+      "[OPTRACE]|1134|133|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718694132|START|synth_design|",
+      "[OPTRACE]|1134|174|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718823006|END|synth_design|",
+      "[OPTRACE]|1134|175|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718823007|START|Write IP Cache|",
+      "[OPTRACE]|1134|176|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718827003|END|Write IP Cache|",
+      "[OPTRACE]|1134|177|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718827009|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1134|178|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718828317|END|write_checkpoint|",
+      "[OPTRACE]|1134|179|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718828317|START|synth reports|REPORT",
+      "[OPTRACE]|1134|180|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718828674|END|synth reports|",
+      "[OPTRACE]|1134|181|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718831233|END|vmk180_thin_icn_ctrl_0_synth_1|",
+      "[OPTRACE]|1134|88|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718690360|START|vmk180_thin_icn_ctrl_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1134|89|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.tcl|vivado_synth|1723718690361|START|Creating in-memory project|",
+      "[OPTRACE]|1135|102|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718692323|END|Adding files|",
+      "[OPTRACE]|1135|103|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718692324|START|Configure IP Cache|",
+      "[OPTRACE]|1135|104|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718692326|END|Configure IP Cache|",
+      "[OPTRACE]|1135|105|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718692327|START|synth_design|",
+      "[OPTRACE]|1135|134|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718778898|END|synth_design|",
+      "[OPTRACE]|1135|135|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718778898|START|Write IP Cache|",
+      "[OPTRACE]|1135|140|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718780053|END|Write IP Cache|",
+      "[OPTRACE]|1135|141|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718780055|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1135|142|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718780363|END|write_checkpoint|",
+      "[OPTRACE]|1135|143|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718780364|START|synth reports|REPORT",
+      "[OPTRACE]|1135|144|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718780626|END|synth reports|",
+      "[OPTRACE]|1135|149|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718781348|END|vmk180_thin_rst_clk_wizard_0_303M_0_synth_1|",
+      "[OPTRACE]|1135|78|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718689829|START|vmk180_thin_rst_clk_wizard_0_303M_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1135|79|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718689830|START|Creating in-memory project|",
+      "[OPTRACE]|1135|94|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718692263|END|Creating in-memory project|",
+      "[OPTRACE]|1135|95|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1/vmk180_thin_rst_clk_wizard_0_303M_0.tcl|vivado_synth|1723718692263|START|Adding files|",
+      "[OPTRACE]|1136|166|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718793036|END|synth_design|",
+      "[OPTRACE]|1136|167|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718793036|START|Write IP Cache|",
+      "[OPTRACE]|1136|168|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718794923|END|Write IP Cache|",
+      "[OPTRACE]|1136|169|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718794925|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1136|170|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718795560|END|write_checkpoint|",
+      "[OPTRACE]|1136|171|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718795560|START|synth reports|REPORT",
+      "[OPTRACE]|1136|172|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718795882|END|synth reports|",
+      "[OPTRACE]|1136|173|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718797074|END|vmk180_thin_instrumentation_wrapper_0_0_synth_1|",
+      "[OPTRACE]|1136|80|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718689831|START|vmk180_thin_instrumentation_wrapper_0_0_synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1136|81|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718689832|START|Creating in-memory project|",
+      "[OPTRACE]|1136|92|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718692224|END|Creating in-memory project|",
+      "[OPTRACE]|1136|93|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718692224|START|Adding files|",
+      "[OPTRACE]|1136|96|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718692299|END|Adding files|",
+      "[OPTRACE]|1136|97|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718692300|START|Configure IP Cache|",
+      "[OPTRACE]|1136|98|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718692302|END|Configure IP Cache|",
+      "[OPTRACE]|1136|99|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.tcl|vivado_synth|1723718692302|START|synth_design|",
+      "[OPTRACE]|1734|190|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723718927341|START|synth_1|ROLLUP_AUTO",
+      "[OPTRACE]|1734|191|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723718927342|START|Creating in-memory project|",
+      "[OPTRACE]|1734|192|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723718929653|END|Creating in-memory project|",
+      "[OPTRACE]|1734|193|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723718929654|START|Adding files|",
+      "[OPTRACE]|1734|194|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723718932938|END|Adding files|",
+      "[OPTRACE]|1734|195|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723718932949|START|synth_design|",
+      "[OPTRACE]|1734|196|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723719025453|END|synth_design|",
+      "[OPTRACE]|1734|197|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723719025454|START|write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1734|198|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723719026612|END|write_checkpoint|",
+      "[OPTRACE]|1734|199|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723719026612|START|synth reports|REPORT",
+      "[OPTRACE]|1734|200|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723719026612|END|synth reports|",
+      "[OPTRACE]|1734|201|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper.tcl|vivado_synth|1723719026613|END|synth_1|",
+      "[OPTRACE]|1875|203|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719083852|START|impl_1|ROLLUP_1",
+      "[OPTRACE]|1875|204|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719083852|START|Phase: Init Design|ROLLUP_AUTO",
+      "[OPTRACE]|1875|205|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719083853|START|Design Initialization: pre hook|",
+      "[OPTRACE]|1875|206|ipirun.tcl|vpl|1723719083871|START|ipirun|ROLLUP_0",
+      "[OPTRACE]|1875|207|ipirun.tcl|vpl|1723719083871|END|ipirun|",
+      "[OPTRACE]|1875|208|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719083872|END|Design Initialization: pre hook|",
+      "[OPTRACE]|1875|209|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719083873|START|create in-memory project|",
+      "[OPTRACE]|1875|210|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719085054|END|create in-memory project|",
+      "[OPTRACE]|1875|211|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719085054|START|set parameters|",
+      "[OPTRACE]|1875|212|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719086210|END|set parameters|",
+      "[OPTRACE]|1875|213|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719086211|START|add files|",
+      "[OPTRACE]|1875|214|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719089823|START|read constraints: implementation|",
+      "[OPTRACE]|1875|215|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719089824|END|read constraints: implementation|",
+      "[OPTRACE]|1875|216|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719089824|END|add files|",
+      "[OPTRACE]|1875|217|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719089824|START|link_design|",
+      "[OPTRACE]|1875|218|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149485|END|link_design|",
+      "[OPTRACE]|1875|219|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149486|START|gray box cells|",
+      "[OPTRACE]|1875|220|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149486|END|gray box cells|",
+      "[OPTRACE]|1875|221|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149486|START|Design Initialization: post hook|",
+      "[OPTRACE]|1875|222|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149492|END|Design Initialization: post hook|",
+      "[OPTRACE]|1875|223|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149492|START|init_design_reports|REPORT",
+      "[OPTRACE]|1875|224|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149492|END|init_design_reports|",
+      "[OPTRACE]|1875|225|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149492|START|init_design_write_hwdef|",
+      "[OPTRACE]|1875|226|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149492|END|init_design_write_hwdef|",
+      "[OPTRACE]|1875|227|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149492|END|Phase: Init Design|",
+      "[OPTRACE]|1875|228|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149492|START|Phase: Opt Design|ROLLUP_AUTO",
+      "[OPTRACE]|1875|229|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719149493|START|Opt Design: pre hook|",
+      "[OPTRACE]|1875|230|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719150941|END|Opt Design: pre hook|",
+      "[OPTRACE]|1875|231|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719150941|START|read constraints: opt_design|",
+      "[OPTRACE]|1875|232|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719150941|END|read constraints: opt_design|",
+      "[OPTRACE]|1875|233|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719150941|START|opt_design|",
+      "[OPTRACE]|1875|234|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165758|END|opt_design|",
+      "[OPTRACE]|1875|235|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165758|START|read constraints: opt_design_post|",
+      "[OPTRACE]|1875|236|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165758|END|read constraints: opt_design_post|",
+      "[OPTRACE]|1875|237|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165758|START|Opt Design: post hook|",
+      "[OPTRACE]|1875|238|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165759|END|Opt Design: post hook|",
+      "[OPTRACE]|1875|239|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165760|START|opt_design reports|REPORT",
+      "[OPTRACE]|1875|240|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165760|END|opt_design reports|",
+      "[OPTRACE]|1875|241|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165760|END|Phase: Opt Design|",
+      "[OPTRACE]|1875|242|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165760|START|Phase: Place Design|ROLLUP_AUTO",
+      "[OPTRACE]|1875|243|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165761|START|Place Design: pre hook|",
+      "[OPTRACE]|1875|244|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165807|END|Place Design: pre hook|",
+      "[OPTRACE]|1875|245|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165807|START|read constraints: place_design|",
+      "[OPTRACE]|1875|246|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165807|END|read constraints: place_design|",
+      "[OPTRACE]|1875|247|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719165807|START|place_design|",
+      "[OPTRACE]|1875|248|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719362575|END|place_design|",
+      "[OPTRACE]|1875|249|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719362575|START|read constraints: place_design_post|",
+      "[OPTRACE]|1875|250|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719362575|END|read constraints: place_design_post|",
+      "[OPTRACE]|1875|251|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719362575|START|Place Design: post hook|",
+      "[OPTRACE]|1875|252|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719366211|END|Place Design: post hook|",
+      "[OPTRACE]|1875|253|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719366211|START|place_design reports|REPORT",
+      "[OPTRACE]|1875|254|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719366211|END|place_design reports|",
+      "[OPTRACE]|1875|255|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719366212|END|Phase: Place Design|",
+      "[OPTRACE]|1875|256|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719366212|START|Phase: Physical Opt Design|ROLLUP_AUTO",
+      "[OPTRACE]|1875|257|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719366212|START|read constraints: phys_opt_design|",
+      "[OPTRACE]|1875|258|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719366212|END|read constraints: phys_opt_design|",
+      "[OPTRACE]|1875|259|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719366212|START|phys_opt_design|",
+      "[OPTRACE]|1875|260|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719376294|END|phys_opt_design|",
+      "[OPTRACE]|1875|261|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719376294|START|read constraints: phys_opt_design_post|",
+      "[OPTRACE]|1875|262|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719376294|END|read constraints: phys_opt_design_post|",
+      "[OPTRACE]|1875|263|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719376294|START|phys_opt_design report|REPORT",
+      "[OPTRACE]|1875|264|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719376294|END|phys_opt_design report|",
+      "[OPTRACE]|1875|265|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719376295|END|Phase: Physical Opt Design|",
+      "[OPTRACE]|1875|266|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719376295|START|Phase: Route Design|ROLLUP_AUTO",
+      "[OPTRACE]|1875|267|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719376297|START|read constraints: route_design|",
+      "[OPTRACE]|1875|268|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719376297|END|read constraints: route_design|",
+      "[OPTRACE]|1875|269|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719376297|START|route_design|",
+      "[OPTRACE]|1875|270|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719491663|END|route_design|",
+      "[OPTRACE]|1875|271|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719491663|START|read constraints: route_design_post|",
+      "[OPTRACE]|1875|272|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719491664|END|read constraints: route_design_post|",
+      "[OPTRACE]|1875|273|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719491664|START|Route Design: post hook|",
+      "[OPTRACE]|1875|274|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719499994|END|Route Design: post hook|",
+      "[OPTRACE]|1875|275|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719499994|START|Route Design: write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1875|276|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719506026|END|Route Design: write_checkpoint|",
+      "[OPTRACE]|1875|277|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719506026|START|route_design reports|REPORT",
+      "[OPTRACE]|1875|278|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719507622|END|route_design reports|",
+      "[OPTRACE]|1875|279|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719507623|START|route_design misc|",
+      "[OPTRACE]|1875|280|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719507625|END|route_design misc|",
+      "[OPTRACE]|1875|281|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719507625|END|Phase: Route Design|",
+      "[OPTRACE]|1875|282|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719507625|START|Phase: Phys-Opt Design|ROLLUP_AUTO",
+      "[OPTRACE]|1875|283|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719507626|START|phys_opt_design|",
+      "[OPTRACE]|1875|284|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719514988|END|phys_opt_design|",
+      "[OPTRACE]|1875|285|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719514988|START|Post-Route Phys Opt Design: post hook|",
+      "[OPTRACE]|1875|286|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719514990|END|Post-Route Phys Opt Design: post hook|",
+      "[OPTRACE]|1875|287|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719514990|START|Post-Route Phys Opt Design: write_checkpoint|CHECKPOINT",
+      "[OPTRACE]|1875|288|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719521074|END|Post-Route Phys Opt Design: write_checkpoint|",
+      "[OPTRACE]|1875|289|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719521075|START|phys_opt_design reports|REPORT",
+      "[OPTRACE]|1875|290|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719522682|END|phys_opt_design reports|",
+      "[OPTRACE]|1875|291|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719522683|START|phys_opt_design misc|",
+      "[OPTRACE]|1875|292|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719522685|END|phys_opt_design misc|",
+      "[OPTRACE]|1875|293|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719522685|END|Phase: Phys-Opt Design|",
+      "[OPTRACE]|1875|294|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719522685|START|Phase: Write Device Image|ROLLUP_AUTO",
+      "[OPTRACE]|1875|295|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719522686|START|write_device_image setup|",
+      "[OPTRACE]|1875|296|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719522686|START|Write Device Image: pre hook|",
+      "[OPTRACE]|1875|297|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719523314|END|Write Device Image: pre hook|",
+      "[OPTRACE]|1875|298|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719523315|START|read constraints: write_bitstream|",
+      "[OPTRACE]|1875|299|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719523315|END|read constraints: write_bitstream|",
+      "[OPTRACE]|1875|300|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719523315|START|read constraints: write_bitstream|",
+      "[OPTRACE]|1875|301|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719523315|END|read constraints: write_bitstream|",
+      "[OPTRACE]|1875|302|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719525494|END|write_device_image setup|",
+      "[OPTRACE]|1875|303|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719525495|START|write_device_image|",
+      "[OPTRACE]|1875|304|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719730952|END|write_device_image|",
+      "[OPTRACE]|1875|305|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719730952|START|write_device_image misc|",
+      "[OPTRACE]|1875|306|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719730953|START|read constraints: write_bitstream_post|",
+      "[OPTRACE]|1875|307|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719730953|END|read constraints: write_bitstream_post|",
+      "[OPTRACE]|1875|308|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719730953|START|read constraints: write_device_image_post|",
+      "[OPTRACE]|1875|309|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719730953|END|read constraints: write_device_image_post|",
+      "[OPTRACE]|1875|310|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719730953|START|Write Device Image: post hook|",
+      "[OPTRACE]|1875|311|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719736257|END|Write Device Image: post hook|",
+      "[OPTRACE]|1875|312|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719740120|END|write_device_image misc|",
+      "[OPTRACE]|1875|313|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719740121|END|Phase: Write Device Image|",
+      "[OPTRACE]|1875|314|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.tcl|vivado_impl|1723719740121|END|impl_1|",
+      "[OPTRACE]|248|10|run|cpp|1723718527782|START|OCL_LINK|",
+      "[OPTRACE]|248|11|setupBinaryForLink|cpp|1723718527783|START|Create Binary|",
+      "[OPTRACE]|248|12||cpp|1723718527783|END|Create Binary|",
+      "[OPTRACE]|248|13|setupBinaryForLink|cpp|1723718527783|START|Extract Kernels|",
+      "[OPTRACE]|248|14||cpp|1723718528551|END|Extract Kernels|",
+      "[OPTRACE]|248|15|launchStep_|cpp|1723718528623|START|Launch Step: system_link|",
+      "[OPTRACE]|248|16||cpp|1723718539886|END|Launch Step: system_link|",
+      "[OPTRACE]|248|17|launchStep_|cpp|1723718539890|START|Launch Step: cf2sw|",
+      "[OPTRACE]|248|18||cpp|1723718542143|END|Launch Step: cf2sw|",
+      "[OPTRACE]|248|19|launchStep_|cpp|1723718542147|START|Launch Step: rtd2_system_diagram|",
+      "[OPTRACE]|248|1|main|cpp|1723718517199|START|v++|ROLLUP_0",
+      "[OPTRACE]|248|20||cpp|1723718542248|END|Launch Step: rtd2_system_diagram|",
+      "[OPTRACE]|248|21|launchStep_|cpp|1723718542248|START|Launch Step: vpl|",
+      "[OPTRACE]|248|2|run|cpp|1723718517199|START|Validate Kernels|",
+      "[OPTRACE]|248|320||cpp|1723719746424|END|Launch Step: vpl|",
+      "[OPTRACE]|248|321|launchStep_|cpp|1723719746457|START|Launch Step: rtdgen|",
+      "[OPTRACE]|248|322|launchCf2sw_|cpp|1723719746460|START|Launch cf2sw|",
+      "[OPTRACE]|248|323||cpp|1723719748943|END|Launch cf2sw|",
+      "[OPTRACE]|248|324|writeSystemDiagram|cpp|1723719748944|START|writeSystemDiagram|",
+      "[OPTRACE]|248|325||cpp|1723719748947|END|writeSystemDiagram|",
+      "[OPTRACE]|248|326|writeAutomationSummary|cpp|1723719748947|START|writeAutomationSummary|",
+      "[OPTRACE]|248|327||cpp|1723719748949|END|writeAutomationSummary|",
+      "[OPTRACE]|248|328||cpp|1723719748950|END|Launch Step: rtdgen|",
+      "[OPTRACE]|248|329|launchStep_|cpp|1723719748952|START|Launch Step: xclbinutil|",
+      "[OPTRACE]|248|330||cpp|1723719749219|END|Launch Step: xclbinutil|",
+      "[OPTRACE]|248|331|launchStep_|cpp|1723719749219|START|Launch Step: xclbinutilinfo|",
+      "[OPTRACE]|248|332||cpp|1723719749429|END|Launch Step: xclbinutilinfo|",
+      "[OPTRACE]|248|333|launchStep_|cpp|1723719749430|START|Launch Step: generate_sc_driver|",
+      "[OPTRACE]|248|334||cpp|1723719749432|END|Launch Step: generate_sc_driver|",
+      "[OPTRACE]|248|335||cpp|1723719749433|END|OCL_LINK|",
+      "[OPTRACE]|248|336||cpp|1723719749659|END|v++|",
+      "[OPTRACE]|248|3||cpp|1723718517216|END|Validate Kernels|",
+      "[OPTRACE]|248|4|prepareProject|cpp|1723718517239|START|Create Solution|",
+      "[OPTRACE]|248|5||cpp|1723718527600|END|Create Solution|",
+      "[OPTRACE]|248|6|prepareProject|cpp|1723718527600|START|Add Device|",
+      "[OPTRACE]|248|7|addDevice|cpp|1723718527600|START|Find & Load Device|",
+      "[OPTRACE]|248|8||cpp|1723718527610|END|Find & Load Device|",
+      "[OPTRACE]|248|9||cpp|1723718527769|END|Add Device|",
+      "[OPTRACE]|602|22|main|cpp|1723718544418|START|vpl|",
+      "[OPTRACE]|602|23|runPlatformLinker|cpp|1723718544446|START|runPlatformLinker|",
+      "[OPTRACE]|602|24|setupBinaryForLink|cpp|1723718544446|START|Create Solution|",
+      "[OPTRACE]|602|25||cpp|1723718544453|END|Create Solution|",
+      "[OPTRACE]|602|26|setupBinaryForLink|cpp|1723718544454|START|Add platform|",
+      "[OPTRACE]|602|27||cpp|1723718544629|END|Add platform|",
+      "[OPTRACE]|602|28|setupBinaryForLink|cpp|1723718544630|START|Create Binary|",
+      "[OPTRACE]|602|29||cpp|1723718544630|END|Create Binary|",
+      "[OPTRACE]|602|30|setupBinaryForLink|cpp|1723718544630|START|Create Kernels|",
+      "[OPTRACE]|602|316|runPlatformLinker|cpp|1723719746357|START|Generate Resource Availability Report|",
+      "[OPTRACE]|602|317||cpp|1723719746359|END|Generate Resource Availability Report|",
+      "[OPTRACE]|602|318||cpp|1723719746362|END|runPlatformLinker|",
+      "[OPTRACE]|602|319||cpp|1723719746392|END|vpl|",
+      "[OPTRACE]|602|31||cpp|1723718544633|END|Create Kernels|",
+      "[OPTRACE]|602|32|runPlatformLinker|cpp|1723718544670|START|Process Kernels|",
+      "[OPTRACE]|602|33|runPlatformLinker|cpp|1723718544670|START|Set Board Repo Paths and Connections|",
+      "[OPTRACE]|602|34||cpp|1723718544670|END|Set Board Repo Paths and Connections|",
+      "[OPTRACE]|602|35|runPlatformLinker|cpp|1723718544670|START|Process Kernel Profiles|",
+      "[OPTRACE]|602|36||cpp|1723718544670|END|Process Kernel Profiles|",
+      "[OPTRACE]|602|37|runPlatformLinker|cpp|1723718544670|START|Process Trace Memory|",
+      "[OPTRACE]|602|38||cpp|1723718544670|END|Process Trace Memory|",
+      "[OPTRACE]|602|39|runPlatformLinker|cpp|1723718544670|START|Process AIE Trace|",
+      "[OPTRACE]|602|40||cpp|1723718544670|END|Process AIE Trace|",
+      "[OPTRACE]|602|41||cpp|1723718544670|END|Process Kernels|",
+      "[OPTRACE]|602|42|runPlatformLinker|cpp|1723718544670|START|Process Kernel Debug|",
+      "[OPTRACE]|602|43||cpp|1723718544670|END|Process Kernel Debug|",
+      "[OPTRACE]|602|44|runPlatformLinker|cpp|1723718544671|START|Set Kernel Debug|",
+      "[OPTRACE]|602|45||cpp|1723718544671|END|Set Kernel Debug|",
+      "[OPTRACE]|602|46|runPlatformLinker|cpp|1723718544671|START|Set Miscellaneous|",
+      "[OPTRACE]|602|47||cpp|1723718544671|END|Set Miscellaneous|",
+      "[OPTRACE]|602|48|run|cpp|1723718544671|START|Extract Platform|",
+      "[OPTRACE]|602|49||cpp|1723718544870|END|Extract Platform|",
+      "[OPTRACE]|683|202|ipirun.tcl|vpl|1723719031959|END|Synthesis|",
+      "[OPTRACE]|683|315|ipirun.tcl|vpl|1723719745624|END|Implementation|",
+      "[OPTRACE]|683|50|/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/vpl.tcl|vivado_impl|1723718598144|START|Implementation|ROLLUP_1",
+      "[OPTRACE]|683|51|ipirun.tcl|vpl|1723718598171|START|ipirun|ROLLUP_0",
+      "[OPTRACE]|683|52|ipirun.tcl|vpl|1723718598172|END|ipirun|",
+      "[OPTRACE]|683|53|ipirun.tcl|vpl|1723718598191|START|Create project|",
+      "[OPTRACE]|683|54|ipirun.tcl|vpl|1723718603810|END|Create project|",
+      "[OPTRACE]|683|55|ipirun.tcl|vpl|1723718603814|START|Create IP caching environment|",
+      "[OPTRACE]|683|56|ipirun.tcl|vpl|1723718603966|END|Create IP caching environment|",
+      "[OPTRACE]|683|57|ipirun.tcl|vpl|1723718603967|START|Import/add dynamic BD|",
+      "[OPTRACE]|683|58|ipirun.tcl|vpl|1723718603968|END|Import/add dynamic BD|",
+      "[OPTRACE]|683|59|ipirun.tcl|vpl|1723718603968|START|Open BD and insert kernels|",
+      "[OPTRACE]|683|60|ipirun.tcl|vpl|1723718611656|END|Open BD and insert kernels|",
+      "[OPTRACE]|683|61|ipirun.tcl|vpl|1723718611659|START|Add debug/profiling support|",
+      "[OPTRACE]|683|62|ipirun.tcl|vpl|1723718611674|END|Add debug/profiling support|",
+      "[OPTRACE]|683|63|ipirun.tcl|vpl|1723718611674|START|IPI address assignments|",
+      "[OPTRACE]|683|64|ipirun.tcl|vpl|1723718611688|END|IPI address assignments|",
+      "[OPTRACE]|683|65|ipirun.tcl|vpl|1723718611690|START|Create address map and debug IP profile files|",
+      "[OPTRACE]|683|66|ipirun.tcl|vpl|1723718611692|END|Create address map and debug IP profile files|",
+      "[OPTRACE]|683|67|ipirun.tcl|vpl|1723718611692|START|Collect BD interface connectivity and write automation summary report|",
+      "[OPTRACE]|683|68|ipirun.tcl|vpl|1723718611701|END|Collect BD interface connectivity and write automation summary report|",
+      "[OPTRACE]|683|69|ipirun.tcl|vpl|1723718612044|START|Generate output products|",
+      "[OPTRACE]|683|70|ipirun.tcl|vpl|1723718632857|END|Generate output products|",
+      "[OPTRACE]|683|71|ipirun.tcl|vpl|1723718632863|START|Source report_commands_tcl|",
+      "[OPTRACE]|683|72|ipirun.tcl|vpl|1723718632927|END|Source report_commands_tcl|",
+      "[OPTRACE]|683|73|ipirun.tcl|vpl|1723718632928|START|Source synth_props_tcl|",
+      "[OPTRACE]|683|74|ipirun.tcl|vpl|1723718635622|END|Source synth_props_tcl|",
+      "[OPTRACE]|683|75|ipirun.tcl|vpl|1723718635627|START|Source impl_props_tcl|",
+      "[OPTRACE]|683|76|ipirun.tcl|vpl|1723718635714|END|Source impl_props_tcl|",
+      "[OPTRACE]|683|77|ipirun.tcl|vpl|1723718635717|START|Synthesis|ROLLUP_1,SYNTH"
+      ];
+
+  var legendData = [
+  { "title": "Report Generation",
+    "color": "#b9783f"
+  }, {
+    "title": "Write Checkpoint",
+    "color": "#cd82ad"
+  },
+  {
+    "title": "Incomplete Data",
+    "color": "#cc4748"
+  } ];
+
+  // -- Convert Raw data into something we can use ---------------------------
+  console.log("Convert log data (%s entries) to Javascript 'JSON' objects...", csvData.length);
+  var jsonData = csvArrayToJSON(header, csvData, "|");
+
+  // -- Clean up the JSON objects --------------------------------------------
+  for (var i = 0; i < jsonData.length; i++) {
+    jsonData[i].Action = jsonData[i].Action.toUpperCase();
+    jsonData[i].Tags = jsonData[i].Tags.toUpperCase();
+    jsonData[i].Tags = jsonData[i].Tags.trim();
+    jsonData[i].TimeStampMSec = parseInt(jsonData[i].TimeStampMSec, 10);
+    jsonData[i].pid = parseInt(jsonData[i].pid, 10);
+  }
+
+  // -- Sort JSON array ------------------------------------------------------
+  console.log("Sorting JSON objects (%s objects) according to timestamps...", jsonData.length);
+  jsonData.sort(compareByTimeStamp);
+
+  // Record the PID grouping order
+  var pidOrder = new Map();
+  for (var i = 0; i < jsonData.length; i++) {
+    if (pidOrder.has(jsonData[i].pid) == false) {
+      pidOrder.set(jsonData[i].pid, i);    // Simple ordering (lower is first)
+    }
+  }
+
+  // -- Create secondary data array for the chart data array -----------------
+  console.log("Preparing graph data...");
+
+  // Task limits
+  var m_startTS = 0;      // Earliest Timestamp
+  var m_endTS = 0;        // Latest Timestamp
+
+  if (jsonData.length > 0) {
+    m_startTS = jsonData[0].TimeStampMSec;
+    m_endTS = jsonData[jsonData.length - 1].TimeStampMSec;
+  }
+
+
+  var chartData = [ ];   // Empty JSON array
+
+
+  populateChartData();
+  tableCreate( chartData );
+
+  filterChartEntries();
+
+  // -- Search for "holes"
+  // -- Sort by common PID
+  // -- Create groupings by process
+
+  console.log("done");
+
+  var chart = AmCharts.makeChart("chartdiv", {
+    "type": "gantt",
+    "theme": "light",
+    "titles": [
+    { "text": "OPTrace", "size": 15}],
+    "marginRight": 70,
+    "period": "fff",                                     // X-Axis
+    "balloonDateFormat": "JJ:NN:SS",
+    "columnWidth": 0.5,                                 // Bar thickness
+    "valueAxis": {
+      "type": "numeric",
+      "title": "Time [HH:MM:SS]",
+      "duration": "ss",
+      "durationUnits": { DD: 'd. ', hh: ':', mm: ':', ss: '' },
+    },
+    "brightnessStep": 10,
+    "graph": {
+      "fillAlphas": 1,
+      "labelFunction": barLabelCallBack,
+      "labelText": " ",
+      "labelPosition": "right",
+      "balloonFunction": ballonLabelCallBack,
+      "balloonText": "<p align='left'> Task: [[task]]<br/>Start:[[start]]<br/>End:[[end]]<br/>Duration:[[duration]]</p>",
+      "bulletField": "bullet",
+      "bulletSize": 8
+    },
+    "rotate": true,
+    "categoryField": "category",
+    "segmentsField": "segments",
+    "colorField": "color",
+    "startDate": "2015-01-01 00:00:00",
+    "startField": "start",
+    "endField": "end",
+    "durationField": "duration",
+    "dataProvider": chartData,
+    "valueScrollbar": {
+      "autoGridCount": true
+    },
+    "chartScrollbar": {
+      "enable": true
+    },
+    "chartCursor": {
+      "cursorColor": "#55bb76",
+      "valueBalloonsEnabled": false,
+      "cursorAlpha": 0.1,
+      "valueLineAlpha": 0.5,
+      "valueLineBalloonEnabled": true,
+      "valueLineEnabled": true,
+      "zoomable": true,
+      "valueZoomable": true,
+      "fullWidth": true
+    },
+    "legend": {
+      "data": legendData,
+    },
+    "export": {
+      "enabled": true
+    }
+  });
+
+  // =========================================================================
+  // Call back methods
+  // =========================================================================
+function ballonLabelCallBack( _graphDataItem )
+{
+  var start = _graphDataItem.values.open;
+  var end = _graphDataItem.values.value;
+  var duration = end - start;
+
+  var result = "<p align='left'>Task: " + _graphDataItem.category + "<br/>Start: " + secondsToHHMMSS(start) + "<br/>End: " + secondsToHHMMSS( end ) + "<br/>Duration: " + secondsToHHMMSS( duration ) + "</p>";
+  return result;
+}
+
+
+function barLabelCallBack( _graphDataItem )
+{
+   var duration = _graphDataItem.values.value - _graphDataItem.values.open;
+
+   return secondsToHHMMSS( duration);
+}
+
+
+function userInputFormCallback()
+{
+  // Second filter
+  m_secondFilter = document.getElementById("userDurationFilterSecInput").value;
+  console.log("Setting second filter to: " + m_secondFilter + " seconds");
+
+  // Group PID Sort
+  m_groupPidSort = document.getElementById("userGroupPidSortSelected").checked;
+  console.log("Group PID filter is set to: " + m_groupPidSort);
+
+  // Rollup filter
+  m_showRollup = document.getElementById("userRollupSelected").checked;
+  console.log("Rollup filter is set to: " + m_showRollup);
+
+  // Individual filter
+  m_showIndividualEntry = document.getElementById("userIndividualEntrySelected").checked;
+  console.log("Individual filter is set to: " + m_showIndividualEntry);
+
+  // Checkpoint Report Entries filter
+  m_showCheckpointEntry = document.getElementById("userCheckpointEntrySelected").checked;
+  console.log("Checkpoint Entry filter is set to: " + m_showCheckpointEntry);
+
+  // Checkpoint Report Entries filter
+  m_showReportEntry = document.getElementById("userReportEntrySelected").checked;
+  console.log("Report Entry filter is set to: " + m_showReportEntry);
+
+  populateChartData();
+  filterChartEntries()
+  chart.dataProvider = chartData;
+  chart.validateData();
+}
+
+  // =========================================================================
+  // Utilities
+  // =========================================================================
+
+
+function populateChartData()
+{
+  chartData = [ ];
+  if (m_groupPidSort == false) {
+    jsonData.sort(compareByTimeStamp);
+  } else {
+    jsonData.sort(compareByGroupTimeStamp);
+  }
+
+  for (var i = 0; i < jsonData.length; i++) {
+    var timestamp = parseInt(jsonData[0].TimeStampMSec, 10);
+
+    if (m_startTS > timestamp) m_startTS = timestamp;
+    if (m_endTS < timestamp) m_endTS = timestamp;
+
+    for (var i = 0; i < jsonData.length; i++) {
+      switch (jsonData[i].Action) {
+      case "START":
+        var categoryEntry = { };
+        categoryEntry["category"] = jsonData[i].Task;
+        categoryEntry["pid"] = jsonData[i].pid;
+
+        var segmentEntry = { };
+        // Normalize entry and convert to seconds
+        segmentEntry["start"] = (jsonData[i].TimeStampMSec - m_startTS) / 1000;
+        segmentEntry["color"] = getTaskBarColor(jsonData[i].Tags)
+        segmentEntry["task"] = jsonData[i].Task;
+        segmentEntry["tags"] = jsonData[i].Tags;
+        segmentEntry["duration"] = -1;
+
+        categoryEntry["segments"] = [ ];
+        categoryEntry["segments"].push(segmentEntry);
+        chartData.push(categoryEntry);
+        break;
+
+      case "END":
+        var catagory = findCatagory(jsonData[i].pid, jsonData[i].Task, chartData);
+        if (catagory != null) {
+          var segmentsEntry = catagory.segments[0];
+          segmentsEntry["end"] = (jsonData[i].TimeStampMSec - m_startTS) / 1000;
+          segmentsEntry["duration"] = segmentsEntry.end - segmentsEntry.start;
+        } else {
+          console.log("Null entry found: pid:%s, Task: %s", jsonData[i].pid, jsonData[i].Task);
+        }
+
+        break;
+
+      default:
+        console.log("Default");
+        break;
+      }
+    }
+  }
+}
+
+function filterChartEntries()
+{
+  for(var i = chartData.length - 1; i >= 0; i--) {
+    var segment = chartData[i].segments[0];
+
+    // -- Remove entries less than 1 seconds
+    if ( segment["duration"] == -1) {
+      segment["bullet"] = "xError";
+      segment["color"] = "#cc4748";
+      segment["duration"] = ((m_endTS - m_startTS) / 1000) - segment["start"];
+    } else if (segment["duration"] <  m_secondFilter) {
+      chartData.splice(i, 1);
+      continue;
+    }
+  
+
+    // Filter by tags
+    var bHasRollup = false;
+    var bHasCheckpoint = false;
+    var bHasReport = false;
+
+    var tags = segment["tags"];
+    console.log("Tag: " + tags);
+    if (tags.search(/ROLLUP_/i) != -1) { bHasRollup = true; }
+    if (tags.search(/CHECKPOINT/i) != -1) { bHasCheckpoint = true; }
+    if (tags.search(/REPORT/i) != -1) { bHasReport = true; }
+
+    var bRemoveEntry = false;
+
+    // Remove rollups
+    if ((m_showRollup == false) && (bHasRollup == true)) {
+      bRemoveEntry = true;
+    }
+    
+    // Remove checkpoints    
+    if ((m_showCheckpointEntry == false) && (bHasCheckpoint == true)) {
+      bRemoveEntry = true;
+    }
+
+    // Remove reports
+    if ((m_showReportEntry == false) && (bHasReport == true)) {
+      bRemoveEntry = true;
+    }
+
+    // Remove individual entry
+    if (((m_showIndividualEntry == false) && 
+         ((bHasRollup == false) &&
+          (bHasCheckpoint == false) &&
+          (bHasReport == false)))) {
+      bRemoveEntry = true;
+    }
+
+    if (bRemoveEntry == true) {
+      chartData.splice(i, 1);
+      continue;
+    }
+  }
+
+  console.log("ChartData.length: " + chartData.length);
+}
+
+
+function getTaskBarColor( _tags )
+{
+  if (_tags == null)
+    return "#8dc49f";
+
+  if (_tags.search(/ROLLUP_AUTO/i) != -1){ return "#0099ff"; }
+  if (_tags.search(/ROLLUP_0/i) != -1)   { return "#006699"; }
+  if (_tags.search(/ROLLUP_1/i) != -1)   { return "#009933"; }
+  if (_tags.search(/ROLLUP_2/i) != -1)   { return "#66ccff"; }
+  if (_tags.search(/REPORT/i) != -1)     { return "#b9783f"; }
+  if (_tags.search(/CHECKPOINT/i) != -1) { return "#cd82ad"; }
+
+  return "#8dc49f"
+}
+
+
+function tableCreate( _chartData ){
+    var myTableDiv = document.getElementById("myDynamicTable");
+
+
+    for ( var i = 0; i < _chartData.length; i++) {
+      var tr = myTableDiv.insertRow();
+
+      var td_task = tr.insertCell();
+      td_task.appendChild(document.createTextNode( _chartData[i].category ));
+
+      var segmentEntry = _chartData[i].segments;
+      var td_start = tr.insertCell();
+      td_start.appendChild(document.createTextNode( secondsToHHMMSS(segmentEntry[0].start) ));
+
+      var td_duration = tr.insertCell();
+      td_duration.appendChild(document.createTextNode( secondsToHHMMSS(segmentEntry[0].duration) ));
+
+    }
+}
+
+function secondsToHHMMSS( _seconds )
+{
+  var hours = Math.floor(_seconds / 3600);
+  var minutes = Math.floor(_seconds % 3600 / 60);
+  var seconds = Math.floor(_seconds % 3600 % 60);
+
+  var result = hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds; 
+
+  return result;
+}
+
+
+  function findCatagory(_pid, _category, _catagoryArray) {
+    for (var i = (_catagoryArray.length - 1); i >= 0; i--) {
+      if (_pid == _catagoryArray[i].pid) {
+        if (_catagoryArray[i].category == _category) {
+          return  _catagoryArray[i];
+        }
+      }
+    }
+    return null;
+  }
+
+
+  // Compares the timestamps between to JSON objects
+  function compareByTimeStamp(_a, _b) {
+    if (_a.TimeStampMSec < _b.TimeStampMSec) return -1;
+    if (_a.TimeStampMSec > _b.TimeStampMSec) return 1;
+
+    if (_a.pid == _b.pid) {
+      if ((_a.Action == "START") && (_b.Action == "END")) return -1;
+      if ((_a.Action == "END") && (_b.Action == "START")) return 1;
+
+      if(_a.Entry < _b.Entry) return -1;
+      if(_a.Entry > _b.Entry) return 1;
+    }
+
+    return 0;
+  }
+
+
+  // Compares the timestamps between to JSON objects
+  function compareByGroupTimeStamp(_a, _b) {
+    if (pidOrder.get(_a.pid) < pidOrder.get(_b.pid)) return -1;
+
+    if (pidOrder.get(_a.pid) > pidOrder.get(_b.pid)) return 1;
+
+    return compareByTimeStamp(_a, _b);
+  }
+
+
+  // Return array of string values, or NULL if CSV string not well formed.
+  function CSVtoArray(_text, _sep) {
+    // Regex expressions
+    var re_valid_default = /^\s*(?:'[^'\\]*(?:\\[\S\s][^'\\]*)*'|"[^"\\]*(?:\\[\S\s][^"\\]*)*"|[^,'"\s\\]*(?:\s+[^,'"\s\\]+)*)\s*(?:,\s*(?:'[^'\\]*(?:\\[\S\s][^'\\]*)*'|"[^"\\]*(?:\\[\S\s][^"\\]*)*"|[^,'"\s\\]*(?:\s+[^,'"\s\\]+)*)\s*)*$/;
+    var re_value_default = /(?!\s*$)\s*(?:'([^'\\]*(?:\\[\S\s][^'\\]*)*)'|"([^"\\]*(?:\\[\S\s][^"\\]*)*)"|([^,'"\s\\]*(?:\s+[^,'"\s\\]+)*))\s*(?:,|$)/g;
+    var re_special_default = /,\s*$/;
+
+    // Algorithm:
+    //   1) Convert regex expression to a string.
+    //   2) Remove leading regex escape character (e.g., '\')
+    //   3) Remove training regex escape character(s) (e.g., '\' or "\g")
+    //   4) Replace the comma (',') character witht he new delimiter character
+    //   5) Build the regex command
+
+    // Check delimiter, if special insert escapes
+    if (_sep == "|") _sep = "\\|";
+
+    var re_valid = new RegExp(re_valid_default.toString().substr(1).slice(0, -1).replace(/,/g, _sep));
+    var re_value = new RegExp(re_value_default.toString().substr(1).slice(0, -2).replace(/,/g, _sep), 'g');
+    var re_special = new RegExp(re_special_default.toString().substr(1).slice(0, -1).replace(/,/g, _sep));
+
+    // Validate the input string to determine if it is well formed
+    if (!re_valid.test(_text)) return null;
+
+    var a = [ ];                     // Initialize array to receive values.
+    _text.replace(re_value,           // "Walk" the string using replace with callback.
+                  function(m0, m1, m2, m3) {
+                      // Remove backslash from \' in single quoted values.
+                      if      (m1 !== undefined) a.push(m1.replace(/\\'/g, "'"));
+                      // Remove backslash from \" in double quoted values.
+                      else if (m2 !== undefined) a.push(m2.replace(/\\"/g, '"'));
+                      else if (m3 !== undefined) a.push(m3);
+                      return ''; // Return empty string.
+                  });
+
+    // Handle special case of empty last value.
+    if (re_special.test(_text)) a.push('');
+
+    return a;
+  };
+
+
+  // Converts the given CSV array & header into a JSON array
+  function csvArrayToJSON(_header, _csvArray, _sep) {
+    var result = [ ];
+    var headers = CSVtoArray(_header, _sep);
+
+    for (var i = 0; i < _csvArray.length; i++) {
+
+      var obj = { };
+      var currentline = CSVtoArray(_csvArray[i], _sep);
+
+      for (var j = 0; j < headers.length; j++) {
+        obj[headers[j]] = currentline[j];
+      }
+
+      result.push(obj);
+
+    }
+
+    return result; //JavaScript object
+  }
+
+
+</script>
+</body>
+
+</html>
+

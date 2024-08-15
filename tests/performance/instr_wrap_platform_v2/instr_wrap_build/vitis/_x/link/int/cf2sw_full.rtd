@@ -1,0 +1,96 @@
+{
+    "schema_version": {
+        "major": "2",
+        "minor": "0",
+        "patch": "0"
+    },
+    "mem_topology": {
+        "m_count": "2",
+        "m_mem_data": {
+            "mem_data": {
+                "m_type": "MEM_STREAMING_CONNECTION",
+                "m_used": "1",
+                "m_tag": "dc_0",
+                "m_spTag": ""
+            },
+            "mem_data": {
+                "m_type": "MEM_STREAMING_CONNECTION",
+                "m_used": "1",
+                "m_tag": "dc_1",
+                "m_spTag": ""
+            }
+        }
+    },
+    "ip_layout": {
+        "m_count": "2",
+        "m_ip_data": {
+            "ip_data": {
+                "m_type": "IP_KERNEL",
+                "properties": "0x0",
+                "m_int_enable": "0",
+                "m_interrupt_id": "0",
+                "m_ip_control": "AP_CTRL_NONE",
+                "m_base_address": "not_used",
+                "m_address_range": "not_used",
+                "m_name": "finn_design:finn_design_0",
+                "m_clocks": [
+                    {
+                        "AP_CLK": {
+                            "refClockId": "1"
+                        }
+                    }
+                ]
+            },
+            "ip_data": {
+                "m_type": "IP_KERNEL",
+                "properties": "0x0",
+                "m_int_enable": "0",
+                "m_interrupt_id": "0",
+                "m_ip_control": "AP_CTRL_NONE",
+                "m_base_address": "not_used",
+                "m_address_range": "not_used",
+                "m_name": "instrumentation_wrapper:instrumentation_wrapper_0",
+                "m_clocks": [
+                    {
+                        "ap_clk": {
+                            "refClockId": "1"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "connectivity": {
+        "m_count": "4",
+        "m_connection": {
+            "connection": {
+                "arg_index": "1",
+                "arg_name": "m_axis_0",
+                "mode": "Master",
+                "m_ip_layout_index": "0",
+                "mem_data_index": "0"
+            },
+            "connection": {
+                "arg_index": "1",
+                "arg_name": "finnox",
+                "mode": "Slave",
+                "m_ip_layout_index": "1",
+                "mem_data_index": "0"
+            },
+            "connection": {
+                "arg_index": "0",
+                "arg_name": "finnix",
+                "mode": "Master",
+                "m_ip_layout_index": "1",
+                "mem_data_index": "1"
+            },
+            "connection": {
+                "arg_index": "0",
+                "arg_name": "s_axis_0",
+                "mode": "Slave",
+                "m_ip_layout_index": "0",
+                "mem_data_index": "1"
+            }
+        }
+    }
+}

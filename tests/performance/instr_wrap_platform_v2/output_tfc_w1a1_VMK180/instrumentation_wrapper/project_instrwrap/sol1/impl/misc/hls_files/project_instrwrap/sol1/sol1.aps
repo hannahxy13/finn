@@ -1,0 +1,26 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <name>
+        <value string="sol1"/>
+    </name>
+    <project>
+        <value string="project_instrwrap"/>
+    </project>
+    <flowTarget value="vivado"/>
+    <config>
+        <config_interface m_axi_latency="0"/>
+        <config_export format="xo"/>
+    </config>
+    <targetInfo>
+        <TargetInfo value="xcvm1802:-vsva2197:-2MP-e-S"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/versal/versal" name="DefaultPlatform"/>
+    </libraryList>
+    <clockList>
+        <clock name="default" period="3.3" default="false"/>
+    </clockList>
+    <ExportDesign askAgain="true" evaluate="false" rtl="verilog" formatName="xo">
+        <Format formatName="xo"/>
+    </ExportDesign>
+</AutoPilot:solution>
+

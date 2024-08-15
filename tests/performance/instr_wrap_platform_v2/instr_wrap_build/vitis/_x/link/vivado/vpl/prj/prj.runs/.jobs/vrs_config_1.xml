@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="vmk180_thin_icn_ctrl_0_synth_1" LaunchDir="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="vmk180_thin_proc_sys_reset_0_0_synth_1" LaunchDir="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_proc_sys_reset_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="vmk180_thin_clk_wizard_0_0_synth_1" LaunchDir="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_clk_wizard_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="vmk180_thin_axi_intc_0_0_synth_1" LaunchDir="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_axi_intc_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="vmk180_thin_rst_clk_wizard_0_303M_0_synth_1" LaunchDir="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="vmk180_thin_instrumentation_wrapper_0_0_synth_1" LaunchDir="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="vmk180_thin_finn_design_0_0_synth_1" LaunchDir="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_finn_design_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="vmk180_thin_icn_ctrl_0_synth_1"/>
+		<Parent Id="vmk180_thin_proc_sys_reset_0_0_synth_1"/>
+		<Parent Id="vmk180_thin_clk_wizard_0_0_synth_1"/>
+		<Parent Id="vmk180_thin_axi_intc_0_0_synth_1"/>
+		<Parent Id="vmk180_thin_rst_clk_wizard_0_303M_0_synth_1"/>
+		<Parent Id="vmk180_thin_instrumentation_wrapper_0_0_synth_1"/>
+		<Parent Id="vmk180_thin_finn_design_0_0_synth_1"/>
+	</Run>
+	<Parameters>
+		<Parameter Name="runs.monitorLSFJobs" Val="true" Type="bool"/>
+		<Parameter Name="runs.enableClusterConf" Val="true" Type="bool"/>
+	</Parameters>
+</Runs>
+

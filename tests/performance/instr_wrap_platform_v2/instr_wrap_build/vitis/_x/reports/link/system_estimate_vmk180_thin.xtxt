@@ -1,0 +1,52 @@
+===============================================================================
+Version:    v++ v2022.2 (64-bit)
+Build:      SW Build 3671529 on 2022-10-13-17:52:11
+Copyright:  Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Created:    Thu Aug 15 11:02:29 2024
+===============================================================================
+
+-------------------------------------------------------------------------------
+Design Name:             vmk180_thin
+Target Device:           xilinx.com:vmk180:vmk180_thin:1.0
+Target Clock:            606.062500MHz
+Total number of kernels: 2
+-------------------------------------------------------------------------------
+
+Kernel Summary
+Kernel Name              Type  Target              OpenCL Library  Compute Units
+-----------------------  ----  ------------------  --------------  -------------
+instrumentation_wrapper  c     fpga0:OCL_REGION_0  vmk180_thin     1
+finn_design              ip    fpga0:OCL_REGION_0  vmk180_thin     1
+
+
+-------------------------------------------------------------------------------
+OpenCL Binary:     vmk180_thin
+Kernels mapped to: clc_region
+
+Timing Information (MHz)
+Compute Unit               Kernel Name              Module Name                                       Target Frequency  Estimated Frequency
+-------------------------  -----------------------  ------------------------------------------------  ----------------  -------------------
+instrumentation_wrapper_0  instrumentation_wrapper  entry_proc                                        303.030304        1182.03308
+instrumentation_wrapper_0  instrumentation_wrapper  move_ap_uint_8_s                                  303.030304        1265.82275
+instrumentation_wrapper_0  instrumentation_wrapper  instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s  303.030304        425.350891
+instrumentation_wrapper_0  instrumentation_wrapper  move_ap_uint_392_s                                303.030304        1157.40735
+instrumentation_wrapper_0  instrumentation_wrapper  instrumentation_wrapper                           303.030304        425.350891
+
+Latency Information
+Compute Unit               Kernel Name              Module Name                                       Start Interval  Best (cycles)  Avg (cycles)  Worst (cycles)  Best (absolute)  Avg (absolute)  Worst (absolute)
+-------------------------  -----------------------  ------------------------------------------------  --------------  -------------  ------------  --------------  ---------------  --------------  ----------------
+instrumentation_wrapper_0  instrumentation_wrapper  entry_proc                                        0               0              0             0               0 ns             0 ns            0 ns
+instrumentation_wrapper_0  instrumentation_wrapper  move_ap_uint_8_s                                  1               0              0             0               0 ns             0 ns            0 ns
+instrumentation_wrapper_0  instrumentation_wrapper  instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s  1               2              2             2               6.600 ns         6.600 ns        6.600 ns
+instrumentation_wrapper_0  instrumentation_wrapper  move_ap_uint_392_s                                1               1              1             1               3.300 ns         3.300 ns        3.300 ns
+instrumentation_wrapper_0  instrumentation_wrapper  instrumentation_wrapper                           1               3              3             3               9.900 ns         9.900 ns        9.900 ns
+
+Area Information
+Compute Unit               Kernel Name              Module Name                                       FF    LUT   DSP  BRAM  URAM
+-------------------------  -----------------------  ------------------------------------------------  ----  ----  ---  ----  ----
+instrumentation_wrapper_0  instrumentation_wrapper  entry_proc                                        2     6     0    0     0
+instrumentation_wrapper_0  instrumentation_wrapper  move_ap_uint_8_s                                  2     8     0    0     0
+instrumentation_wrapper_0  instrumentation_wrapper  instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s  847   1601  0    0     0
+instrumentation_wrapper_0  instrumentation_wrapper  move_ap_uint_392_s                                4     12    0    0     0
+instrumentation_wrapper_0  instrumentation_wrapper  instrumentation_wrapper                           1654  2227  0    0     0
+-------------------------------------------------------------------------------

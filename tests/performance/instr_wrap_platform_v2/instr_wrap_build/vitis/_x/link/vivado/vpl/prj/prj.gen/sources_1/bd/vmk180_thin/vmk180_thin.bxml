@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root MajorVersion="0" MinorVersion="40">
+  <CompositeFile CompositeFileTopName="vmk180_thin" CanBeSetAsTop="false" CanDisplayChildGraph="true">
+    <Description>Composite Fileset</Description>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1723718628"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1723718628"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1723718628"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1723718628"/>
+    <FileCollection Name="SOURCES" Type="SOURCES">
+      <File Name="nsln/vmk180_thin.nts" Type="NTS">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <ProcessingOrder Val="NORMAL"/>
+      </File>
+      <File Name="synth/vmk180_thin.v" Type="Verilog">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <ProcessingOrder Val="NORMAL"/>
+      </File>
+      <File Name="sim/vmk180_thin.v" Type="Verilog">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SIMULATION"/>
+        <ProcessingOrder Val="NORMAL"/>
+      </File>
+      <File Name="vmk180_thin_ooc.xdc" Type="XDC">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="OUT_OF_CONTEXT"/>
+        <ProcessingOrder Val="NORMAL"/>
+      </File>
+      <File Name="hw_handoff/vmk180_thin.hwh" Type="HwHandoff">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+        <ProcessingOrder Val="NORMAL"/>
+      </File>
+      <File Name="vmk180_thin.bda">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+        <ProcessingOrder Val="NORMAL"/>
+      </File>
+      <File Name="synth/vmk180_thin.hwdef">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+        <ProcessingOrder Val="NORMAL"/>
+      </File>
+      <File Name="sim/vmk180_thin.protoinst">
+        <Properties IsEditable="false" IsVisible="true" IsNetlistSimulation="false" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SIMULATION"/>
+        <ProcessingOrder Val="NORMAL"/>
+      </File>
+    </FileCollection>
+  </CompositeFile>
+</Root>

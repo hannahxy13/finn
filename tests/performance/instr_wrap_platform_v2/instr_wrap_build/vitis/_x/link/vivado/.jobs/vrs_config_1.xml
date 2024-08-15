@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="vpl" LaunchDir="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl" FlowId="VPL_HW" FromStepId="create_project" ToStepId="impl"/>
+</Runs>
+

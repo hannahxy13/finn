@@ -1,0 +1,270 @@
+--- !Passed
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 197, Column: 18 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'DefaultSubwordSlicer<ap_uint<8>, 1u>::operator()(ap_uint<8> const&, unsigned int) const'
+    DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                       Line: 95, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >(hls::stream<ap_uint<392>, 0>&, hls::stream<ap_uint<8>, 0>&, ap_uint<32>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)'
+    DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                       Line: 119, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 206, Column: 21 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_206_6
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 195, Column: 21 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_195_4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 201, Column: 22 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_201_5
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 190, Column: 22 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_190_3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 179, Column: 21 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        anonymous
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 146, Column: 22 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_146_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 154, Column: 22 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_154_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 119, Column: 0 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_206_6
+  - String:          ''' ('
+  - LoopLoc:         '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:206:21'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 119, Column: 0 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_195_4
+  - String:          ''' ('
+  - LoopLoc:         '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:195:21'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 119, Column: 0 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_201_5
+  - String:          ''' ('
+  - LoopLoc:         '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:201:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >'
+  - String:          ''' completely with a factor of '
+  - Factor:          '1'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 119, Column: 0 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_190_3
+  - String:          ''' ('
+  - LoopLoc:         '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:190:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 119, Column: 0 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        anonymous
+  - String:          ''' ('
+  - LoopLoc:         '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:179:21'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >'
+  - String:          ''' completely with a factor of '
+  - Factor:          '3'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 119, Column: 0 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_146_1
+  - String:          ''' ('
+  - LoopLoc:         '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:146:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >'
+  - String:          ''' completely with a factor of '
+  - Factor:          '25'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 119, Column: 0 }
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_154_2
+  - String:          ''' ('
+  - LoopLoc:         '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:154:22'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >'
+  - String:          ''' completely with a factor of '
+  - Factor:          '25'
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoParallelPerformanceDrivenVerbosePassed
+Function:        _Z10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_
+Args:            
+  - PragmaType:      array_partition
+  - String:          ' '
+  - PragmaOptions:   'dim=1 type=complete  variable=_ZZ10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_E5coeff'
+  - String:          ' '
+  - PragmaIsAuto:    '1'
+  - String:          ' '
+  - PragmaFunction:  'instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >'
+  - String:          ' '
+  - varLoc:          '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:179:0'
+  - String:          ' '
+  - VarName:         'void instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >(hls::stream<ap_uint<392>, 0>&, hls::stream<ap_uint<8>, 0>&, ap_uint<32>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)::coeff'
+  - String:          ' '
+...
+--- !Passed
+Pass:            reflow-auto-array-partition
+Name:            AutoArrayXform
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 179, Column: 0 }
+Function:        _Z23instrumentation_wrapperRN3hls6streamI7ap_uintILi392EELi0EEERNS0_IS1_ILi8EELi0EEES1_ILi32EERS8_S9_S9_S9_
+Args:            
+  - String:          'Inferring pragma '''
+  - PragmaType:      array_partition
+  - String:          ' type='
+  - Mode:            complete
+  - String:          ' dim='
+  - Dim:             '1'
+  - String:          ''' for array '''
+  - Name:            'void instrument<34u, 16u, 1u, 1u, ap_uint<392>, ap_uint<8> >(hls::stream<ap_uint<392>, 0>&, hls::stream<ap_uint<8>, 0>&, ap_uint<32>, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&, ap_uint<32>&)::coeff'
+  - String:          ''''
+  - String:          ' due to '
+  - String:          pipeline
+  - String:          ' pragma'
+...
+--- !Passed
+Pass:            reflow-array-partition
+Name:            ArrayXform
+DebugLoc:        { File: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp, 
+                   Line: 179, Column: 0 }
+Function:        _Z23instrumentation_wrapperRN3hls6streamI7ap_uintILi392EELi0EEERNS0_IS1_ILi8EELi0EEES1_ILi32EERS8_S9_S9_S9_
+Args:            
+  - String:          'Applying '
+  - String:          array_partition
+  - String:          ' to '''
+  - UOName:          _ZZ10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_E5coeff
+  - String:          ''':'
+  - String:          ' '
+  - Mode:            Complete
+  - String:          ' partitioning'
+  - String:          ' on dimension '
+  - Dim:             '1'
+  - String:          .
+...

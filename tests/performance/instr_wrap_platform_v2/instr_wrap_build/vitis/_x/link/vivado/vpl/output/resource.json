@@ -1,0 +1,74 @@
+{
+    "Used Resources": [
+        {
+            "ip_instance": "vmk180_thin_finn_design_0_0",
+            "resources": [
+                {
+                    "REG": "9902"
+                },
+                {
+                    "LUT": "5828"
+                },
+                {
+                    "LUTAsLogic": "5605"
+                },
+                {
+                    "LUTAsMem": "223"
+                },
+                {
+                    "LOOKAHEAD8": "69"
+                },
+                {
+                    "BRAM": "11"
+                },
+                {
+                    "URAM": "0"
+                },
+                {
+                    "GLOBAL_CLOCK_BUFFERS": "0"
+                },
+                {
+                    "PLL": "0"
+                },
+                {
+                    "MMCM": "0"
+                }
+            ]
+        },
+        {
+            "ip_instance": "vmk180_thin_instrumentation_wrapper_0_0",
+            "resources": [
+                {
+                    "REG": "2519"
+                },
+                {
+                    "LUT": "1175"
+                },
+                {
+                    "LUTAsLogic": "1118"
+                },
+                {
+                    "LUTAsMem": "57"
+                },
+                {
+                    "LOOKAHEAD8": "12"
+                },
+                {
+                    "BRAM": "0"
+                },
+                {
+                    "URAM": "0"
+                },
+                {
+                    "GLOBAL_CLOCK_BUFFERS": "0"
+                },
+                {
+                    "PLL": "0"
+                },
+                {
+                    "MMCM": "0"
+                }
+            ]
+        }
+    ]
+}

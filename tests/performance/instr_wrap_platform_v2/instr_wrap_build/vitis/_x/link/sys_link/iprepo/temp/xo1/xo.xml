@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root VersionMajor="7" VersionMinor="1" SoftwareVersionMajor="2022" SoftwareVersionMinor="2" IpCache="no">
+  <IpCaches/>
+  <Kernels>
+    <Kernel Name="instrumentation_wrapper" Dir="instrumentation_wrapper" IP="ip_repo/xilinx_com_hls_instrumentation_wrapper_1_0" TopIpDir="." ProjectID="55c8409e1fc14b6db1bf489d6329a2d0" Debug="yes" Hls="yes" Pdi="no" ShimSoln="no" SwEmu="no" Domain="">
+      <SupportedFlows>
+        <SupportedFlow>CPU_EMU</SupportedFlow>
+        <SupportedFlow>HW_EMU</SupportedFlow>
+        <SupportedFlow>SYSTEM</SupportedFlow>
+      </SupportedFlows>
+    </Kernel>
+  </Kernels>
+</Root>

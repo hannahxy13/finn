@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<cf:model cf:cpu="cortex_a72" cf:partition="0" cf:prefix="p_0_" cf:name="dr" xd:type="design" xmlns:xd="http://www.xilinx.com/xd" xmlns:cf="http://www.xilinx.com/connections">
+  <cf:block cf:name="hwblk_finn_design">
+    <cf:port cf:name="s_axis_0" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="m_axis_0" cf:portType="stream" cf:direction="out"/>
+  </cf:block>
+  <cf:block cf:name="swblk_finn_design">
+    <cf:port cf:name="s_axis_0" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="m_axis_0" cf:portType="stream" cf:direction="in"/>
+  </cf:block>
+  <cf:block cf:name="hwblk_instrumentation_wrapper">
+    <cf:port cf:name="s_axi_ctrl" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="finnix" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="finnox" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="cfg" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="status" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="latency" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="interval" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="checksum" cf:portType="stream" cf:direction="in"/>
+  </cf:block>
+  <cf:block cf:name="swblk_instrumentation_wrapper">
+    <cf:port cf:name="s_axi_ctrl" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="finnix" cf:portType="stream" cf:direction="in"/>
+    <cf:port cf:name="finnox" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="cfg" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="status" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="latency" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="interval" cf:portType="stream" cf:direction="out"/>
+    <cf:port cf:name="checksum" cf:portType="stream" cf:direction="out"/>
+  </cf:block>
+  <cf:comp cf:name="vmk180_thin" xd:componentRef="vmk180_thin" xd:clockId="0"/>
+  <cf:comp cf:name="finn_design_0" xd:componentRef="finn_design" xd:clockId="0">
+    <xd:clock xd:name="AP_CLK" xd:frequency="303031250" xd:refClockId="1"/>
+  </cf:comp>
+  <cf:comp cf:name="instrumentation_wrapper_0" xd:componentRef="instrumentation_wrapper" xd:clockId="0">
+    <xd:clock xd:name="ap_clk" xd:frequency="303031250" xd:refClockId="1"/>
+  </cf:comp>
+  <cf:instance cf:name="hwinst_finn_design_0" cf:blockName="hwblk_finn_design" cf:compName="finn_design_0">
+    <cf:portMap cf:blockPort="s_axis_0" cf:compPort="s_axis_0"/>
+    <cf:portMap cf:blockPort="m_axis_0" cf:compPort="m_axis_0"/>
+  </cf:instance>
+  <cf:instance cf:name="swinst_finn_design_0" cf:blockName="swblk_finn_design" cf:compName="vmk180_thin"/>
+  <cf:instance cf:name="hwinst_instrumentation_wrapper_0" cf:blockName="hwblk_instrumentation_wrapper" cf:compName="instrumentation_wrapper_0">
+    <cf:portMap cf:blockPort="s_axi_ctrl" cf:compPort="s_axi_ctrl" xd:register="0x0"/>
+    <cf:portMap cf:blockPort="finnix" cf:compPort="finnix"/>
+    <cf:portMap cf:blockPort="finnox" cf:compPort="finnox"/>
+    <cf:portMap cf:blockPort="cfg" cf:compPort="s_axi_ctrl" xd:register="0x10"/>
+    <cf:portMap cf:blockPort="status" cf:compPort="s_axi_ctrl" xd:register="0x18"/>
+    <cf:portMap cf:blockPort="latency" cf:compPort="s_axi_ctrl" xd:register="0x28"/>
+    <cf:portMap cf:blockPort="interval" cf:compPort="s_axi_ctrl" xd:register="0x38"/>
+    <cf:portMap cf:blockPort="checksum" cf:compPort="s_axi_ctrl" xd:register="0x48"/>
+  </cf:instance>
+  <cf:instance cf:name="swinst_instrumentation_wrapper_0" cf:blockName="swblk_instrumentation_wrapper" cf:compName="vmk180_thin">
+    <cf:portMap cf:blockPort="s_axi_ctrl" cf:compPort="icn_ctrl_M01_AXI"/>
+    <cf:portMap cf:blockPort="cfg" cf:compPort="icn_ctrl_M01_AXI"/>
+    <cf:portMap cf:blockPort="status" cf:compPort="icn_ctrl_M01_AXI"/>
+    <cf:portMap cf:blockPort="latency" cf:compPort="icn_ctrl_M01_AXI"/>
+    <cf:portMap cf:blockPort="interval" cf:compPort="icn_ctrl_M01_AXI"/>
+    <cf:portMap cf:blockPort="checksum" cf:compPort="icn_ctrl_M01_AXI"/>
+  </cf:instance>
+  <cf:connection cf:srcInst="hwinst_finn_design_0" cf:srcPort="m_axis_0" cf:dstInst="hwinst_instrumentation_wrapper_0" cf:dstPort="finnox"/>
+  <cf:connection cf:srcInst="swinst_instrumentation_wrapper_0" cf:srcPort="s_axi_ctrl" cf:dstInst="hwinst_instrumentation_wrapper_0" cf:dstPort="s_axi_ctrl">
+    <cf:dataMover cf:compName="vmk180_thin" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="hwinst_instrumentation_wrapper_0" cf:srcPort="finnix" cf:dstInst="hwinst_finn_design_0" cf:dstPort="s_axis_0"/>
+  <cf:connection cf:srcInst="swinst_instrumentation_wrapper_0" cf:srcPort="cfg" cf:dstInst="hwinst_instrumentation_wrapper_0" cf:dstPort="cfg">
+    <cf:dataMover cf:compName="vmk180_thin" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_instrumentation_wrapper_0" cf:srcPort="status" cf:dstInst="hwinst_instrumentation_wrapper_0" cf:dstPort="status">
+    <cf:dataMover cf:compName="vmk180_thin" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_instrumentation_wrapper_0" cf:srcPort="latency" cf:dstInst="hwinst_instrumentation_wrapper_0" cf:dstPort="latency">
+    <cf:dataMover cf:compName="vmk180_thin" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_instrumentation_wrapper_0" cf:srcPort="interval" cf:dstInst="hwinst_instrumentation_wrapper_0" cf:dstPort="interval">
+    <cf:dataMover cf:compName="vmk180_thin" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+  <cf:connection cf:srcInst="swinst_instrumentation_wrapper_0" cf:srcPort="checksum" cf:dstInst="hwinst_instrumentation_wrapper_0" cf:dstPort="checksum">
+    <cf:dataMover cf:compName="vmk180_thin" cf:softwareLib="axi_lite"/>
+  </cf:connection>
+</cf:model>

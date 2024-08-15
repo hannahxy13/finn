@@ -1,0 +1,103 @@
+---
+MainSourceFile:  /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1211_1:  '
+    FileOffset:      1211
+    FilePath:        /proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          58078
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1211_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_676_1:  '
+    FileOffset:      676
+    FilePath:        /proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          266634
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_676_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_690_1:  '
+    FileOffset:      690
+    FilePath:        /proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          267077
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_690_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_704_1:  '
+    FileOffset:      704
+    FilePath:        /proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          267521
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_704_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1245_1:  '
+    FileOffset:      1245
+    FilePath:        /proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_fixed_base.h
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          531214
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1245_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_146_1:  '
+    FileOffset:      146
+    FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          895329
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_146_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_154_2:  '
+    FileOffset:      154
+    FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          895476
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_154_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_190_3:  '
+    FileOffset:      190
+    FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          896416
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_190_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_195_4:  '
+    FileOffset:      195
+    FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          896485
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_195_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_201_5:  '
+    FileOffset:      201
+    FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          896707
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_201_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_206_6:  '
+    FileOffset:      206
+    FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp
+    Replacements:    
+      - FilePath:        /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/project_instrwrap/sol1/.autopilot/db/top_instrumentation_wrapper.pp.0.cpp
+        Offset:          896873
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_206_6: '
+...

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="sdx.custom.platform.repository.locations" value="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/test_workspace/test_platform/export/test_platform"/>
+</section>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xd:repository xmlns:xd="http://www.xilinx.com/xd">
+    <xd:fcnMap xd:fcnName="instrumentation_wrapper" xd:type="hls_opencl" xd:clockId="0" xd:flow="explicit" xd:componentRef="instrumentation_wrapper">
+        <xd:ctrlReg xd:busInterface="s_axi_ctrl" xd:portInterfaceType="axilite" xd:name="control" xd:type="ap_ctrl_none" xd:offset="0x0"/>
+        <xd:arg xd:name="finnix" xd:swRootName="finnix" xd:dataWidth="392" xd:offset="0x0" xd:portInterfaceType="axis" xd:direction="out" xd:busInterfaceRef="finnix"/>
+        <xd:arg xd:name="finnox" xd:swRootName="finnox" xd:dataWidth="8" xd:offset="0x0" xd:portInterfaceType="axis" xd:direction="in" xd:busInterfaceRef="finnox"/>
+        <xd:arg xd:name="cfg" xd:swRootName="cfg" xd:dataWidth="32" xd:offset="0x10" xd:portInterfaceType="axilite" xd:direction="in" xd:id="2" xd:busInterfaceRef="s_axi_ctrl"/>
+        <xd:arg xd:name="status" xd:swRootName="status" xd:dataWidth="64" xd:offset="0x18" xd:portInterfaceType="axilite" xd:direction="in" xd:id="3" xd:busInterfaceRef="s_axi_ctrl"/>
+        <xd:arg xd:name="latency" xd:swRootName="latency" xd:dataWidth="64" xd:offset="0x28" xd:portInterfaceType="axilite" xd:direction="in" xd:id="4" xd:busInterfaceRef="s_axi_ctrl"/>
+        <xd:arg xd:name="interval" xd:swRootName="interval" xd:dataWidth="64" xd:offset="0x38" xd:portInterfaceType="axilite" xd:direction="in" xd:id="5" xd:busInterfaceRef="s_axi_ctrl"/>
+        <xd:arg xd:name="checksum" xd:swRootName="checksum" xd:dataWidth="64" xd:offset="0x48" xd:portInterfaceType="axilite" xd:direction="in" xd:id="6" xd:busInterfaceRef="s_axi_ctrl"/>
+    </xd:fcnMap>
+</xd:repository>

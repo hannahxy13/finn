@@ -1,0 +1,1377 @@
+<ENTRY>
+{
+ "thisFile": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/vmk180_thin.xsa.link_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Aug 15 10:42:07 2024",
+ "timestampMillis": "1723718527255",
+ "buildStep": {
+  "cmdId": "4242054c-6d76-49a6-b43f-9a127091a843",
+  "name": "v++",
+  "logFile": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/link.steps.log",
+  "commandLine": "/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis/2022.2/bin/unwrapped/lnx64.o/v++  --vivado.prop \"run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --vivado.prop \"run.impl_1.{STEPS.PLACE_DESIGN.ARGS.MORE OPTIONS}={-retiming}\" --vivado.prop run.impl_1.STEPS.PHYS_OPT_DESIGN.IS_ENABLED=true --vivado.prop run.impl_1.STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED=true --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --advanced.misc \"report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" --link --debug --save-temps --target hw --optimize 3 --platform ../vivado/vivado_build/xsa_platform/vmk180_thin.xsa --config ../../src/vitis/system.cfg ../../output_tfc_w1a1_VMK180/xo/finn_design.xo ../../output_tfc_w1a1_VMK180/xo/instrumentation_wrapper.xo --output vmk180_thin.xsa ",
+  "args": [
+   "--link",
+   "--debug",
+   "--save-temps",
+   "--target",
+   "hw",
+   "--optimize",
+   "3",
+   "--platform",
+   "../vivado/vivado_build/xsa_platform/vmk180_thin.xsa",
+   "--config",
+   "../../src/vitis/system.cfg",
+   "../../output_tfc_w1a1_VMK180/xo/finn_design.xo",
+   "../../output_tfc_w1a1_VMK180/xo/instrumentation_wrapper.xo",
+   "--output",
+   "vmk180_thin.xsa"
+  ],
+  "iniFiles": [
+   {
+    "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/src/vitis/system.cfg",
+    "content": "#\n# Copyright (C) 2023, Advanced Micro Devices, Inc. All rights reserved.\n# SPDX-License-Identifier: X11\n#\n\n[connectivity]\nnk=finn_design:1:finn_design_0\nnk=instrumentation_wrapper:1:instrumentation_wrapper_0\n\nsc=instrumentation_wrapper_0.finnix:finn_design_0.s_axis_0\nsc=finn_design_0.m_axis_0:instrumentation_wrapper_0.finnox\n\n[clock]\n\n# temporary changed due to different platform # #id=1 -\u003e clk_out1_o2\nid=1:finn_design_0.ap_clk,instrumentation_wrapper_0\n\n"
+   }
+  ],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:42:07 2024",
+ "timestampMillis": "1723718527256",
+ "status": {
+  "cmdId": "4242054c-6d76-49a6-b43f-9a127091a843",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Thu Aug 15 10:42:08 2024",
+ "timestampMillis": "1723718528552",
+ "buildSummary": {
+  "hardwarePlatform": "vmk180_thin.xsa",
+  "hardwareDsa": "",
+  "platformDirectory": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vivado/vivado_build/xsa_platform",
+  "runtime": "OpenCL",
+  "systemConfig": "Linux",
+  "flow": "BF_LINK",
+  "target": "TT_HW",
+  "binaryContainer": {
+   "base": {
+    "type": "BT_UKNOWN",
+    "name": "vmk180_thin",
+    "file": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xclbin",
+    "reports": [],
+    "uuid": ""
+   },
+   "kernels": []
+  },
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "finn_design",
+     "file": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/xo/finn_design.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [],
+    "psSources": [],
+    "cuNames": [
+     "finn_design_0"
+    ],
+    "type": "RTL",
+    "frequency": 0,
+    "freqUnits": ""
+   },
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "instrumentation_wrapper",
+     "file": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/xo/instrumentation_wrapper.xo",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/instrumentation_wrapper/instrumentation_wrapper/cpu_sources/top_instrumentation_wrapper.cpp"
+    ],
+    "psSources": [],
+    "cuNames": [
+     "instrumentation_wrapper_0"
+    ],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "Vitis V++ Compiler Release 2022.2. SW Build 3671529 on 2022-10-13-17:52:11"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 10:42:08 2024",
+ "timestampMillis": "1723718528624",
+ "buildStep": {
+  "cmdId": "55eaf759-6b6e-4492-b91f-5565995964f8",
+  "name": "system_link",
+  "logFile": "",
+  "commandLine": "system_link --xo /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/xo/finn_design.xo --xo /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/xo/instrumentation_wrapper.xo -keep --config /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/syslinkConfig.ini --xpfm /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vivado/vivado_build/xsa_platform/vmk180_thin.xsa --target hw --output_dir /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int --temp_dir /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/sys_link",
+  "args": [
+   "--xo",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/xo/finn_design.xo",
+   "--xo",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/xo/instrumentation_wrapper.xo",
+   "-keep",
+   "--config",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/syslinkConfig.ini",
+   "--xpfm",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vivado/vivado_build/xsa_platform/vmk180_thin.xsa",
+   "--target",
+   "hw",
+   "--output_dir",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int",
+   "--temp_dir",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/sys_link"
+  ],
+  "iniFiles": [
+   {
+    "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/syslinkConfig.ini",
+    "content": "nk=finn_design:1:finn_design_0\nnk=instrumentation_wrapper:1:instrumentation_wrapper_0\nsc=instrumentation_wrapper_0.finnix:finn_design_0.s_axis_0\nsc=finn_design_0.m_axis_0:instrumentation_wrapper_0.finnox\n\nclock.id=1:finn_design_0.ap_clk,instrumentation_wrapper_0\n\n"
+   }
+  ],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:42:08 2024",
+ "timestampMillis": "1723718528625",
+ "status": {
+  "cmdId": "55eaf759-6b6e-4492-b91f-5565995964f8",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:42:19 2024",
+ "timestampMillis": "1723718539884",
+ "status": {
+  "cmdId": "55eaf759-6b6e-4492-b91f-5565995964f8",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 10:42:19 2024",
+ "timestampMillis": "1723718539891",
+ "buildStep": {
+  "cmdId": "b53c4ba1-6ada-41c8-93e7-e189c1a92575",
+  "name": "cf2sw",
+  "logFile": "",
+  "commandLine": "cf2sw -sdsl /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/sdsl.dat -rtd /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/cf2sw.rtd -nofilter /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/cf2sw_full.rtd -xclbin /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xclbin_orig.xml -o /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xclbin_orig.1.xml",
+  "args": [
+   "-sdsl",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/sdsl.dat",
+   "-rtd",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/cf2sw.rtd",
+   "-nofilter",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/cf2sw_full.rtd",
+   "-xclbin",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xclbin_orig.xml",
+   "-o",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xclbin_orig.1.xml"
+  ],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:42:19 2024",
+ "timestampMillis": "1723718539891",
+ "status": {
+  "cmdId": "b53c4ba1-6ada-41c8-93e7-e189c1a92575",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:42:22 2024",
+ "timestampMillis": "1723718542142",
+ "status": {
+  "cmdId": "b53c4ba1-6ada-41c8-93e7-e189c1a92575",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 10:42:22 2024",
+ "timestampMillis": "1723718542148",
+ "buildStep": {
+  "cmdId": "8b7dd86e-252c-49a2-b612-757027843962",
+  "name": "rtd2_system_diagram",
+  "logFile": "",
+  "commandLine": "rtd2SystemDiagram",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:42:22 2024",
+ "timestampMillis": "1723718542149",
+ "status": {
+  "cmdId": "8b7dd86e-252c-49a2-b612-757027843962",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 10:42:22 2024",
+ "timestampMillis": "1723718542246",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/systemDiagramModel.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:42:22 2024",
+ "timestampMillis": "1723718542247",
+ "status": {
+  "cmdId": "8b7dd86e-252c-49a2-b612-757027843962",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 10:42:22 2024",
+ "timestampMillis": "1723718542249",
+ "buildStep": {
+  "cmdId": "e6cfe3cb-893e-4693-b1a9-18e25149578f",
+  "name": "vpl",
+  "logFile": "",
+  "commandLine": "vpl -t hw -f /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vivado/vivado_build/xsa_platform/vmk180_thin.xsa -s -g --remote_ip_cache /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/.ipcache --output_dir /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int --log_dir /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/logs/link --report_dir /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link --config /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vplConfig.ini -k /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link --no-info --iprepo /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/ip_repo/xilinx_com_hls_instrumentation_wrapper_1_0 --iprepo /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/ip_repo/xilinx_finn_finn_finn_design_1_0 --messageDb /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/run_link/vpl.pb /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/dr.bd.tcl",
+  "args": [
+   "-t",
+   "hw",
+   "-f",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vivado/vivado_build/xsa_platform/vmk180_thin.xsa",
+   "-s",
+   "-g",
+   "--remote_ip_cache",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/.ipcache",
+   "--output_dir",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int",
+   "--log_dir",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/logs/link",
+   "--report_dir",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link",
+   "--config",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vplConfig.ini",
+   "-k",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/kernel_info.dat",
+   "--webtalk_flag",
+   "Vitis",
+   "--temp_dir",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link",
+   "--no-info",
+   "--iprepo",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/ip_repo/xilinx_com_hls_instrumentation_wrapper_1_0",
+   "--iprepo",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/ip_repo/xilinx_finn_finn_finn_design_1_0",
+   "--messageDb",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/run_link/vpl.pb",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/dr.bd.tcl"
+  ],
+  "iniFiles": [
+   {
+    "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vplConfig.ini",
+    "content": "[advanced]\nmisc=report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\nmisc=report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\nparam=compiler.enablePerformanceTrace=1\nparam=hw_emu.enableDebugWaveform=1\nparam=hw_emu.enableProfiling=1\nparam=compiler.vppCurrentWorkingDir=/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis\nmisc=BinaryName=vmk180_thin\n\n[connectivity]\nnk=finn_design:1:finn_design_0\nnk=instrumentation_wrapper:1:instrumentation_wrapper_0\n\n[vivado]\nprop=run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\nprop=run.impl_1.{STEPS.PLACE_DESIGN.ARGS.MORE OPTIONS}={-retiming}\nprop=run.impl_1.STEPS.PHYS_OPT_DESIGN.IS_ENABLED=true\nprop=run.impl_1.STEPS.POST_ROUTE_PHYS_OPT_DESIGN.IS_ENABLED=true\n\n"
+   }
+  ],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:42:22 2024",
+ "timestampMillis": "1723718542249",
+ "status": {
+  "cmdId": "e6cfe3cb-893e-4693-b1a9-18e25149578f",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Aug 15 10:42:24 2024",
+ "timestampMillis": "1723718544451",
+ "buildStep": {
+  "cmdId": "875a70ca-42b8-442b-9909-1fd459732760",
+  "name": "vpl",
+  "logFile": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/link.steps.log",
+  "commandLine": "/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis/2022.2/bin/unwrapped/lnx64.o/vpl -t hw -f /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vivado/vivado_build/xsa_platform/vmk180_thin.xsa -s -g --remote_ip_cache /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/.ipcache --output_dir /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int --log_dir /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/logs/link --report_dir /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link --config /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vplConfig.ini -k /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/kernel_info.dat --webtalk_flag Vitis --temp_dir /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link --no-info --iprepo /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/ip_repo/xilinx_com_hls_instrumentation_wrapper_1_0 --iprepo /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/ip_repo/xilinx_finn_finn_finn_design_1_0 --messageDb /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/run_link/vpl.pb /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/dr.bd.tcl ",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/run_link"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:42:24 2024",
+ "timestampMillis": "1723718544451",
+ "status": {
+  "cmdId": "875a70ca-42b8-442b-9909-1fd459732760",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_VivadoProject",
+ "dateTimestamp": "Thu Aug 15 10:42:24 2024",
+ "timestampMillis": "1723718544881",
+ "vivadoProject": {
+  "openDir": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl",
+  "openScript": "openprj.tcl",
+  "relativeProject": "prj/prj.xpr"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 10:42:24 2024",
+ "timestampMillis": "1723718544883",
+ "buildStep": {
+  "cmdId": "99aae869-258b-47fa-a5db-6209ed8676aa",
+  "name": "vivado",
+  "logFile": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/vivado.log",
+  "commandLine": "vivado -log vivado.log -applog -m64 -messageDb vivado.pb -mode batch -source vpl.tcl -notrace",
+  "args": [
+   "-log",
+   "vivado.log",
+   "-applog",
+   " -m64",
+   "-messageDb",
+   "vivado.pb",
+   "-mode",
+   "batch",
+   "-source",
+   "vpl.tcl",
+   "-notrace"
+  ],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/run_link"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:42:24 2024",
+ "timestampMillis": "1723718544883",
+ "status": {
+  "cmdId": "99aae869-258b-47fa-a5db-6209ed8676aa",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 10:43:31 2024",
+ "timestampMillis": "1723718611700",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/automation_summary_update_bd.txt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "VITIS_DESIGN_FLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Aug 15 10:50:31 2024",
+ "timestampMillis": "1723719031994",
+ "buildStep": {
+  "cmdId": "b89eeed1-782a-42db-87f0-f358acb8ca65",
+  "name": "vivado.impl",
+  "logFile": "",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:50:31 2024",
+ "timestampMillis": "1723719031995",
+ "status": {
+  "cmdId": "b89eeed1-782a-42db-87f0-f358acb8ca65",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Thu Aug 15 10:50:31 2024",
+ "timestampMillis": "1723719031996",
+ "buildStep": {
+  "cmdId": "fa2e483e-f3dd-4dd3-82d5-c3621337ea9f",
+  "name": "vivado.impl.impl_1",
+  "logFile": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/runme.log",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 10:50:31 2024",
+ "timestampMillis": "1723719031996",
+ "status": {
+  "cmdId": "fa2e483e-f3dd-4dd3-82d5-c3621337ea9f",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 10:58:16 2024",
+ "timestampMillis": "1723719496677",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/system_diagram.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 10:58:19 2024",
+ "timestampMillis": "1723719499992",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/kernel_service.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "KERNEL_SERVICE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 10:58:19 2024",
+ "timestampMillis": "1723719499992",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/kernel_service.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "KERNEL_SERVICE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746280",
+ "status": {
+  "cmdId": "99aae869-258b-47fa-a5db-6209ed8676aa",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746297",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_slr_util_placed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SLR_UTIL_PLACED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746298",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_kernel_util_synthed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746298",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_kernel_util_synthed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746299",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_kernel_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746300",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_slr_util_routed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_SLR_UTIL_ROUTED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746300",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_kernel_util_placed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_PLACEMENT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746303",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_slr_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SLR_UTIL_ROUTED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746305",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_full_util_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746307",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_full_util_routed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746307",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_full_util_synthed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746310",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_slr_util_placed.pb",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_SLR_UTIL_PLACED",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746311",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_kernel_util_routed.xutil",
+  "name": "",
+  "fileType": "XUTIL",
+  "reportType": "KERNEL_UTILIZATION_ROUTE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746312",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_full_util_synthed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_UTILIZATION_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746313",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_kernel_util_placed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "KERNEL_UTILIZATION_PLACEMENT",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746327",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/syn/vmk180_thin_icn_ctrl_0_synth_1_vmk180_thin_icn_ctrl_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746328",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/syn/vmk180_thin_proc_sys_reset_0_0_synth_1_vmk180_thin_proc_sys_reset_0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746328",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/syn/vmk180_thin_clk_wizard_0_0_synth_1_vmk180_thin_clk_wizard_0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746330",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/syn/vmk180_thin_axi_intc_0_0_synth_1_vmk180_thin_axi_intc_0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746333",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/syn/vmk180_thin_rst_clk_wizard_0_303M_0_synth_1_vmk180_thin_rst_clk_wizard_0_303M_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746335",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/syn/vmk180_thin_instrumentation_wrapper_0_0_synth_1_vmk180_thin_instrumentation_wrapper_0_0_utilization_synth.rpt",
+  "name": "instrumentation_wrapper",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746337",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/syn/vmk180_thin_finn_design_0_0_synth_1_vmk180_thin_finn_design_0_0_utilization_synth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_UTILIZATION",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746339",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_system_diagram.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS",
+  "cmdId": "fa2e483e-f3dd-4dd3-82d5-c3621337ea9f"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746341",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_vmk180_thin_wrapper_timing_summary_routed.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY",
+  "cmdId": "fa2e483e-f3dd-4dd3-82d5-c3621337ea9f"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746343",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_vmk180_thin_wrapper_timing_summary_routed.rpx",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY",
+  "cmdId": "fa2e483e-f3dd-4dd3-82d5-c3621337ea9f"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746347",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_vmk180_thin_wrapper_timing_summary_routed.rpv",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY_CONCISE",
+  "cmdId": "fa2e483e-f3dd-4dd3-82d5-c3621337ea9f"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746349",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_vmk180_thin_wrapper_timing_summary_postroute_physopted.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY",
+  "cmdId": "fa2e483e-f3dd-4dd3-82d5-c3621337ea9f"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746351",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_vmk180_thin_wrapper_timing_summary_postroute_physopted.rpx",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY",
+  "cmdId": "fa2e483e-f3dd-4dd3-82d5-c3621337ea9f"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746355",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/imp/impl_1_vmk180_thin_wrapper_timing_summary_postroute_physopted.rpv",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_REPORT_TIMING_SUMMARY_CONCISE",
+  "cmdId": "fa2e483e-f3dd-4dd3-82d5-c3621337ea9f"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746394",
+ "status": {
+  "cmdId": "875a70ca-42b8-442b-9909-1fd459732760",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746423",
+ "status": {
+  "cmdId": "e6cfe3cb-893e-4693-b1a9-18e25149578f",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746457",
+ "buildStep": {
+  "cmdId": "e9a572c8-b7a0-4222-9e55-cc9f042347f2",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "rtdgen",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746458",
+ "status": {
+  "cmdId": "e9a572c8-b7a0-4222-9e55-cc9f042347f2",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746459",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin_xml.rtd",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "XCLBIN_INFO",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746461",
+ "buildStep": {
+  "cmdId": "34d0ab9d-64fe-421a-b822-c27a0916e358",
+  "name": "cf2sw",
+  "logFile": "",
+  "commandLine": "cf2sw -a /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/address_map.xml -sdsl /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/sdsl.dat -xclbin /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xclbin_orig.xml -rtd /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.rtd -o /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xml",
+  "args": [
+   "-a",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/address_map.xml",
+   "-sdsl",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/sdsl.dat",
+   "-xclbin",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xclbin_orig.xml",
+   "-rtd",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.rtd",
+   "-o",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xml"
+  ],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:26 2024",
+ "timestampMillis": "1723719746461",
+ "status": {
+  "cmdId": "34d0ab9d-64fe-421a-b822-c27a0916e358",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748942",
+ "status": {
+  "cmdId": "34d0ab9d-64fe-421a-b822-c27a0916e358",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748944",
+ "buildStep": {
+  "cmdId": "b90af558-9d1c-4939-a18d-42c3fb6b96e7",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "writeSystemDiagram",
+  "args": [
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.rtd",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/systemDiagramModelSlrBaseAddress.json"
+  ],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748944",
+ "status": {
+  "cmdId": "b90af558-9d1c-4939-a18d-42c3fb6b96e7",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748947",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/systemDiagramModelSlrBaseAddress.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "SYSTEM_DIAGRAM_PLUS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748947",
+ "status": {
+  "cmdId": "b90af558-9d1c-4939-a18d-42c3fb6b96e7",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748948",
+ "buildStep": {
+  "cmdId": "25197170-70ec-4169-9b27-2ab0d7610609",
+  "name": "rtdgen",
+  "logFile": "",
+  "commandLine": "writeAutomationSummary",
+  "args": [
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/automation_summary.txt"
+  ],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748948",
+ "status": {
+  "cmdId": "25197170-70ec-4169-9b27-2ab0d7610609",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748949",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/automation_summary.txt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "VITIS_DESIGN_FLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748949",
+ "status": {
+  "cmdId": "25197170-70ec-4169-9b27-2ab0d7610609",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748949",
+ "status": {
+  "cmdId": "e9a572c8-b7a0-4222-9e55-cc9f042347f2",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748952",
+ "buildStep": {
+  "cmdId": "90b61c70-d72a-4e0d-9d5e-6d20e9b09fe7",
+  "name": "xclbinutil",
+  "logFile": "",
+  "commandLine": "xclbinutil --add-section BITSTREAM:RAW:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/system.pdi --force --target hw --key-value SYS:dfx_enable:false --add-section :JSON:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.rtd --add-section CLOCK_FREQ_TOPOLOGY:JSON:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin_xml.rtd --add-section BUILD_METADATA:JSON:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin_build.rtd --add-section EMBEDDED_METADATA:RAW:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xml --add-section SYSTEM_METADATA:RAW:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/systemDiagramModelSlrBaseAddress.json --key-value SYS:PlatformVBNV:xilinx.com_vmk180_vmk180_thin_1_0 --output /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xclbin",
+  "args": [
+   "--add-section",
+   "BITSTREAM:RAW:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/system.pdi",
+   "--force",
+   "--target",
+   "hw",
+   "--key-value",
+   "SYS:dfx_enable:false",
+   "--add-section",
+   ":JSON:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.rtd",
+   "--add-section",
+   "CLOCK_FREQ_TOPOLOGY:JSON:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin_xml.rtd",
+   "--add-section",
+   "BUILD_METADATA:JSON:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin_build.rtd",
+   "--add-section",
+   "EMBEDDED_METADATA:RAW:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xml",
+   "--add-section",
+   "SYSTEM_METADATA:RAW:/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/systemDiagramModelSlrBaseAddress.json",
+   "--key-value",
+   "SYS:PlatformVBNV:xilinx.com_vmk180_vmk180_thin_1_0",
+   "--output",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:28 2024",
+ "timestampMillis": "1723719748953",
+ "status": {
+  "cmdId": "90b61c70-d72a-4e0d-9d5e-6d20e9b09fe7",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749218",
+ "status": {
+  "cmdId": "90b61c70-d72a-4e0d-9d5e-6d20e9b09fe7",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749220",
+ "buildStep": {
+  "cmdId": "b5fedd3b-6b81-4f82-8941-33493eff58d1",
+  "name": "xclbinutilinfo",
+  "logFile": "",
+  "commandLine": "xclbinutil --quiet --force --info /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xclbin.info --input /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xclbin",
+  "args": [
+   "--quiet",
+   "--force",
+   "--info",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xclbin.info",
+   "--input",
+   "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vmk180_thin.xclbin"
+  ],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749220",
+ "status": {
+  "cmdId": "b5fedd3b-6b81-4f82-8941-33493eff58d1",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749428",
+ "status": {
+  "cmdId": "b5fedd3b-6b81-4f82-8941-33493eff58d1",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749431",
+ "buildStep": {
+  "cmdId": "c78e38e5-02b6-4c3e-b3f3-eb76ec7346a2",
+  "name": "generate_sc_driver",
+  "logFile": "",
+  "commandLine": "",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749431",
+ "status": {
+  "cmdId": "c78e38e5-02b6-4c3e-b3f3-eb76ec7346a2",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749431",
+ "status": {
+  "cmdId": "c78e38e5-02b6-4c3e-b3f3-eb76ec7346a2",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749437",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/system_estimate_vmk180_thin.xtxt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "GLOBAL_SYSTEM_ESTIMATE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749664",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/logs/optraceViewer.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "OPERATION_TRACE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749666",
+ "status": {
+  "cmdId": "4242054c-6d76-49a6-b43f-9a127091a843",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749756",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/reports/link/v++_link_vmk180_thin_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Thu Aug 15 11:02:29 2024",
+ "timestampMillis": "1723719749756",
+ "report": {
+  "path": "/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/v++_link_vmk180_thin_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

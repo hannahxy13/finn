@@ -1,0 +1,58 @@
+{
+    "schema_version": {
+        "major": "1",
+        "minor": "0",
+        "patch": "0"
+    },
+    "design_state": "Synthesized",
+    "user_budget": {
+        "actual_resources": {
+            "REG": "12421",
+            "LUT": "7003",
+            "LUTAsMem": "280",
+            "BRAM": "11",
+            "URAM": "0"
+        },
+        "supply_resources": {
+            "REG": "1797140",
+            "LUT": "898742",
+            "LUTAsMem": "449913",
+            "BRAM": "967",
+            "URAM": "463"
+        }
+    },
+    "kernels": [
+        {
+            "name": "finn_design_wrapper",
+            "compute_unit_count": "1",
+            "compute_units": [
+                {
+                    "cu_name": "finn_design_0",
+                    "actual_resources": {
+                        "REG": "9902",
+                        "LUT": "5828",
+                        "LUTAsMem": "223",
+                        "BRAM": "11",
+                        "URAM": "0"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "instrumentation_wrapper",
+            "compute_unit_count": "1",
+            "compute_units": [
+                {
+                    "cu_name": "instrumentation_wrapper_0",
+                    "actual_resources": {
+                        "REG": "2519",
+                        "LUT": "1175",
+                        "LUTAsMem": "57",
+                        "BRAM": "0",
+                        "URAM": "0"
+                    }
+                }
+            ]
+        }
+    ]
+}

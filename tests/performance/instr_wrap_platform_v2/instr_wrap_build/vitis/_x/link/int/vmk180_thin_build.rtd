@@ -1,0 +1,216 @@
+{
+    "schema_version": {
+        "major": "1",
+        "minor": "0",
+        "patch": "0"
+    },
+    "build_metadata": {
+        "dsa": {
+            "vendor": "xilinx.com",
+            "board_id": "vmk180",
+            "name": "vmk180_thin",
+            "version_major": "1",
+            "version_minor": "0",
+            "description": "",
+            "generated_by": {
+                "name": "Vivado",
+                "version": "2022.2",
+                "cl": "3671981",
+                "time_stamp": "Thu Aug 15 09:43:14 2024"
+            },
+            "board": {
+                "name": "xilinx.com:vmk180:3.1",
+                "vendor": "xilinx.com",
+                "part": "xcvm1802-vsva2197-2MP-e-S",
+                "board_part": "xilinx.com:vmk180:part0:3.1"
+            },
+            "feature_roms": [
+                {
+                    "time_epoch": "0"
+                }
+            ]
+        },
+        "xclbin": {
+            "generated_by": {
+                "name": "v++",
+                "version": "2022.2",
+                "cl": "3671529",
+                "time_stamp": "2022-10-13-17:52:11",
+                "options": "\/proj\/xbuilds\/SWIP\/2022.2_1014_8888\/installs\/lin64\/Vitis\/2022.2\/bin\/unwrapped\/lnx64.o\/v++ --clock.id 1:finn_design_0.ap_clk,instrumentation_wrapper_0 --config ..\/..\/src\/vitis\/system.cfg --connectivity.nk finn_design:1:finn_design_0 --connectivity.nk instrumentation_wrapper:1:instrumentation_wrapper_0 --connectivity.sc instrumentation_wrapper_0.finnix:finn_design_0.s_axis_0 --connectivity.sc finn_design_0.m_axis_0:instrumentation_wrapper_0.finnox --debug --input_files ..\/..\/output_tfc_w1a1_VMK180\/xo\/finn_design.xo --input_files ..\/..\/output_tfc_w1a1_VMK180\/xo\/instrumentation_wrapper.xo --link --optimize 3 --output vmk180_thin.xsa --platform ..\/vivado\/vivado_build\/xsa_platform\/vmk180_thin.xsa --report_level 0 --save-temps --target hw "
+            },
+            "user_regions": [
+                {
+                    "name": "OCL_REGION_0",
+                    "type": "clc_region",
+                    "instance_path": "",
+                    "base_address": "",
+                    "kernels": [
+                        {
+                            "name": "instrumentation_wrapper",
+                            "ports": [
+                                {
+                                    "name": "FINNIX",
+                                    "mode": "write_only",
+                                    "range": "",
+                                    "data_width": "392",
+                                    "port_type": "stream",
+                                    "base": ""
+                                },
+                                {
+                                    "name": "FINNOX",
+                                    "mode": "read_only",
+                                    "range": "",
+                                    "data_width": "8",
+                                    "port_type": "stream",
+                                    "base": ""
+                                },
+                                {
+                                    "name": "S_AXI_CTRL",
+                                    "mode": "slave",
+                                    "range": "0x58",
+                                    "data_width": "32",
+                                    "port_type": "addressable",
+                                    "base": "0x0"
+                                }
+                            ],
+                            "arguments": [
+                                {
+                                    "name": "finnix",
+                                    "address_qualifier": "4",
+                                    "id": "0",
+                                    "port": "FINNIX",
+                                    "size": "0x0",
+                                    "offset": "0x0",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "stream<ap_uint<392>, 0>&"
+                                },
+                                {
+                                    "name": "finnox",
+                                    "address_qualifier": "4",
+                                    "id": "1",
+                                    "port": "FINNOX",
+                                    "size": "0x0",
+                                    "offset": "0x0",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "stream<ap_uint<8>, 0>&"
+                                },
+                                {
+                                    "name": "cfg",
+                                    "address_qualifier": "0",
+                                    "id": "2",
+                                    "port": "S_AXI_CTRL",
+                                    "size": "0x4",
+                                    "offset": "0x10",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x4",
+                                    "type": "unsigned int"
+                                },
+                                {
+                                    "name": "status",
+                                    "address_qualifier": "0",
+                                    "id": "3",
+                                    "port": "S_AXI_CTRL",
+                                    "size": "0x4",
+                                    "offset": "0x18",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "void*"
+                                },
+                                {
+                                    "name": "latency",
+                                    "address_qualifier": "0",
+                                    "id": "4",
+                                    "port": "S_AXI_CTRL",
+                                    "size": "0x4",
+                                    "offset": "0x28",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "void*"
+                                },
+                                {
+                                    "name": "interval",
+                                    "address_qualifier": "0",
+                                    "id": "5",
+                                    "port": "S_AXI_CTRL",
+                                    "size": "0x4",
+                                    "offset": "0x38",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "void*"
+                                },
+                                {
+                                    "name": "checksum",
+                                    "address_qualifier": "0",
+                                    "id": "6",
+                                    "port": "S_AXI_CTRL",
+                                    "size": "0x4",
+                                    "offset": "0x48",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x8",
+                                    "type": "void*"
+                                }
+                            ],
+                            "instances": [
+                                {
+                                    "name": "instrumentation_wrapper_0"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "finn_design",
+                            "ports": [
+                                {
+                                    "name": "s_axis_0",
+                                    "mode": "read_only",
+                                    "range": "",
+                                    "data_width": "392",
+                                    "port_type": "stream",
+                                    "base": ""
+                                },
+                                {
+                                    "name": "m_axis_0",
+                                    "mode": "write_only",
+                                    "range": "",
+                                    "data_width": "8",
+                                    "port_type": "stream",
+                                    "base": ""
+                                }
+                            ],
+                            "arguments": [
+                                {
+                                    "name": "s_axis_0",
+                                    "address_qualifier": "4",
+                                    "id": "0",
+                                    "port": "s_axis_0",
+                                    "size": "0x0",
+                                    "offset": "0x0",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x0",
+                                    "type": "ap_uint<392>"
+                                },
+                                {
+                                    "name": "m_axis_0",
+                                    "address_qualifier": "4",
+                                    "id": "1",
+                                    "port": "m_axis_0",
+                                    "size": "0x0",
+                                    "offset": "0x0",
+                                    "host_offset": "0x0",
+                                    "host_size": "0x0",
+                                    "type": "ap_uint<8>"
+                                }
+                            ],
+                            "instances": [
+                                {
+                                    "name": "finn_design_0"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

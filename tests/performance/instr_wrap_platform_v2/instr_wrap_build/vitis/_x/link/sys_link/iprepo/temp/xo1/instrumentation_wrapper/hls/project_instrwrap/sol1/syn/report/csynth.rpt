@@ -1,0 +1,180 @@
+
+
+================================================================
+== Synthesis Summary Report of 'instrumentation_wrapper'
+================================================================
++ General Information: 
+    * Date:           Wed Aug  7 11:37:35 2024
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        project_instrwrap
+    * Solution:       sol1 (Vivado IP Flow Target)
+    * Product family: versal
+    * Target device:  xcvm1802-vsva2197-2MP-e-S
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+------------+------------+-----+
+    |                       Modules                       | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |            |            |     |
+    |                       & Loops                       | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF     |     LUT    | URAM|
+    +-----------------------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+------------+------------+-----+
+    |+ instrumentation_wrapper*                           |     -|  0.06|        3|   9.900|         -|        1|     -|  dataflow|     -|   -|  1654 (~0%)|  2227 (~0%)|    -|
+    | + entry_proc                                        |     -|  1.56|        0|   0.000|         -|        0|     -|        no|     -|   -|     2 (~0%)|     6 (~0%)|    -|
+    | + move_ap_uint_8_s                                  |     -|  1.62|        0|   0.000|         -|        1|     -|  yes(flp)|     -|   -|     2 (~0%)|     8 (~0%)|    -|
+    | + instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s  |     -|  0.06|        2|   6.600|         -|        1|     -|  yes(flp)|     -|   -|   847 (~0%)|  1601 (~0%)|    -|
+    | + move_ap_uint_392_s                                |     -|  1.55|        1|   3.300|         -|        1|     -|  yes(flp)|     -|   -|     4 (~0%)|    12 (~0%)|    -|
+    +-----------------------------------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++------------+------------+---------------+--------+----------+
+| Interface  | Data Width | Address Width | Offset | Register |
++------------+------------+---------------+--------+----------+
+| s_axi_ctrl | 32         | 7             | 16     | 0        |
++------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++------------+---------------+--------+-------+--------+----------------------------+-------------------+
+| Interface  | Register      | Offset | Width | Access | Description                | Bit Fields        |
++------------+---------------+--------+-------+--------+----------------------------+-------------------+
+| s_axi_ctrl | cfg           | 0x10   | 32    | W      | Data signal of cfg         |                   |
+| s_axi_ctrl | status_i      | 0x18   | 32    | W      | Data signal of status_i    |                   |
+| s_axi_ctrl | status_o      | 0x20   | 32    | R      | Data signal of status_o    |                   |
+| s_axi_ctrl | status_o_ctrl | 0x24   | 32    | R      | Control signal of status_o | 0=status_o_ap_vld |
+| s_axi_ctrl | latency       | 0x28   | 32    | R      | Data signal of latency     |                   |
+| s_axi_ctrl | latency_ctrl  | 0x2c   | 32    | R      | Control signal of latency  | 0=latency_ap_vld  |
+| s_axi_ctrl | interval      | 0x38   | 32    | R      | Data signal of interval    |                   |
+| s_axi_ctrl | interval_ctrl | 0x3c   | 32    | R      | Control signal of interval | 0=interval_ap_vld |
+| s_axi_ctrl | checksum      | 0x48   | 32    | R      | Data signal of checksum    |                   |
+| s_axi_ctrl | checksum_ctrl | 0x4c   | 32    | R      | Control signal of checksum | 0=checksum_ap_vld |
++------------+---------------+--------+-------+--------+----------------------------+-------------------+
+
+* AXIS
++-----------+---------------+-------+--------+--------+
+| Interface | Register Mode | TDATA | TREADY | TVALID |
++-----------+---------------+-------+--------+--------+
+| finnix    | both          | 392   | 1      | 1      |
+| finnox    | both          | 8     | 1      | 1      |
++-----------+---------------+-------+--------+--------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+----------+
+| Interface | Type         | Ports    |
++-----------+--------------+----------+
+| ap_clk    | clock        | ap_clk   |
+| ap_rst_n  | reset        | ap_rst_n |
+| ap_ctrl   | ap_ctrl_none |          |
++-----------+--------------+----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+--------------------------+
+| Argument | Direction | Datatype                 |
++----------+-----------+--------------------------+
+| finnix   | out       | stream<ap_uint<392>, 0>& |
+| finnox   | in        | stream<ap_uint<8>, 0>&   |
+| cfg      | in        | ap_uint<32>              |
+| status   | inout     | ap_uint<32>&             |
+| latency  | out       | ap_uint<32>&             |
+| interval | out       | ap_uint<32>&             |
+| checksum | out       | ap_uint<32>&             |
++----------+-----------+--------------------------+
+
+* SW-to-HW Mapping
++----------+--------------+-----------+-----------------------------------------+
+| Argument | HW Interface | HW Type   | HW Info                                 |
++----------+--------------+-----------+-----------------------------------------+
+| finnix   | finnix       | interface |                                         |
+| finnox   | finnox       | interface |                                         |
+| cfg      | s_axi_ctrl   | register  | name=cfg offset=0x10 range=32           |
+| status   | s_axi_ctrl   | register  | name=status_i offset=0x18 range=32      |
+| status   | s_axi_ctrl   | register  | name=status_o offset=0x20 range=32      |
+| status   | s_axi_ctrl   | register  | name=status_o_ctrl offset=0x24 range=32 |
+| latency  | s_axi_ctrl   | register  | name=latency offset=0x28 range=32       |
+| latency  | s_axi_ctrl   | register  | name=latency_ctrl offset=0x2c range=32  |
+| interval | s_axi_ctrl   | register  | name=interval offset=0x38 range=32      |
+| interval | s_axi_ctrl   | register  | name=interval_ctrl offset=0x3c range=32 |
+| checksum | s_axi_ctrl   | register  | name=checksum offset=0x48 range=32      |
+| checksum | s_axi_ctrl   | register  | name=checksum_ctrl offset=0x4c range=32 |
++----------+--------------+-----------+-----------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-----------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+| Name                                                | DSP | Pragma | Variable    | Op  | Impl   | Latency |
++-----------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+| + instrumentation_wrapper                           | 0   |        |             |     |        |         |
+|  + instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s | 0   |        |             |     |        |         |
+|    add_ln186_fu_1790_p2                             | -   |        | add_ln186   | add | fabric | 0       |
+|    sub_ln186_fu_1847_p2                             | -   |        | sub_ln186   | sub | fabric | 0       |
+|    sub_ln186_1_fu_1862_p2                           | -   |        | sub_ln186_1 | sub | fabric | 0       |
+|    add_ln840_fu_1883_p2                             | -   |        | add_ln840   | add | fabric | 0       |
+|    add_ln840_1_fu_1818_p2                           | -   |        | add_ln840_1 | add | fabric | 0       |
++-----------------------------------------------------+-----+--------+-------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++-----------------------------------------------------+------+------+--------+------------+---------+--------+---------+
+| Name                                                | BRAM | URAM | Pragma | Variable   | Storage | Impl   | Latency |
++-----------------------------------------------------+------+------+--------+------------+---------+--------+---------+
+| + instrumentation_wrapper                           | 0    | 0    |        |            |         |        |         |
+|   cfg_c_U                                           | -    | -    |        | cfg_c      | fifo    | srl    | 0       |
+|  + instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s | 0    | 0    |        |            |         |        |         |
+|    timestamps_fifo_U                                | -    | -    |        | timestamps | fifo    | memory | 0       |
++-----------------------------------------------------+------+------+--------+------------+---------+--------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+-------------------------------------+--------------------------------------------------------------------------+
+| Type      | Options                             | Location                                                                 |
++-----------+-------------------------------------+--------------------------------------------------------------------------+
+| pipeline  | II=1 style=flp                      | top_instrumentation_wrapper.cpp:48 in move                               |
+| pipeline  | II=1 style=flp                      | top_instrumentation_wrapper.cpp:57 in move                               |
+| inline    |                                     | top_instrumentation_wrapper.cpp:96 in operator()                         |
+| pipeline  | II=1 style=flp                      | top_instrumentation_wrapper.cpp:120 in instrument                        |
+| reset     | variable=cnt_clk                    | top_instrumentation_wrapper.cpp:125 in instrument, cnt_clk               |
+| stream    | variable=timestamps depth=PENDING   | top_instrumentation_wrapper.cpp:127 in instrument, timestamps            |
+| reset     | variable=timestamp_ovf              | top_instrumentation_wrapper.cpp:130 in instrument, timestamp_ovf         |
+| reset     | variable=timestamp_unf              | top_instrumentation_wrapper.cpp:131 in instrument, timestamp_unf         |
+| reset     | variable=icnt                       | top_instrumentation_wrapper.cpp:137 in instrument, icnt                  |
+| reset     | variable=lfsr off                   | top_instrumentation_wrapper.cpp:138 in instrument, lfsr                  |
+| unroll    |                                     | top_instrumentation_wrapper.cpp:147 in instrument                        |
+| unroll    |                                     | top_instrumentation_wrapper.cpp:155 in instrument                        |
+| reset     | variable=ocnt                       | top_instrumentation_wrapper.cpp:169 in instrument, ocnt                  |
+| reset     | variable=ts1                        | top_instrumentation_wrapper.cpp:173 in instrument, ts1                   |
+| reset     | variable=last_latency               | top_instrumentation_wrapper.cpp:174 in instrument, last_latency          |
+| reset     | variable=last_interval              | top_instrumentation_wrapper.cpp:175 in instrument, last_interval         |
+| reset     | variable=pkts                       | top_instrumentation_wrapper.cpp:178 in instrument, pkts                  |
+| reset     | variable=coeff off                  | top_instrumentation_wrapper.cpp:182 in instrument, coeff                 |
+| reset     | variable=psum off                   | top_instrumentation_wrapper.cpp:183 in instrument, psum                  |
+| reset     | variable=last_checksum              | top_instrumentation_wrapper.cpp:184 in instrument, last_checksum         |
+| unroll    |                                     | top_instrumentation_wrapper.cpp:196 in instrument                        |
+| unroll    |                                     | top_instrumentation_wrapper.cpp:207 in instrument                        |
+| interface | axis port=finnix                    | top_instrumentation_wrapper.cpp:249 in instrumentation_wrapper, finnix   |
+| interface | axis port=finnox                    | top_instrumentation_wrapper.cpp:250 in instrumentation_wrapper, finnox   |
+| interface | s_axilite bundle=ctrl port=cfg      | top_instrumentation_wrapper.cpp:251 in instrumentation_wrapper, cfg      |
+| interface | s_axilite bundle=ctrl port=status   | top_instrumentation_wrapper.cpp:252 in instrumentation_wrapper, status   |
+| interface | s_axilite bundle=ctrl port=latency  | top_instrumentation_wrapper.cpp:253 in instrumentation_wrapper, latency  |
+| interface | s_axilite bundle=ctrl port=interval | top_instrumentation_wrapper.cpp:254 in instrumentation_wrapper, interval |
+| interface | s_axilite bundle=ctrl port=checksum | top_instrumentation_wrapper.cpp:255 in instrumentation_wrapper, checksum |
+| interface | ap_ctrl_none port=return            | top_instrumentation_wrapper.cpp:256 in instrumentation_wrapper, return   |
+| dataflow  | disable_start_propagation           | top_instrumentation_wrapper.cpp:258 in instrumentation_wrapper           |
+| stream    | variable=finnix0 depth=2            | top_instrumentation_wrapper.cpp:261 in instrumentation_wrapper, finnix0  |
+| stream    | variable=finnox0 depth=2            | top_instrumentation_wrapper.cpp:262 in instrumentation_wrapper, finnox0  |
++-----------+-------------------------------------+--------------------------------------------------------------------------+
+
+

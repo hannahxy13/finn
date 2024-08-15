@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xd:addressMap xmlns:xd="http://www.xilinx.com/xd">
+  <xd:addressRange xd:componentRef="CIPS_0" xd:addressSpace="M_AXI_FPD" xd:segment="SEG_axi_intc_0_Reg" xd:slaveRef="axi_intc_0" xd:slaveInterface="s_axi" xd:slaveSegment="Reg" xd:baseAddr="0x000A4000000" xd:range="0x10000"/>
+  <xd:addressRange xd:componentRef="CIPS_0" xd:addressSpace="M_AXI_FPD" xd:segment="SEG_instrumentation_wrapper_0_Reg" xd:slaveRef="instrumentation_wrapper_0" xd:slaveInterface="s_axi_ctrl" xd:slaveSegment="Reg" xd:baseAddr="0x000A4010000" xd:range="0x10000"/>
+</xd:addressMap>

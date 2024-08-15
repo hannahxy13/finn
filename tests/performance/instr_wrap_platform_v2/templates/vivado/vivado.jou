@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Wed Aug  7 14:42:18 2024
+# Process ID: 236
+# Current directory: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/templates/vivado
+# Command line: vivado -mode batch -source xsa_platform_classic.tcl -tclargs vmk180 vmk180_thin xcvm1802-vsva2197-2MP-e-S 3.1 303.03030303030306 606.0606060606061
+# Log file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/templates/vivado/vivado.log
+# Journal file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/templates/vivado/vivado.jou
+# Running On: finn_dev_hannayan, OS: Linux, CPU Frequency: 3188.800 MHz, CPU Physical cores: 32, Host memory: 540363 MB
+#-----------------------------------------------------------
+source xsa_platform_classic.tcl

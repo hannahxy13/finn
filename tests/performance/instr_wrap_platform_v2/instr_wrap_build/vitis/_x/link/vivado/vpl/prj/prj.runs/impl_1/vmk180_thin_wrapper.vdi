@@ -1,0 +1,967 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Aug 15 10:50:36 2024
+# Process ID: 1875
+# Current directory: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1
+# Command line: vivado -log vmk180_thin_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source vmk180_thin_wrapper.tcl -notrace
+# Log file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper.vdi
+# Journal file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vivado.jou
+# Running On: finn_dev_hannayan, OS: Linux, CPU Frequency: 3003.972 MHz, CPU Physical cores: 32, Host memory: 540363 MB
+#-----------------------------------------------------------
+Sourcing tcl script '/tmp/home_dir/.Xilinx/Vivado/Vivado_init.tcl'
+484 Beta devices matching pattern found, 484 enabled.
+enable_beta_device: Time (s): cpu = 00:00:10 ; elapsed = 00:00:39 . Memory (MB): peak = 2045.352 ; gain = 132.520 ; free physical = 78417 ; free virtual = 499658
+source vmk180_thin_wrapper.tcl -notrace
+INFO: Dispatch client connection id - 37273
+source /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/scripts/impl_1/_full_init_pre.tcl
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/ip_repo/xilinx_com_hls_instrumentation_wrapper_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/ip_repo/xilinx_finn_finn_finn_design_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis/2022.2/data/cache/xilinx'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/.local/hw_platform/ipcache'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vivado/2022.2/data/ip'.
+Command: link_design -top vmk180_thin_wrapper -part xcvm1802-vsva2197-2MP-e-S
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xcvm1802-vsva2197-2MP-e-S
+INFO: [Project 1-454] Reading design checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_axi_intc_0_0/vmk180_thin_axi_intc_0_0.dcp' for cell 'vmk180_thin_i/axi_intc_0'
+INFO: [Project 1-454] Reading design checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_clk_wizard_0_0/vmk180_thin_clk_wizard_0_0.dcp' for cell 'vmk180_thin_i/clk_wizard_0'
+INFO: [Project 1-454] Reading design checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_finn_design_0_0/vmk180_thin_finn_design_0_0.dcp' for cell 'vmk180_thin_i/finn_design_0'
+INFO: [Project 1-454] Reading design checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/vmk180_thin_icn_ctrl_0.dcp' for cell 'vmk180_thin_i/icn_ctrl'
+INFO: [Project 1-454] Reading design checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_instrumentation_wrapper_0_0/vmk180_thin_instrumentation_wrapper_0_0.dcp' for cell 'vmk180_thin_i/instrumentation_wrapper_0'
+INFO: [Project 1-454] Reading design checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_proc_sys_reset_0_0/vmk180_thin_proc_sys_reset_0_0.dcp' for cell 'vmk180_thin_i/proc_sys_reset_0'
+INFO: [Project 1-454] Reading design checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_rst_clk_wizard_0_303M_0/vmk180_thin_rst_clk_wizard_0_303M_0.dcp' for cell 'vmk180_thin_i/rst_clk_wizard_0_303M'
+Netlist sorting complete. Time (s): cpu = 00:00:00.44 ; elapsed = 00:00:00.44 . Memory (MB): peak = 3065.715 ; gain = 0.000 ; free physical = 76499 ; free virtual = 497963
+INFO: [Netlist 29-17] Analyzing 1036 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvm1802.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Reading NOC Solution File '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/synth_1/vmk180_thin_wrapper/vmk180_thin_wrapper.ncr'
+Reading Traffic File '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/nsln/vmk180_thin.nts' for cell 'vmk180_thin_i'
+INFO: [Ipconfig 75-709] Read and Merge Traffic Stats:  Before Read: 0 insts (0 INI), 0 paths (0 INI). Read In: 0 insts (0 INI), 0 paths (0 INI). After Merge: 0 insts (0 INI), 0 paths (0 INI). Noc Frequency: 1000 0 error slaves
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_CIPS_0_0/bd_0/ip/ip_0/bd_4ac6_pspmc_0_0.xdc] for cell 'vmk180_thin_i/CIPS_0/inst/pspmc_0/inst'
+create_clock: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 3399.441 ; gain = 64.508 ; free physical = 76812 ; free virtual = 498479
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_CIPS_0_0/bd_0/ip/ip_0/bd_4ac6_pspmc_0_0.xdc] for cell 'vmk180_thin_i/CIPS_0/inst/pspmc_0/inst'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_CIPS_0_0/bd_0/ip/ip_0/pspmc_v1_3/constraints/usr_constraints.xdc] for cell 'vmk180_thin_i/CIPS_0/inst/pspmc_0/inst'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_CIPS_0_0/bd_0/ip/ip_0/pspmc_v1_3/constraints/usr_constraints.xdc] for cell 'vmk180_thin_i/CIPS_0/inst/pspmc_0/inst'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_axi_intc_0_0/vmk180_thin_axi_intc_0_0.xdc] for cell 'vmk180_thin_i/axi_intc_0/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_axi_intc_0_0/vmk180_thin_axi_intc_0_0.xdc] for cell 'vmk180_thin_i/axi_intc_0/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_clk_wizard_0_0/vmk180_thin_clk_wizard_0_0_board.xdc] for cell 'vmk180_thin_i/clk_wizard_0/inst'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_clk_wizard_0_0/vmk180_thin_clk_wizard_0_0_board.xdc] for cell 'vmk180_thin_i/clk_wizard_0/inst'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_clk_wizard_0_0/vmk180_thin_clk_wizard_0_0.xdc] for cell 'vmk180_thin_i/clk_wizard_0/inst'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_clk_wizard_0_0/vmk180_thin_clk_wizard_0_0.xdc] for cell 'vmk180_thin_i/clk_wizard_0/inst'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_proc_sys_reset_0_0/vmk180_thin_proc_sys_reset_0_0_board.xdc] for cell 'vmk180_thin_i/proc_sys_reset_0/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_proc_sys_reset_0_0/vmk180_thin_proc_sys_reset_0_0_board.xdc] for cell 'vmk180_thin_i/proc_sys_reset_0/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_proc_sys_reset_0_0/vmk180_thin_proc_sys_reset_0_0.xdc] for cell 'vmk180_thin_i/proc_sys_reset_0/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_proc_sys_reset_0_0/vmk180_thin_proc_sys_reset_0_0.xdc] for cell 'vmk180_thin_i/proc_sys_reset_0/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_1/bd_4d5f_psr0_0_board.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_1/bd_4d5f_psr0_0_board.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr0/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_1/bd_4d5f_psr0_0.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr0/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_1/bd_4d5f_psr0_0.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr0/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_2/bd_4d5f_psr_aclk_0_board.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_2/bd_4d5f_psr_aclk_0_board.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_2/bd_4d5f_psr_aclk_0.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_2/bd_4d5f_psr_aclk_0.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_3/bd_4d5f_psr_aclk1_0_board.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_3/bd_4d5f_psr_aclk1_0_board.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_3/bd_4d5f_psr_aclk1_0.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr_aclk1/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_icn_ctrl_0/bd_0/ip/ip_3/bd_4d5f_psr_aclk1_0.xdc] for cell 'vmk180_thin_i/icn_ctrl/inst/clk_map/psr_aclk1/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_rst_clk_wizard_0_303M_0/vmk180_thin_rst_clk_wizard_0_303M_0_board.xdc] for cell 'vmk180_thin_i/rst_clk_wizard_0_303M/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_rst_clk_wizard_0_303M_0/vmk180_thin_rst_clk_wizard_0_303M_0_board.xdc] for cell 'vmk180_thin_i/rst_clk_wizard_0_303M/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_rst_clk_wizard_0_303M_0/vmk180_thin_rst_clk_wizard_0_303M_0.xdc] for cell 'vmk180_thin_i/rst_clk_wizard_0_303M/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_rst_clk_wizard_0_303M_0/vmk180_thin_rst_clk_wizard_0_303M_0.xdc] for cell 'vmk180_thin_i/rst_clk_wizard_0_303M/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_axi_intc_0_0/vmk180_thin_axi_intc_0_0_clocks.xdc] for cell 'vmk180_thin_i/axi_intc_0/U0'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_axi_intc_0_0/vmk180_thin_axi_intc_0_0_clocks.xdc] for cell 'vmk180_thin_i/axi_intc_0/U0'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_clk_wizard_0_0/vmk180_thin_clk_wizard_0_0_late.xdc] for cell 'vmk180_thin_i/clk_wizard_0/inst'
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_clk_wizard_0_0/vmk180_thin_clk_wizard_0_0_late.xdc] for cell 'vmk180_thin_i/clk_wizard_0/inst'
+INFO: [Project 1-1714] 67 XPM XDC files have been applied to the design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4647.512 ; gain = 0.000 ; free physical = 75601 ; free virtual = 497919
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1036 instances were transformed.
+  LUT6CY => LUT6CY (LUTCY1, LUTCY2): 546 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 277 instances
+  RAM16X1S => RAM32X1S (RAMS32): 79 instances
+  RAM32X1S => RAM32X1S (RAMS32): 1 instance 
+  RAM64M8 => RAM64M8 (RAMD64E5(x8), VCC): 5 instances
+  RAM64X1S => RAM64X1S (RAMS64E5, VCC): 128 instances
+
+26 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:57 ; elapsed = 00:01:00 . Memory (MB): peak = 4647.512 ; gain = 2493.828 ; free physical = 75602 ; free virtual = 497920
+source /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/scripts/impl_1/_full_init_post.tcl
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/output/_user_impl_clk.xdc]
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/output/_user_impl_clk.xdc]
+source /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/scripts/impl_1/_full_opt_pre.tcl
+Post-synthesis utilization DRC check...
+available resources:
+   luts      : -1
+   registers : -1
+   brams     : -1
+   dsps      : -1
+required resources:
+   luts      : 7003
+   registers : 12421
+   brams     : 11.5
+   dsps      : 0
+WARNING: There is no resource utilization data in hardware platform, utilization DRC is skipped
+INFO: System Diagram: Run step: synthed
+
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvm1802'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvm1802'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 4711.543 ; gain = 64.031 ; free physical = 73890 ; free virtual = 497217
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1718a7bf7
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73767 ; free virtual = 497122
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-1287] Pulled Inverter vmk180_thin_i/axi_intc_0/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/I_DECODER/ip2bus_wrack_int_d1_i_1 into driver instance vmk180_thin_i/axi_intc_0/U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/I_DECODER/ip2bus_wrack_int_d1_i_2, which resulted in an inversion of 2 pins
+INFO: [Opt 31-1287] Pulled Inverter vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_1/MatrixVectorActivation_1/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/flow_control_loop_pipe_sequential_init_U/ap_CS_fsm[2]_i_1__1 into driver instance vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_1/MatrixVectorActivation_1/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/flow_control_loop_pipe_sequential_init_U/ap_CS_fsm[3]_i_2__1, which resulted in an inversion of 2 pins
+INFO: [Opt 31-1287] Pulled Inverter vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_1/MatrixVectorActivation_1/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/flow_control_loop_pipe_sequential_init_U/icmp_ln290_reg_3002[0]_i_1 into driver instance vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_1/MatrixVectorActivation_1/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/flow_control_loop_pipe_sequential_init_U/sf_fu_190[31]_i_7, which resulted in an inversion of 7 pins
+INFO: [Opt 31-1287] Pulled Inverter vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_2/MatrixVectorActivation_2/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/flow_control_loop_pipe_sequential_init_U/ap_CS_fsm[2]_i_1__2 into driver instance vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_2/MatrixVectorActivation_2/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/flow_control_loop_pipe_sequential_init_U/ap_CS_fsm[3]_i_2__2, which resulted in an inversion of 2 pins
+INFO: [Opt 31-1287] Pulled Inverter vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_2/MatrixVectorActivation_2/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/flow_control_loop_pipe_sequential_init_U/icmp_ln290_reg_3002[0]_i_1__0 into driver instance vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_2/MatrixVectorActivation_2/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/flow_control_loop_pipe_sequential_init_U/sf_fu_190[31]_i_7__0, which resulted in an inversion of 7 pins
+INFO: [Opt 31-1287] Pulled Inverter vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_3/MatrixVectorActivation_3/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/flow_control_loop_pipe_sequential_init_U/ap_CS_fsm[2]_i_1__3 into driver instance vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_3/MatrixVectorActivation_3/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/flow_control_loop_pipe_sequential_init_U/ap_CS_fsm[3]_i_2__3, which resulted in an inversion of 2 pins
+INFO: [Opt 31-1287] Pulled Inverter vmk180_thin_i/finn_design_0/inst/finn_design_i/Thresholding_Batch_0/inst/regslice_both_out_V_U/ap_CS_fsm[0]_i_1__4 into driver instance vmk180_thin_i/finn_design_0/inst/finn_design_i/Thresholding_Batch_0/inst/regslice_both_out_V_U/ap_CS_fsm[3]_i_4, which resulted in an inversion of 2 pins
+INFO: [Opt 31-1287] Pulled Inverter vmk180_thin_i/icn_ctrl/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/s_axi_rlast_INST_0 into driver instance vmk180_thin_i/icn_ctrl/inst/s00_entry_pipeline/s00_si_converter/inst/gen_axilite_conv.axilite_conv_inst/s_axi_rlast_INST_0_i_1, which resulted in an inversion of 6 pins
+INFO: [Opt 31-138] Pushed 69 inverter(s) to 1803 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: c8f6ef34
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73697 ; free virtual = 497197
+INFO: [Opt 31-389] Phase Retarget created 4 cells and removed 83 cells
+INFO: [Opt 31-1021] In phase Retarget, 55 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: d9d6d35e
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73640 ; free virtual = 497181
+INFO: [Opt 31-389] Phase Constant propagation created 4 cells and removed 40 cells
+INFO: [Opt 31-1021] In phase Constant propagation, 382 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 1a1f96aec
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73319 ; free virtual = 497095
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 1116 cells
+INFO: [Opt 31-1021] In phase Sweep, 755 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+
+Phase 4 BUFG optimization
+INFO: [Opt 31-1077] Phase BUFG optimization inserted 0 global clock buffer(s) for CLOCK_LOW_FANOUT.
+Phase 4 BUFG optimization | Checksum: 13cebf700
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73249 ; free virtual = 497071
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: 13cebf700
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73240 ; free virtual = 497069
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 1b287a868
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73206 ; free virtual = 497056
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+INFO: [Opt 31-1021] In phase Post Processing Netlist, 70 netlist objects are constrained preventing optimization. Please run opt_design with -debug_log to get more detail. 
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               4  |              83  |                                             55  |
+|  Constant propagation         |               4  |              40  |                                            382  |
+|  Sweep                        |               0  |            1116  |                                            755  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                             70  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73125 ; free virtual = 497028
+Ending Logic Optimization Task | Checksum: 12b2466eb
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73124 ; free virtual = 497028
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 12b2466eb
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73100 ; free virtual = 497019
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73097 ; free virtual = 497018
+Ending Netlist Obfuscation Task | Checksum: 12b2466eb
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 73097 ; free virtual = 497018
+INFO: [Common 17-83] Releasing license: Implementation
+55 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:15 . Memory (MB): peak = 4711.543 ; gain = 64.031 ; free physical = 73070 ; free virtual = 497009
+source /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/scripts/impl_1/_full_opt_post.tcl
+source /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/scripts/impl_1/_full_place_pre.tcl
+CRITICAL WARNING: [Vivado 12-4430] You are lowering the severity from an ERROR. This can potentially lead to board damage or other functionality issues on hardware. If this is not desired, please run 'reset_property SEVERITY [get_drc_checks HDPR-5]' to undo this change.
+Command: place_design -retiming
+Attempting to get a license for feature 'Implementation' and/or device 'xcvm1802'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvm1802'
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 11 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 72604 ; free virtual = 497743
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 6f4d2172
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.05 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 72602 ; free virtual = 497741
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 4711.543 ; gain = 0.000 ; free physical = 72598 ; free virtual = 497738
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: d0153d1e
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:42 . Memory (MB): peak = 5177.645 ; gain = 466.102 ; free physical = 73398 ; free virtual = 496730
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 10ac261cb
+
+Time (s): cpu = 00:01:06 ; elapsed = 00:00:48 . Memory (MB): peak = 5467.109 ; gain = 755.566 ; free physical = 72902 ; free virtual = 496234
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 10ac261cb
+
+Time (s): cpu = 00:01:06 ; elapsed = 00:00:48 . Memory (MB): peak = 5467.109 ; gain = 755.566 ; free physical = 72893 ; free virtual = 496225
+Phase 1 Placer Initialization | Checksum: 10ac261cb
+
+Time (s): cpu = 00:01:06 ; elapsed = 00:00:48 . Memory (MB): peak = 5467.109 ; gain = 755.566 ; free physical = 72874 ; free virtual = 496206
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+
+Phase 2.1.1 Partition Driven Placement
+
+Phase 2.1.1.1 PBP: Partition Driven Placement
+Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: 199d292de
+
+Time (s): cpu = 00:01:12 ; elapsed = 00:00:52 . Memory (MB): peak = 5467.109 ; gain = 755.566 ; free physical = 73153 ; free virtual = 496485
+
+Phase 2.1.1.2 PBP: Clock Region Placement
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 5467.109 ; gain = 0.000 ; free physical = 73005 ; free virtual = 496337
+Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: 1cf13878f
+
+Time (s): cpu = 00:01:16 ; elapsed = 00:00:55 . Memory (MB): peak = 5467.109 ; gain = 755.566 ; free physical = 72859 ; free virtual = 496191
+
+Phase 2.1.1.3 PBP: Compute Congestion
+Phase 2.1.1.3 PBP: Compute Congestion | Checksum: 1cf13878f
+
+Time (s): cpu = 00:01:31 ; elapsed = 00:01:00 . Memory (MB): peak = 5710.508 ; gain = 998.965 ; free physical = 72364 ; free virtual = 495696
+
+Phase 2.1.1.4 PBP: UpdateTiming
+Phase 2.1.1.4 PBP: UpdateTiming | Checksum: 1c9ea488d
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:01 . Memory (MB): peak = 5742.523 ; gain = 1030.980 ; free physical = 72288 ; free virtual = 495620
+
+Phase 2.1.1.5 PBP: Add part constraints
+Phase 2.1.1.5 PBP: Add part constraints | Checksum: 1c9ea488d
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:01 . Memory (MB): peak = 5742.523 ; gain = 1030.980 ; free physical = 72287 ; free virtual = 495619
+Phase 2.1.1 Partition Driven Placement | Checksum: 1c9ea488d
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:01 . Memory (MB): peak = 5742.523 ; gain = 1030.980 ; free physical = 72294 ; free virtual = 495626
+Phase 2.1 Floorplanning | Checksum: 1c9ea488d
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:01 . Memory (MB): peak = 5742.523 ; gain = 1030.980 ; free physical = 72290 ; free virtual = 495623
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1c9ea488d
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:01 . Memory (MB): peak = 5742.523 ; gain = 1030.980 ; free physical = 72288 ; free virtual = 495621
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 1c9ea488d
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:01:01 . Memory (MB): peak = 5742.523 ; gain = 1030.980 ; free physical = 72282 ; free virtual = 495614
+
+Phase 2.4 Global Placement Core
+
+Phase 2.4.1 UpdateTiming Before Physical Synthesis
+Phase 2.4.1 UpdateTiming Before Physical Synthesis | Checksum: 1c1e23fb4
+
+Time (s): cpu = 00:03:04 ; elapsed = 00:01:28 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72551 ; free virtual = 495883
+
+Phase 2.4.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 8 LUTNM shape to break, 215 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 5, two critical 3, total 8, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 105 nets or LUTs. Breaked 8 LUTs, combined 97 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-1016] Retiming optimization will be performed inside SDX Kernel: vmk180_thin_i/instrumentation_wrapper_0/inst.
+INFO: [Physopt 32-943] No candidate net found for forward retiming.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-943] No candidate net found for backward retiming.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1030] Pass 1. Identified 7 candidate driver sets for equivalent driver rewiring.
+INFO: [Physopt 32-661] Optimized 7 nets.  Re-placed 31 instances.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 7 nets or cells. Created 0 new cell, deleted 1 existing cell and moved 31 existing cells
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 5913.707 ; gain = 0.000 ; free physical = 72400 ; free virtual = 495732
+INFO: [Physopt 32-76] Pass 1. Identified 1 candidate net for fanout optimization.
+INFO: [Physopt 32-81] Processed net vmk180_thin_i/rst_clk_wizard_0_303M/U0/peripheral_aresetn[0]. Replicated 11 times.
+INFO: [Physopt 32-232] Optimized 1 net. Created 11 new instances.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 1 net or cell. Created 11 new cells, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.18 . Memory (MB): peak = 5913.707 ; gain = 0.000 ; free physical = 72325 ; free virtual = 495657
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-1123] No candidate cells found for Shift Register to Pipeline optimization
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-846] No candidate cells for URAM register optimization found in the design
+INFO: [Physopt 32-775] End 2 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 5913.707 ; gain = 0.000 ; free physical = 72897 ; free virtual = 496229
+INFO: [Physopt 32-46] Identified 5 candidate nets for critical-cell optimization.
+INFO: [Physopt 32-81] Processed net vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/p_0_0_0_5416_fu_1676[2]_i_15_n_3. Replicated 1 times.
+INFO: [Physopt 32-571] Net vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/grp_Matrix_Vector_Activate_Stream_Batch_fu_30_out_V_TDATA[54] was not replicated.
+INFO: [Physopt 32-571] Net vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0/inst/grp_Matrix_Vector_Activate_Stream_Batch_fu_30/p_0_0_0_5416_fu_1676[1]_i_8_n_3 was not replicated.
+INFO: [Physopt 32-232] Optimized 1 net. Created 1 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 1 net or cell. Created 1 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 5913.707 ; gain = 0.000 ; free physical = 72884 ; free virtual = 496215
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 5913.707 ; gain = 0.000 ; free physical = 72883 ; free virtual = 496215
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            8  |             97  |                   105  |           0  |           1  |  00:00:01  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Equivalent Driver Rewiring                       |            0  |              1  |                     7  |           0  |           1  |  00:00:01  |
+|  Very High Fanout                                 |           11  |              0  |                     1  |           0  |           1  |  00:00:01  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Critical Cell                                    |            1  |              0  |                     1  |           0  |           1  |  00:00:00  |
+|  Total                                            |           20  |             98  |                   114  |           0  |          11  |  00:00:02  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.4.2 Physical Synthesis In Placer | Checksum: 234d39440
+
+Time (s): cpu = 00:03:09 ; elapsed = 00:01:32 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72797 ; free virtual = 496128
+Phase 2.4 Global Placement Core | Checksum: 1da3e1d54
+
+Time (s): cpu = 00:03:26 ; elapsed = 00:01:38 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72409 ; free virtual = 495741
+Phase 2 Global Placement | Checksum: 1d42f312f
+
+Time (s): cpu = 00:03:26 ; elapsed = 00:01:38 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72597 ; free virtual = 495929
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 1fef71d81
+
+Time (s): cpu = 00:03:48 ; elapsed = 00:01:44 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72963 ; free virtual = 496295
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 17cec3195
+
+Time (s): cpu = 00:03:51 ; elapsed = 00:01:45 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 73510 ; free virtual = 496842
+
+Phase 3.3 Small Shape DP
+
+Phase 3.3.1 Small Shape Clustering
+Phase 3.3.1 Small Shape Clustering | Checksum: 224fa5c24
+
+Time (s): cpu = 00:03:59 ; elapsed = 00:01:48 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 73270 ; free virtual = 496602
+
+Phase 3.3.2 Flow Legalize Slice Clusters
+Phase 3.3.2 Flow Legalize Slice Clusters | Checksum: 19b724459
+
+Time (s): cpu = 00:04:00 ; elapsed = 00:01:48 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 73232 ; free virtual = 496564
+
+Phase 3.3.3 Slice Area Swap
+
+Phase 3.3.3.1 Slice Area Swap Initial
+Phase 3.3.3.1 Slice Area Swap Initial | Checksum: 18dd044fb
+
+Time (s): cpu = 00:04:03 ; elapsed = 00:01:51 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72992 ; free virtual = 496324
+Phase 3.3.3 Slice Area Swap | Checksum: 18dd044fb
+
+Time (s): cpu = 00:04:03 ; elapsed = 00:01:51 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72989 ; free virtual = 496321
+Phase 3.3 Small Shape DP | Checksum: 1ee47af60
+
+Time (s): cpu = 00:04:13 ; elapsed = 00:01:54 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72778 ; free virtual = 496110
+
+Phase 3.4 Optimize BEL assignments
+Phase 3.4 Optimize BEL assignments | Checksum: 1db8d28d3
+
+Time (s): cpu = 00:04:40 ; elapsed = 00:02:03 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72698 ; free virtual = 496030
+
+Phase 3.5 Pipeline Register Optimization
+Phase 3.5 Pipeline Register Optimization | Checksum: 19644bdcf
+
+Time (s): cpu = 00:04:40 ; elapsed = 00:02:03 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72680 ; free virtual = 496012
+Phase 3 Detail Placement | Checksum: 19644bdcf
+
+Time (s): cpu = 00:04:40 ; elapsed = 00:02:03 . Memory (MB): peak = 5913.707 ; gain = 1202.164 ; free physical = 72670 ; free virtual = 496002
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 5914.691 ; gain = 0.000 ; free physical = 73650 ; free virtual = 496982
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: 161721e03
+
+Phase 4.1.1.1 BUFG Insertion
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 8 CPUs
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=0.128 | TNS=0.000 |
+Phase 1 Physical Synthesis Initialization | Checksum: 167355d2c
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 5914.691 ; gain = 0.000 ; free physical = 72993 ; free virtual = 496324
+INFO: [Place 46-56] BUFG insertion identified 0 candidate nets. Inserted BUFG: 0, Replicated BUFG Driver: 0, Skipped due to Placement/Routing Conflicts: 0, Skipped due to Timing Degradation: 0, Skipped due to Illegal Netlist: 0.
+Ending Physical Synthesis Task | Checksum: 2b7c09a3d
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 5914.691 ; gain = 0.000 ; free physical = 72967 ; free virtual = 496299
+Phase 4.1.1.1 BUFG Insertion | Checksum: 161721e03
+
+Time (s): cpu = 00:05:22 ; elapsed = 00:02:21 . Memory (MB): peak = 5914.691 ; gain = 1203.148 ; free physical = 72967 ; free virtual = 496299
+
+Phase 4.1.1.2 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=0.502. For the most accurate timing information please run report_timing.
+Phase 4.1.1.2 Post Placement Timing Optimization | Checksum: 1b7cc663d
+
+Time (s): cpu = 00:05:57 ; elapsed = 00:02:55 . Memory (MB): peak = 5914.691 ; gain = 1203.148 ; free physical = 73136 ; free virtual = 496509
+
+Time (s): cpu = 00:05:57 ; elapsed = 00:02:55 . Memory (MB): peak = 5914.691 ; gain = 1203.148 ; free physical = 73137 ; free virtual = 496509
+Phase 4.1 Post Commit Optimization | Checksum: 1b7cc663d
+
+Time (s): cpu = 00:05:57 ; elapsed = 00:02:55 . Memory (MB): peak = 5914.691 ; gain = 1203.148 ; free physical = 73124 ; free virtual = 496497
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 5999.941 ; gain = 0.000 ; free physical = 72341 ; free virtual = 495714
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 2b213fd35
+
+Time (s): cpu = 00:06:17 ; elapsed = 00:03:05 . Memory (MB): peak = 5999.941 ; gain = 1288.398 ; free physical = 72325 ; free virtual = 495697
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ________________________________________________________________________
+|           | Global Congestion | Long Congestion   | Short Congestion  |
+| Direction | Region Size       | Region Size       | Region Size       |
+|___________|___________________|___________________|___________________|
+|      North|                1x1|                1x1|                2x2|
+|___________|___________________|___________________|___________________|
+|      South|                1x1|                1x1|                1x1|
+|___________|___________________|___________________|___________________|
+|       East|                1x1|                1x1|                1x1|
+|___________|___________________|___________________|___________________|
+|       West|                1x1|                1x1|                1x1|
+|___________|___________________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 2b213fd35
+
+Time (s): cpu = 00:06:17 ; elapsed = 00:03:05 . Memory (MB): peak = 5999.941 ; gain = 1288.398 ; free physical = 72941 ; free virtual = 496313
+Phase 4.3 Placer Reporting | Checksum: 2b213fd35
+
+Time (s): cpu = 00:06:17 ; elapsed = 00:03:05 . Memory (MB): peak = 5999.941 ; gain = 1288.398 ; free physical = 72933 ; free virtual = 496305
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 5999.941 ; gain = 0.000 ; free physical = 72929 ; free virtual = 496301
+
+Time (s): cpu = 00:06:17 ; elapsed = 00:03:05 . Memory (MB): peak = 5999.941 ; gain = 1288.398 ; free physical = 72929 ; free virtual = 496301
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 317c073fd
+
+Time (s): cpu = 00:06:17 ; elapsed = 00:03:05 . Memory (MB): peak = 5999.941 ; gain = 1288.398 ; free physical = 72923 ; free virtual = 496296
+Ending Placer Task | Checksum: 2cca48be8
+
+Time (s): cpu = 00:06:17 ; elapsed = 00:03:05 . Memory (MB): peak = 5999.941 ; gain = 1288.398 ; free physical = 72913 ; free virtual = 496285
+INFO: [Common 17-83] Releasing license: Implementation
+104 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:06:30 ; elapsed = 00:03:17 . Memory (MB): peak = 5999.941 ; gain = 1288.398 ; free physical = 73165 ; free virtual = 496538
+source /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/scripts/impl_1/_full_place_post.tcl
+INFO: System Diagram: Run step: placed
+
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvm1802'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvm1802'
+
+Starting Initial Update Timing Task
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:03 . Memory (MB): peak = 5999.941 ; gain = 0.000 ; free physical = 73495 ; free virtual = 496867
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+108 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:10 . Memory (MB): peak = 5999.941 ; gain = 0.000 ; free physical = 73485 ; free virtual = 496857
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvm1802'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvm1802'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+
+Phase 1 Build RT Design
+Checksum: PlaceDB: dbbe7e33 ConstDB: 0 ShapeSum: f69e76bd RouteDB: fa4796f8
+INFO: [DRC 23-27] Running DRC with 8 threads
+Nodegraph reading from file.  Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 6031.957 ; gain = 0.000 ; free physical = 72713 ; free virtual = 496085
+Post Restoration Checksum: NetGraph: d0084206 NumContArr: db2ed0a1 Constraints: 4b5a569f Timing: 0
+Phase 1 Build RT Design | Checksum: 1f6916946
+
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:33 . Memory (MB): peak = 6031.957 ; gain = 0.000 ; free physical = 72402 ; free virtual = 495776
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: 1f6916946
+
+Time (s): cpu = 00:00:52 ; elapsed = 00:00:34 . Memory (MB): peak = 6031.957 ; gain = 0.000 ; free physical = 72307 ; free virtual = 495681
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 1f6916946
+
+Time (s): cpu = 00:00:53 ; elapsed = 00:00:34 . Memory (MB): peak = 6031.957 ; gain = 0.000 ; free physical = 72296 ; free virtual = 495670
+
+Phase 2.3 Global Clock Net Routing
+ Number of Nodes with overlaps = 0
+Phase 2.3 Global Clock Net Routing | Checksum: 1595f7a7e
+
+Time (s): cpu = 00:01:05 ; elapsed = 00:00:42 . Memory (MB): peak = 6396.328 ; gain = 364.371 ; free physical = 72174 ; free virtual = 495587
+
+Phase 2.4 Update Timing
+Phase 2.4 Update Timing | Checksum: 301c2543d
+
+Time (s): cpu = 00:01:24 ; elapsed = 00:00:47 . Memory (MB): peak = 6396.328 ; gain = 364.371 ; free physical = 71715 ; free virtual = 495140
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.519  | TNS=0.000  | WHS=0.011  | THS=0.000  |
+
+
+Phase 2.5 Update Timing for Bus Skew
+
+Phase 2.5.1 Update Timing
+Phase 2.5.1 Update Timing | Checksum: 27b386d56
+
+Time (s): cpu = 00:01:45 ; elapsed = 00:00:53 . Memory (MB): peak = 6396.328 ; gain = 364.371 ; free physical = 72406 ; free virtual = 495831
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.519  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 2.5 Update Timing for Bus Skew | Checksum: 2bf9b784f
+
+Time (s): cpu = 00:01:46 ; elapsed = 00:00:53 . Memory (MB): peak = 6396.328 ; gain = 364.371 ; free physical = 72382 ; free virtual = 495807
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0 %
+  Global Horizontal Routing Utilization  = 0 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 20895
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 17954
+  Number of Partially Routed Nets     = 2941
+  Number of Node Overlaps             = 0
+
+Phase 2 Router Initialization | Checksum: 2d8150975
+
+Time (s): cpu = 00:01:52 ; elapsed = 00:00:55 . Memory (MB): peak = 6417.312 ; gain = 385.355 ; free physical = 72860 ; free virtual = 496286
+
+Phase 3 Initial Routing
+
+Phase 3.1 Global Routing
+
+Phase 3.1.1 SLL Assignment
+Phase 3.1.1 SLL Assignment | Checksum: 2d8150975
+
+Time (s): cpu = 00:01:52 ; elapsed = 00:00:55 . Memory (MB): peak = 6417.312 ; gain = 385.355 ; free physical = 72859 ; free virtual = 496284
+Phase 3.1 Global Routing | Checksum: 2d8150975
+
+Time (s): cpu = 00:01:52 ; elapsed = 00:00:55 . Memory (MB): peak = 6417.312 ; gain = 385.355 ; free physical = 72856 ; free virtual = 496282
+Phase 3 Initial Routing | Checksum: 22372b958
+
+Time (s): cpu = 00:02:17 ; elapsed = 00:01:08 . Memory (MB): peak = 6417.312 ; gain = 385.355 ; free physical = 72381 ; free virtual = 495809
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 2356
+ Number of Nodes with overlaps = 276
+ Number of Nodes with overlaps = 62
+ Number of Nodes with overlaps = 13
+ Number of Nodes with overlaps = 4
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.293  | TNS=0.000  | WHS=0.035  | THS=0.000  |
+
+Phase 4.1 Global Iteration 0 | Checksum: 2ef6aefc4
+
+Time (s): cpu = 00:03:18 ; elapsed = 00:01:35 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 72009 ; free virtual = 495437
+
+Phase 4.2 Additional Iteration for Hold
+Phase 4.2 Additional Iteration for Hold | Checksum: 323ed1a20
+
+Time (s): cpu = 00:03:18 ; elapsed = 00:01:35 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 71999 ; free virtual = 495427
+Phase 4 Rip-up And Reroute | Checksum: 323ed1a20
+
+Time (s): cpu = 00:03:18 ; elapsed = 00:01:35 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 71994 ; free virtual = 495422
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: 323ed1a20
+
+Time (s): cpu = 00:03:18 ; elapsed = 00:01:35 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 71984 ; free virtual = 495412
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 323ed1a20
+
+Time (s): cpu = 00:03:18 ; elapsed = 00:01:35 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 71978 ; free virtual = 495406
+Phase 5 Delay and Skew Optimization | Checksum: 323ed1a20
+
+Time (s): cpu = 00:03:19 ; elapsed = 00:01:35 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 71972 ; free virtual = 495400
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 2ca27c948
+
+Time (s): cpu = 00:03:28 ; elapsed = 00:01:38 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 72434 ; free virtual = 495862
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=0.293  | TNS=0.000  | WHS=0.035  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 2e7196cbc
+
+Time (s): cpu = 00:03:28 ; elapsed = 00:01:38 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 72424 ; free virtual = 495852
+Phase 6 Post Hold Fix | Checksum: 2e7196cbc
+
+Time (s): cpu = 00:03:28 ; elapsed = 00:01:38 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 72419 ; free virtual = 495847
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.21673 %
+  Global Horizontal Routing Utilization  = 0.267613 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+    (Failed Nets is the sum of unrouted and partially routed nets)
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 2af4a04ed
+
+Time (s): cpu = 00:03:30 ; elapsed = 00:01:39 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 72373 ; free virtual = 495801
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 2af4a04ed
+
+Time (s): cpu = 00:03:30 ; elapsed = 00:01:39 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 72356 ; free virtual = 495784
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 1e8568704
+
+Time (s): cpu = 00:03:33 ; elapsed = 00:01:42 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 72141 ; free virtual = 495573
+INFO: [Route 35-3345] MBUFG*/CLRB_LEAF net route delay summary. Please ensure that the wait time between de-asserting the CLRB_LEAF signal to each MBUFG and enabling the MBUFG output clocks is greater than the delay listed in the table below.
++===========================================================================+=============+=========================================================================+====================+
+| MBUFG Cell                                                                | Site        | CLRB_LEAF Net Name                                                      | Max Pin Delay (ns) |
++===========================================================================+=============+=========================================================================+====================+
+| vmk180_thin_i/clk_wizard_0/inst/clock_primitive_inst/MBUFGCE_clkout1_inst | BUFGCE_X6Y8 | vmk180_thin_i/clk_wizard_0/inst/clock_primitive_inst/clk_out1_clrb_leaf | 2.491              |
++---------------------------------------------------------------------------+-------------+-------------------------------------------------------------------------+--------------------+
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=0.293  | TNS=0.000  | WHS=0.035  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 1e8568704
+
+Time (s): cpu = 00:03:37 ; elapsed = 00:01:42 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 72100 ; free virtual = 495532
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:03:48 ; elapsed = 00:01:44 . Memory (MB): peak = 6449.328 ; gain = 417.371 ; free physical = 72070 ; free virtual = 495503
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+124 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:04:02 ; elapsed = 00:01:55 . Memory (MB): peak = 6449.328 ; gain = 449.387 ; free physical = 72062 ; free virtual = 495495
+source /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/scripts/impl_1/_full_route_post.tcl
+INFO: System Diagram: Run step: routed
+
+WARNING: Unable to find metadata file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/debug_ip_layout.rtd
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:07 ; elapsed = 00:00:04 . Memory (MB): peak = 6465.336 ; gain = 16.008 ; free physical = 71660 ; free virtual = 495143
+INFO: [Common 17-1381] The checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper_routed.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 6465.336 ; gain = 16.008 ; free physical = 71507 ; free virtual = 494955
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file vmk180_thin_wrapper_timing_summary_routed.rpt -pb vmk180_thin_wrapper_timing_summary_routed.pb -rpx vmk180_thin_wrapper_timing_summary_routed.rpx
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2MP, Temperature grade: E, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+Starting optional post-route physical design optimization.
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcvm1802'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvm1802'
+INFO: [Vivado_Tcl 4-241] Physical synthesis in post route mode ( 100.0% nets are fully routed)
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.000 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+134 Infos, 1 Warnings, 1 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 6465.336 ; gain = 0.000 ; free physical = 72505 ; free virtual = 495953
+source /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/scripts/impl_1/_full_post_route_phys_opt_post.tcl
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:07 ; elapsed = 00:00:04 . Memory (MB): peak = 6465.336 ; gain = 0.000 ; free physical = 72149 ; free virtual = 495648
+INFO: [Common 17-1381] The checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/impl_1/vmk180_thin_wrapper_postroute_physopt.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 6465.336 ; gain = 0.000 ; free physical = 71990 ; free virtual = 495454
+INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -file vmk180_thin_wrapper_timing_summary_postroute_physopted.rpt -pb vmk180_thin_wrapper_timing_summary_postroute_physopted.pb -rpx vmk180_thin_wrapper_timing_summary_postroute_physopted.rpx -warn_on_violation 
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2MP, Temperature grade: E, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+WARNING: [Timing 38-436] There are set_bus_skew constraint(s) in this design. Please run report_bus_skew to ensure that bus skew requirements are met.
+Finished optional post-route physical design optimization.
+source /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/scripts/impl_1/_full_write_device_image_pre.tcl
+INFO: [OCL_UTIL] clock frequency scaling is disabled for this flow, perform the normal timing check instead
+INFO: [OCL_UTIL] get_timing_paths -quiet -slack_lesser_than 0
+Command: write_device_image -force vmk180_thin_wrapper.pdi
+Attempting to get a license for feature 'Implementation' and/or device 'xcvm1802'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvm1802'
+Running DRC as a precondition to command write_device_image
+INFO: [IP_Flow 19-1839] IP Catalog is up to date.
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_0: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_10: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_1: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_2: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_3: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_4: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_5: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_6: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_7: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_8: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC AVALXA-271] CLK_DOM_COM_NC: Cell vmk180_thin_i/finn_design_0/inst/finn_design_i/MatrixVectorActivation_0/MatrixVectorActivation_0_wstrm/inst/core/genUnpumped.mem/blkStage2.Mem_reg_9: When cell attribute CLOCK_DOMAINS=COMMON, if cell attribute WRITE_MODE_A and WRITE_MODE_B are not READ_FIRST, there may be address collision if the same address appears on both read and write ports resulting in unknown or corrupted data. It is suggested to confirm via unisim simulation with SIM_COLLISION_CHECK != NONE that an address collision never occurs and if so try and avoid this situation. If address collisions cannot be avoided, the write-mode may be set to READ_FIRST which guarantees that the read data is the prior contents of the memory at the cost of additional power in the design. See the FPGA Memory Resources User Guide for additional information.
+WARNING: [DRC RTSTAT-10] No routable loads: 15 net(s) have no routable loads. The problem bus(es) and/or net(s) are vmk180_thin_i/icn_ctrl/inst/s00_nodes/s00_r_node/inst/mi_handler_m_sc_areset_pipe, vmk180_thin_i/icn_ctrl/inst/s00_nodes/s00_ar_node/inst/mi_handler_m_sc_areset_pipe, vmk180_thin_i/icn_ctrl/inst/m00_nodes/m00_ar_node/inst/mi_handler_m_sc_areset_pipe, vmk180_thin_i/icn_ctrl/inst/s00_nodes/s00_aw_node/inst/mi_handler_m_sc_areset_pipe, vmk180_thin_i/icn_ctrl/inst/s00_nodes/s00_w_node/inst/mi_handler_m_sc_areset_pipe, vmk180_thin_i/icn_ctrl/inst/s00_nodes/s00_b_node/inst/mi_handler_m_sc_areset_pipe, vmk180_thin_i/icn_ctrl/inst/m00_nodes/m00_aw_node/inst/mi_handler_m_sc_areset_pipe, vmk180_thin_i/icn_ctrl/inst/m00_nodes/m00_w_node/inst/mi_handler_m_sc_areset_pipe, vmk180_thin_i/icn_ctrl/inst/m00_nodes/m00_b_node/inst/mi_handler_m_sc_areset_pipe, vmk180_thin_i/icn_ctrl/inst/m00_nodes/m00_r_node/inst/mi_handler_m_sc_areset_pipe, vmk180_thin_i/icn_ctrl/inst/m01_nodes/m01_aw_node/inst/s_sc_areset, vmk180_thin_i/icn_ctrl/inst/m01_nodes/m01_r_node/inst/s_sc_areset, vmk180_thin_i/icn_ctrl/inst/m01_nodes/m01_w_node/inst/s_sc_areset, vmk180_thin_i/icn_ctrl/inst/m01_nodes/m01_ar_node/inst/s_sc_areset, and vmk180_thin_i/icn_ctrl/inst/m01_nodes/m01_b_node/inst/s_sc_areset.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 12 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+Integrating Hard IP ELF/MEM with the PDI.
+Generating PS PMC files.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+INFO: [Bitstream 40-812] Reading NPI Startup sequence definitions
+INFO: [Bitstream 40-811] Reading NPI Shutdown sequence definitions
+INFO: [Bitstream 40-810] Reading NPI Preconfig sequence definitions
+Creating bitstream...
+INFO: [Bitstream 40-283] Bitstream size = 10115328 bits
+Writing CDO partition ./vmk180_thin_wrapper.rcdo...
+Writing NPI partition ./vmk180_thin_wrapper.rnpi...
+Generating bif file vmk180_thin_wrapper.bif for base design.
+Generating Hard Block Files
+INFO: [Hsi 55-2053] elapsed time for repository (/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vivado/2022.2/data/embeddedsw) loading 0 seconds
+/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vivado/2022.2/gnu/microblaze/lin
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/cframe_v1_4/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/cfupmc_v1_5/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/coresightps_dcc_v1_8/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/cpu_v2_16/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/csudma_v1_12/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/emacps_v3_17/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/iomodule_v2_14/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/ipipsu_v2_12/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/pmonpsv_v2_2/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/qspipsu_v1_16/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/rtcpsu_v1_12/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/sdps_v4_0/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/standalone_v8_0/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/sysmonpsv_v3_1/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/trngpsv_v1_2/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/ttcps_v3_16/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/uartlite_v3_7/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/uartpsv_v1_7/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilffs_v4_8/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilloader_v1_7/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilnvm_v3_0/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilpdi_v1_6/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilplmi_v1_7/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilpm_v4_1/src
+Include files for this library have already been copied.
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilpuf_v2_0/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilsecure_v5_0/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilsem_v1_6/src
+Include files for this library have already been copied.
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/zdma_v1_15/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilpuf_v2_0/src
+Compiling XilPuf Library
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilpm_v4_1/src
+Compiling XilPM Library
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilloader_v1_7/src
+Compiling XilLoader Library
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilplmi_v1_7/src
+Compiling XilPLMI Library
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilpdi_v1_6/src
+Compiling Xilpdi Library
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilsem_v1_6/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilnvm_v3_0/src
+Compiling XilNvm Library
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilsecure_v5_0/src
+Compiling XilSecure Library
+Finished building libraries sequentially.
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/cframe_v1_4/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/cfupmc_v1_5/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/coresightps_dcc_v1_8/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/cpu_v2_16/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/csudma_v1_12/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/emacps_v3_17/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/iomodule_v2_14/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/ipipsu_v2_12/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/pmonpsv_v2_2/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/qspipsu_v1_16/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/rtcpsu_v1_12/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/sdps_v4_0/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/standalone_v8_0/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/sysmonpsv_v3_1/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/trngpsv_v1_2/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/ttcps_v3_16/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/uartlite_v3_7/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/uartpsv_v1_7/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilffs_v4_8/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilloader_v1_7/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilnvm_v3_0/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilpdi_v1_6/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilplmi_v1_7/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilpm_v4_1/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilpuf_v2_0/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilsecure_v5_0/src
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilsem_v1_6/src
+Include files for this library have already been copied.
+Running Make include in CIPS_0_pspmc_0_psv_pmc_0/libsrc/zdma_v1_15/src
+Include files for this library have already been copied.
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/cframe_v1_4/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/cfupmc_v1_5/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/coresightps_dcc_v1_8/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/cpu_v2_16/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/csudma_v1_12/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/emacps_v3_17/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/iomodule_v2_14/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/ipipsu_v2_12/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/pmonpsv_v2_2/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/qspipsu_v1_16/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/rtcpsu_v1_12/src
+xcoresightpsdcc.c:39:2: warning: #warning "The driver is supported only for ARM architecture" [-Wcpp]
+   39 | #warning "The driver is supported only for ARM architecture"
+      |  ^~~~~~~
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/sdps_v4_0/src
+In file included from xiomodule_g.c:16:
+../../../include/xparameters.h:1262:60: warning: conversion from 'long long unsigned int' to 'unsigned int' changes value from '18446744073709551615' to '4294967295' [-Woverflow]
+ 1262 | #define XPAR_CIPS_0_PSPMC_0_PSV_PMC_IOMODULE_0_IO_BASEADDR 0xFFFFFFFFFFFFFFFFU
+      |                                                            ^~~~~~~~~~~~~~~~~~~
+xiomodule_g.c:30:17: note: in expansion of macro 'XPAR_CIPS_0_PSPMC_0_PSV_PMC_IOMODULE_0_IO_BASEADDR'
+   30 |                 XPAR_CIPS_0_PSPMC_0_PSV_PMC_IOMODULE_0_IO_BASEADDR,
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/standalone_v8_0/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/sysmonpsv_v3_1/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/trngpsv_v1_2/src
+Compiling xsysmonpsv
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/ttcps_v3_16/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/uartlite_v3_7/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/uartpsv_v1_7/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/xilffs_v4_8/src
+Running Make libs in CIPS_0_pspmc_0_psv_pmc_0/libsrc/zdma_v1_15/src
+microblaze_sleep.c:81:9: note: '#pragma message: For the sleep routines, assembly instructions are used'
+   81 | #pragma message ("For the sleep routines, assembly instructions are used")
+      |         ^~~~~~~
+DEBUG NON_LTO_OBJECTS is ../../../lib/microblaze_interrupt_handler.o
+Finished building libraries parallelly.
+/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vivado/2022.2/gnu/microblaze/lin/x86_64-oesdk-linux/usr/bin/microblaze-xilinx-elf/microblaze-xilinx-elf-ar.real: creating CIPS_0_pspmc_0_psv_pmc_0/lib/libxil.a
+Finished building libraries
+INFO: [Project 1-1179] Generating vmk180_thin_wrapper.bif file ...
+Running bootgen.
+Found bootgen at /proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vivado/2022.2/bin/bootgen
+Running '/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vivado/2022.2/bin/bootgen -arch versal -image vmk180_thin_wrapper.bif -w -o ./vmk180_thin_wrapper.pdi'
+
+
+****** Xilinx Bootgen v2022.2.0
+  **** Build date : Oct 13 2022-12:22:43
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+[INFO]   : Bootimage generated successfully
+
+Bootgen Completed Successfully.
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Implementation
+152 Infos, 14 Warnings, 1 Critical Warnings and 0 Errors encountered.
+write_device_image completed successfully
+write_device_image: Time (s): cpu = 00:03:13 ; elapsed = 00:03:25 . Memory (MB): peak = 7890.078 ; gain = 1320.691 ; free physical = 71398 ; free virtual = 494894
+source /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/scripts/impl_1/_full_write_device_image_post.tcl
+hw_export: set_property platform.full_pdi_file ./vmk180_thin_wrapper.pdi [current_project]
+hw_export: output_xsa is /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vpl_gen_fixed.xsa
+hw_export: set design_intent and uses_pr properties
+hw_export: tool_flow = SDx
+INFO: [OCL_UTIL] internal step: write_hw_platform -fixed    /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vpl_gen_fixed.xsa
+hw_export: write_hw_platform -fixed   /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vpl_gen_fixed.xsa
+INFO: [Project 1-1918] Creating Hardware Platform: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vpl_gen_fixed.xsa ...
+INFO: [Project 1-1943] The Hardware Platform can be used for Hardware
+INFO: [Project 1-1941] Successfully created Hardware Platform: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vpl_gen_fixed.xsa
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 15 11:02:21 2024...

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Aug 15 10:44:00 2024
+# Process ID: 1134
+# Current directory: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1
+# Command line: vivado -log vmk180_thin_icn_ctrl_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source vmk180_thin_icn_ctrl_0.tcl
+# Log file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vmk180_thin_icn_ctrl_0.vds
+# Journal file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_icn_ctrl_0_synth_1/vivado.jou
+# Running On: finn_dev_hannayan, OS: Linux, CPU Frequency: 3187.798 MHz, CPU Physical cores: 32, Host memory: 540363 MB
+#-----------------------------------------------------------
+source vmk180_thin_icn_ctrl_0.tcl -notrace

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root versionMajor="1" versionMinor="9">
+  <kernel name="finn_design" language="ip" vlnv="xilinx_finn:finn:finn_design:1.0" attributes="" preferredWorkGroupSizeMultiple="0" workGroupSize="1" hwControlProtocol="ap_ctrl_hs">
+    <ports>
+      <port name="s_axis_0" mode="read_only" dataWidth="392" portType="stream"/>
+      <port name="m_axis_0" mode="write_only" dataWidth="8" portType="stream"/>
+    </ports>
+    <args>
+      <arg name="s_axis_0" addressQualifier="4" id="0" port="s_axis_0" size="0x0" offset="0x0" hostOffset="0x0" hostSize="0x0" type="ap_uint&lt;392>" memSize="0"/>
+      <arg name="m_axis_0" addressQualifier="4" id="1" port="m_axis_0" size="0x0" offset="0x0" hostOffset="0x0" hostSize="0x0" type="ap_uint&lt;8>" memSize="0"/>
+    </args>
+  </kernel>
+</root>

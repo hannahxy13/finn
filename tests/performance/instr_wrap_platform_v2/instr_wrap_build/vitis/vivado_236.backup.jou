@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Aug 15 15:12:04 2024
+# Process ID: 236
+# Current directory: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis
+# Command line: vivado _x/link/vivado/vpl/prj/prj.xpr -mode batch -source ../../src/vitis/export_xsa_program_device.tcl -tclargs vmk180_thin xirdcglab52 3121 0
+# Log file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/vivado.log
+# Journal file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/vivado.jou
+# Running On: finn_dev_hannayan, OS: Linux, CPU Frequency: 3189.860 MHz, CPU Physical cores: 32, Host memory: 540363 MB
+#-----------------------------------------------------------
+open_project _x/link/vivado/vpl/prj/prj.xpr
+source ../../src/vitis/export_xsa_program_device.tcl

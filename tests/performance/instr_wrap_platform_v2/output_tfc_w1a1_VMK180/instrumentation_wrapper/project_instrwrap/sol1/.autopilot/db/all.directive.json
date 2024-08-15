@@ -1,0 +1,18 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [{
+          "functionName": "instrumentation_wrapper",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "\/scratch\/hannayan\/finn_instr_wrap_test\/finn\/tests\/performance\/instr_wrap_platform_v2\/output_tfc_w1a1_VMK180\/instrumentation_wrapper\/hls_syn.tcl",
+          "sourceLine": "25",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "instrumentation_wrapper"
+              }]
+          }
+        }]
+    }]}

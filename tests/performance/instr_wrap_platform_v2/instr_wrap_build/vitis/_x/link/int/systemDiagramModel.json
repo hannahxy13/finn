@@ -1,0 +1,356 @@
+{
+ "system_diagram_metadata": {
+  "schema_version": {
+   "major": "2",
+   "minor": "0",
+   "patch": "0"
+  },
+  "xsa": {
+   "vendor": "xilinx.com",
+   "board_id": "",
+   "name": "vmk180_thin",
+   "version_major": "",
+   "version_minor": "",
+   "description": "",
+   "generated_by": {
+    "name": "",
+    "version": "",
+    "cl": "",
+    "time_stamp": ""
+   },
+   "board": {
+    "name": "",
+    "vendor": "",
+    "part": "",
+    "board_part": ""
+   },
+   "available_resources": {
+    "LUT": "",
+    "REG": "",
+    "BRAM": "",
+    "DSP": "",
+    "URAM": ""
+   },
+   "device_topology": [
+    {
+     "id": "0",
+     "type": "DirectConnection",
+     "used": "yes",
+     "sizeKB": "",
+     "base_address": "",
+     "tag": "dc_0",
+     "slr": "",
+     "spTag": ""
+    },
+    {
+     "id": "1",
+     "type": "DirectConnection",
+     "used": "yes",
+     "sizeKB": "",
+     "base_address": "",
+     "tag": "dc_1",
+     "slr": "",
+     "spTag": ""
+    }
+   ],
+   "design_intent": [],
+   "clocks": []
+  },
+  "xclbin": {
+   "generated_by": {
+    "name": "v++",
+    "version": "2022.2",
+    "cl": "3671529",
+    "time_stamp": "2022-10-13-17:52:11",
+    "options": "/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis/2022.2/bin/unwrapped/lnx64.o/v++ --link --debug --save-temps --target hw --optimize 3 --platform ../vivado/vivado_build/xsa_platform/vmk180_thin.xsa --config ../../src/vitis/system.cfg ../../output_tfc_w1a1_VMK180/xo/finn_design.xo ../../output_tfc_w1a1_VMK180/xo/instrumentation_wrapper.xo --output vmk180_thin.xsa ",
+    "xclbin_name": "vmk180_thin",
+    "uuid": "4242054c-6d76-49a6-b43f-9a127091a843",
+    "link_uuid": "4242054c-6d76-49a6-b43f-9a127091a843",
+    "package_uuid": "",
+    "system_compile_flow": false
+   },
+   "user_regions": [
+    {
+     "name": "",
+     "type": "",
+     "instance_path": "",
+     "available_resources": {
+      "LUT": "",
+      "REG": "",
+      "BRAM": "",
+      "DSP": "",
+      "by_SLR": [],
+      "URAM": ""
+     },
+     "kernels": [
+      {
+       "name": "instrumentation_wrapper",
+       "estimated_resources": {
+        "LUT": "6",
+        "REG": "2",
+        "BRAM": "",
+        "DSP": "",
+        "URAM": ""
+       },
+       "ports": [
+        {
+         "name": "FINNIX",
+         "mode": "write_only",
+         "range": "",
+         "data_width": "392",
+         "port_type": "stream",
+         "base": "",
+         "direction": "DirUnknown"
+        },
+        {
+         "name": "FINNOX",
+         "mode": "read_only",
+         "range": "",
+         "data_width": "8",
+         "port_type": "stream",
+         "base": "",
+         "direction": "DirUnknown"
+        },
+        {
+         "name": "S_AXI_CTRL",
+         "mode": "slave",
+         "range": "0x58",
+         "data_width": "32",
+         "port_type": "addressable",
+         "base": "0x0",
+         "direction": "DirUnknown"
+        }
+       ],
+       "arguments": [
+        {
+         "id": "0",
+         "name": "finnix",
+         "address_qualifier": "4",
+         "port": "FINNIX",
+         "size": "0x0",
+         "offset": "0x0",
+         "host_offset": "0x0",
+         "host_size": "0x8",
+         "type": "stream\u003cap_uint\u003c392\u003e, 0\u003e&",
+         "direction": "DirUnknown"
+        },
+        {
+         "id": "1",
+         "name": "finnox",
+         "address_qualifier": "4",
+         "port": "FINNOX",
+         "size": "0x0",
+         "offset": "0x0",
+         "host_offset": "0x0",
+         "host_size": "0x8",
+         "type": "stream\u003cap_uint\u003c8\u003e, 0\u003e&",
+         "direction": "DirUnknown"
+        },
+        {
+         "id": "2",
+         "name": "cfg",
+         "address_qualifier": "0",
+         "port": "S_AXI_CTRL",
+         "size": "0x4",
+         "offset": "0x10",
+         "host_offset": "0x0",
+         "host_size": "0x4",
+         "type": "unsigned int",
+         "direction": "DirUnknown"
+        },
+        {
+         "id": "3",
+         "name": "status",
+         "address_qualifier": "0",
+         "port": "S_AXI_CTRL",
+         "size": "0x4",
+         "offset": "0x18",
+         "host_offset": "0x0",
+         "host_size": "0x8",
+         "type": "void*",
+         "direction": "DirUnknown"
+        },
+        {
+         "id": "4",
+         "name": "latency",
+         "address_qualifier": "0",
+         "port": "S_AXI_CTRL",
+         "size": "0x4",
+         "offset": "0x28",
+         "host_offset": "0x0",
+         "host_size": "0x8",
+         "type": "void*",
+         "direction": "DirUnknown"
+        },
+        {
+         "id": "5",
+         "name": "interval",
+         "address_qualifier": "0",
+         "port": "S_AXI_CTRL",
+         "size": "0x4",
+         "offset": "0x38",
+         "host_offset": "0x0",
+         "host_size": "0x8",
+         "type": "void*",
+         "direction": "DirUnknown"
+        },
+        {
+         "id": "6",
+         "name": "checksum",
+         "address_qualifier": "0",
+         "port": "S_AXI_CTRL",
+         "size": "0x4",
+         "offset": "0x48",
+         "host_offset": "0x0",
+         "host_size": "0x8",
+         "type": "void*",
+         "direction": "DirUnknown"
+        }
+       ],
+       "clock_name": "",
+       "clock_id": 0,
+       "clocks": []
+      },
+      {
+       "name": "finn_design",
+       "ports": [
+        {
+         "name": "s_axis_0",
+         "mode": "read_only",
+         "range": "",
+         "data_width": "392",
+         "port_type": "stream",
+         "base": "",
+         "direction": "DirUnknown"
+        },
+        {
+         "name": "m_axis_0",
+         "mode": "write_only",
+         "range": "",
+         "data_width": "8",
+         "port_type": "stream",
+         "base": "",
+         "direction": "DirUnknown"
+        }
+       ],
+       "arguments": [
+        {
+         "id": "0",
+         "name": "s_axis_0",
+         "address_qualifier": "4",
+         "port": "s_axis_0",
+         "size": "0x0",
+         "offset": "0x0",
+         "host_offset": "0x0",
+         "host_size": "0x0",
+         "type": "ap_uint\u003c392\u003e",
+         "direction": "DirUnknown"
+        },
+        {
+         "id": "1",
+         "name": "m_axis_0",
+         "address_qualifier": "4",
+         "port": "m_axis_0",
+         "size": "0x0",
+         "offset": "0x0",
+         "host_offset": "0x0",
+         "host_size": "0x0",
+         "type": "ap_uint\u003c8\u003e",
+         "direction": "DirUnknown"
+        }
+       ],
+       "clock_name": "",
+       "clock_id": 0,
+       "clocks": []
+      }
+     ],
+     "compute_units": [
+      {
+       "id": "0",
+       "kernel_name": "finn_design",
+       "cu_name": "finn_design_0",
+       "base_address": "",
+       "actual_resources": [],
+       "clock_name": "",
+       "clock_id": 0,
+       "clocks": [
+        {
+         "port_name": "AP_CLK",
+         "id": "1",
+         "requested_frequency": 0,
+         "achieved_frequency": 0
+        }
+       ],
+       "reset_port_names": [],
+       "slr_resources": []
+      },
+      {
+       "id": "1",
+       "kernel_name": "instrumentation_wrapper",
+       "cu_name": "instrumentation_wrapper_0",
+       "base_address": "",
+       "actual_resources": [],
+       "clock_name": "",
+       "clock_id": 0,
+       "clocks": [
+        {
+         "port_name": "ap_clk",
+         "id": "1",
+         "requested_frequency": 0,
+         "achieved_frequency": 0
+        }
+       ],
+       "reset_port_names": [],
+       "slr_resources": []
+      }
+     ],
+     "connectivity": [
+      {
+       "id": "0",
+       "node1": {
+        "type": "compute_unit",
+        "id": "1",
+        "kernel_argument_id": "0",
+        "arg_name": "finnix",
+        "mode": "Master",
+        "name": "",
+        "port_name": ""
+       },
+       "node2": {
+        "type": "compute_unit",
+        "id": "0",
+        "kernel_argument_id": "0",
+        "arg_name": "s_axis_0",
+        "mode": "Slave",
+        "name": "",
+        "port_name": ""
+       }
+      },
+      {
+       "id": "1",
+       "node1": {
+        "type": "compute_unit",
+        "id": "0",
+        "kernel_argument_id": "1",
+        "arg_name": "m_axis_0",
+        "mode": "Master",
+        "name": "",
+        "port_name": ""
+       },
+       "node2": {
+        "type": "compute_unit",
+        "id": "1",
+        "kernel_argument_id": "1",
+        "arg_name": "finnox",
+        "mode": "Slave",
+        "name": "",
+        "port_name": ""
+       }
+      }
+     ]
+    }
+   ]
+  }
+ }
+}
+

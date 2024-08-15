@@ -1,0 +1,267 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h:678:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="and_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h:692:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="or_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h:706:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="xor_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:76:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_user_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:80:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_id_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:84:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_dest_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:114:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_strb_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:118:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_user_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:122:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_id_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:126:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_dest_ptr" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:132:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_data" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:136:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_keep" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:140:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="get_last" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:145:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="set_data" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:149:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="set_keep" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:153:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="set_last" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:157:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="keep_all" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:163:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:167:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:171:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:176:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:181:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="qdma_axis&lt;WData, 0, 0, 0&gt;" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:185:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator=" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:220:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="empty" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:227:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="full" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:235:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:245:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:256:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:266:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:281:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:317:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="empty" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:324:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="full" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:332:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:342:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:353:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:363:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="read_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis_HLS/2022.2/common/technology/autopilot/ap_axi_sdata.h:379:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="write_nb" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:48:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="move" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1 style=flp" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:57:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="move" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1 style=flp" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:96:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="operator()" ARG_PragmaIsValid="1" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:120:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1 style=flp" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:125:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=cnt_clk" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:127:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=timestamps depth=PENDING" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:130:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=timestamp_ovf" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:131:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=timestamp_unf" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:137:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=icnt" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:138:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=lfsr off" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:147:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:155:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:169:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=ocnt" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:173:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=ts1" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:174:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=last_latency" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:175:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=last_interval" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:178:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=pkts" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:182:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=coeff off" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:183:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=psum off" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:184:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=last_checksum" ARG_PragmaType="reset" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:196:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:207:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrument" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/hls_syn.tcl:25:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=instrumentation_wrapper" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:249:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port=finnix" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:250:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="axis port=finnox" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:251:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite bundle=ctrl port=cfg" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:252:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite bundle=ctrl port=status" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:253:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite bundle=ctrl port=latency" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:254:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite bundle=ctrl port=interval" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:255:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite bundle=ctrl port=checksum" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:256:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_ctrl_none port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:258:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="disable_start_propagation" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:261:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=finnix0 depth=2" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:262:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="instrumentation_wrapper" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=finnox0 depth=2" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="CODE_UNSUPPORTED" msg_id="214-131" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:197:18" msg_body="Inlining function 'DefaultSubwordSlicer&lt;ap_uint&lt;8&gt;, 1u&gt;::operator()(ap_uint&lt;8&gt; const&amp;, unsigned int) const' into 'void instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;(hls::stream&lt;ap_uint&lt;392&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;)'">
+        <args Callee="DefaultSubwordSlicer&lt;ap_uint&lt;8&gt;, 1u&gt;::operator()(ap_uint&lt;8&gt; const&amp;, unsigned int) const" Caller="void instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;(hls::stream&lt;ap_uint&lt;392&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;)"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:206:21" msg_body="Loop 'VITIS_LOOP_206_6' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_206_6"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:195:21" msg_body="Loop 'VITIS_LOOP_195_4' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_195_4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:201:22" msg_body="Loop 'VITIS_LOOP_201_5' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_201_5"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:190:22" msg_body="Loop 'VITIS_LOOP_190_3' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_190_3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:179:21" msg_body="Loop 'anonymous' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:146:22" msg_body="Loop 'VITIS_LOOP_146_1' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_146_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:154:22" msg_body="Loop 'VITIS_LOOP_154_2' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_154_2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:119:0" msg_body="Unrolling loop 'VITIS_LOOP_206_6' (/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:206:21) in function 'instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;' completely with a factor of 3">
+        <args Factor="3" LoopLoc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:206:21" LoopName="VITIS_LOOP_206_6"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:119:0" msg_body="Unrolling loop 'VITIS_LOOP_195_4' (/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:195:21) in function 'instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;' completely with a factor of 1">
+        <args Factor="1" LoopLoc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:195:21" LoopName="VITIS_LOOP_195_4"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:119:0" msg_body="Unrolling loop 'VITIS_LOOP_201_5' (/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:201:22) in function 'instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;' completely with a factor of 1">
+        <args Factor="1" LoopLoc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:201:22" LoopName="VITIS_LOOP_201_5"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:119:0" msg_body="Unrolling loop 'VITIS_LOOP_190_3' (/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:190:22) in function 'instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;' completely with a factor of 3">
+        <args Factor="3" LoopLoc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:190:22" LoopName="VITIS_LOOP_190_3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:119:0" msg_body="Unrolling loop 'anonymous' (/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:179:21) in function 'instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;' completely with a factor of 3">
+        <args Factor="3" LoopLoc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:179:21" LoopName="anonymous"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:119:0" msg_body="Unrolling loop 'VITIS_LOOP_146_1' (/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:146:22) in function 'instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;' completely with a factor of 25">
+        <args Factor="25" LoopLoc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:146:22" LoopName="VITIS_LOOP_146_1"/>
+    </msg>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:119:0" msg_body="Unrolling loop 'VITIS_LOOP_154_2' (/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:154:22) in function 'instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;' completely with a factor of 25">
+        <args Factor="25" LoopLoc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:154:22" LoopName="VITIS_LOOP_154_2"/>
+    </msg>
+    <msg msg_groups="AUTOMATION PRAGMA_MISC" msg_id="214-270" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:179:0" msg_body="Inferring pragma 'array_partition type=complete dim=1' for array 'void instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;(hls::stream&lt;ap_uint&lt;392&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;)::coeff' due to pipeline pragma">
+        <args Dim="1" Mode="complete" Name="void instrument&lt;34u, 16u, 1u, 1u, ap_uint&lt;392&gt;, ap_uint&lt;8&gt; &gt;(hls::stream&lt;ap_uint&lt;392&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;8&gt;, 0&gt;&amp;, ap_uint&lt;32&gt;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;, ap_uint&lt;32&gt;&amp;)::coeff" PragmaType="array_partition"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/output_tfc_w1a1_VMK180/instrumentation_wrapper/top_instrumentation_wrapper.cpp:179:0" msg_body="Applying array_partition to '_ZZ10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_E5coeff': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ10instrumentILj34ELj16ELj1ELj1E7ap_uintILi392EES0_ILi8EEEvRN3hls6streamIT3_Li0EEERNS4_IT4_Li0EEES0_ILi32EERSB_SC_SC_SC_E5coeff"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

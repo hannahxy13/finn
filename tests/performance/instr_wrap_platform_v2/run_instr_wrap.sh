@@ -1,0 +1,1 @@
+cd instr_wrap_build/vitis &&         xsct ../../src/vitis/xsct_run_instr_wrap.tcl vmk180_thin 100 xirdcglab52 3121

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xd:component xmlns:xd="http://www.xilinx.com/xd" xd:vendor="xilinx.com" xd:library="xd" xd:name="dr" xd:version="1.00" xd:type="design">
+    <xd:repository>
+    <xd:file xd:name="xd_ip_db.xml"/>
+  </xd:repository>
+    <xd:instance xd:name="vmk180_thin" xd:componentRef="vmk180_thin"/>
+    <xd:instance xd:name="finn_design_0" xd:componentRef="finn_design">
+    <xd:clock xd:name="AP_CLK" xd:frequency="303031250" xd:tolerance="15151562" xd:refClockId="1"/>
+  </xd:instance>
+    <xd:instance xd:name="instrumentation_wrapper_0" xd:componentRef="instrumentation_wrapper">
+    <xd:clock xd:name="ap_clk" xd:frequency="303031250" xd:tolerance="15151562" xd:refClockId="1"/>
+  </xd:instance>
+    <xd:instance xd:name="axi_intc_0_intr_1_interrupt_concat" xd:componentRef="xlconcat">
+    <xd:parameter xd:name="NUM_PORTS" xd:value="15"/>
+  </xd:instance>
+    <xd:instance xd:name="irq_const_tieoff" xd:componentRef="xlconstant">
+    <xd:parameter xd:name="CONST_WIDTH" xd:value="1"/>
+    <xd:parameter xd:name="CONST_VAL" xd:value="0"/>
+  </xd:instance>
+    <xd:connection>
+    <xd:busInterface xd:name="icn_ctrl_M01_AXI" xd:instanceRef="vmk180_thin"/>
+    <xd:busInterface xd:name="s_axi_ctrl" xd:instanceRef="instrumentation_wrapper_0"/>
+  </xd:connection>
+    <xd:connection>
+    <xd:busInterface xd:name="m_axis_0" xd:instanceRef="finn_design_0"/>
+    <xd:busInterface xd:name="finnox" xd:instanceRef="instrumentation_wrapper_0"/>
+  </xd:connection>
+    <xd:connection>
+    <xd:busInterface xd:name="finnix" xd:instanceRef="instrumentation_wrapper_0"/>
+    <xd:busInterface xd:name="s_axis_0" xd:instanceRef="finn_design_0"/>
+  </xd:connection>
+    <xd:connection>
+    <xd:port xd:name="dout" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="axi_intc_0_intr_1" xd:instanceRef="vmk180_thin"/>
+  </xd:connection>
+    <xd:connection>
+    <xd:port xd:name="dout" xd:instanceRef="irq_const_tieoff"/>
+    <xd:port xd:name="In1" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In0" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In2" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In3" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In4" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In5" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In6" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In7" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In8" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In9" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In10" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In11" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In12" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In13" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+    <xd:port xd:name="In14" xd:instanceRef="axi_intc_0_intr_1_interrupt_concat"/>
+  </xd:connection>
+</xd:component>

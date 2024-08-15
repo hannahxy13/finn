@@ -1,0 +1,558 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Aug 15 10:44:00 2024
+# Process ID: 1136
+# Current directory: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1
+# Command line: vivado -log vmk180_thin_instrumentation_wrapper_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source vmk180_thin_instrumentation_wrapper_0_0.tcl
+# Log file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.vds
+# Journal file: /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vivado.jou
+# Running On: finn_dev_hannayan, OS: Linux, CPU Frequency: 3190.249 MHz, CPU Physical cores: 32, Host memory: 540363 MB
+#-----------------------------------------------------------
+Sourcing tcl script '/tmp/home_dir/.Xilinx/Vivado/Vivado_init.tcl'
+484 Beta devices matching pattern found, 484 enabled.
+enable_beta_device: Time (s): cpu = 00:00:10 ; elapsed = 00:00:40 . Memory (MB): peak = 2045.441 ; gain = 131.520 ; free physical = 74009 ; free virtual = 492666
+source vmk180_thin_instrumentation_wrapper_0_0.tcl -notrace
+INFO: Dispatch client connection id - 37273
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/ip_repo/xilinx_com_hls_instrumentation_wrapper_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/ip_repo/xilinx_finn_finn_finn_design_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis/2022.2/data/cache/xilinx'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/.local/hw_platform/ipcache'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vitis/2022.2/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vivado/2022.2/data/ip'.
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: vmk180_thin_instrumentation_wrapper_0_0
+Command: synth_design -top vmk180_thin_instrumentation_wrapper_0_0 -part xcvm1802-vsva2197-2MP-e-S -directive sdx_optimization_effort_high -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcvm1802'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcvm1802'
+INFO: [Device 21-403] Loading part xcvm1802-vsva2197-2MP-e-S
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 1 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 1270
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 3306.938 ; gain = 351.828 ; free physical = 64473 ; free virtual = 483123
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2514.358; parent = 2381.770; children = 132.589
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4266.918; parent = 3312.879; children = 954.039
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'vmk180_thin_instrumentation_wrapper_0_0' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_instrumentation_wrapper_0_0/synth/vmk180_thin_instrumentation_wrapper_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_ctrl_s_axi' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_ctrl_s_axi.v:7]
+INFO: [Synth 8-155] case statement is not full and has no default [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_ctrl_s_axi.v:213]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_ctrl_s_axi' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_ctrl_s_axi.v:7]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_entry_proc' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_entry_proc.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_entry_proc' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_entry_proc.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_move_ap_uint_8_s' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_move_ap_uint_8_s.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_regslice_both' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_regslice_both' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_move_ap_uint_8_s' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_move_ap_uint_8_s.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_fifo_w32_d34_A' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w32_d34_A.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_fifo_w32_d34_A_ram' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w32_d34_A.v:148]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_fifo_w32_d34_A_ram' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w32_d34_A.v:148]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_fifo_w32_d34_A' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w32_d34_A.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_move_ap_uint_392_s' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_move_ap_uint_392_s.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_regslice_both__parameterized0' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_regslice_both__parameterized0' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_regslice_both.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_move_ap_uint_392_s' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_move_ap_uint_392_s.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_fifo_w32_d3_S' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w32_d3_S.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_fifo_w32_d3_S_ShiftReg' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w32_d3_S.v:111]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_fifo_w32_d3_S_ShiftReg' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w32_d3_S.v:111]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_fifo_w32_d3_S' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w32_d3_S.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_fifo_w8_d2_S' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w8_d2_S.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_fifo_w8_d2_S_ShiftReg' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w8_d2_S.v:111]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_fifo_w8_d2_S_ShiftReg' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w8_d2_S.v:111]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_fifo_w8_d2_S' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w8_d2_S.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_fifo_w392_d2_S' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w392_d2_S.v:10]
+INFO: [Synth 8-6157] synthesizing module 'instrumentation_wrapper_fifo_w392_d2_S_ShiftReg' [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w392_d2_S.v:111]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_fifo_w392_d2_S_ShiftReg' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w392_d2_S.v:111]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper_fifo_w392_d2_S' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper_fifo_w392_d2_S.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'instrumentation_wrapper' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ipshared/3d2b/hdl/verilog/instrumentation_wrapper.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'vmk180_thin_instrumentation_wrapper_0_0' (0#1) [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_instrumentation_wrapper_0_0/synth/vmk180_thin_instrumentation_wrapper_0_0.v:53]
+WARNING: [Synth 8-7129] Port finnix0_num_data_valid[1] in module instrumentation_wrapper_move_ap_uint_392_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_num_data_valid[0] in module instrumentation_wrapper_move_ap_uint_392_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_fifo_cap[1] in module instrumentation_wrapper_move_ap_uint_392_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_fifo_cap[0] in module instrumentation_wrapper_move_ap_uint_392_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[15] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[14] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[13] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[12] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[11] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[10] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[9] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[8] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[7] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[6] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[5] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[4] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[3] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[2] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_num_data_valid[2] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_num_data_valid[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_num_data_valid[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_fifo_cap[2] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_fifo_cap[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_fifo_cap[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port status_i[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port status_i[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_num_data_valid[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_num_data_valid[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_fifo_cap[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_fifo_cap[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_num_data_valid[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_num_data_valid[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_fifo_cap[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_fifo_cap[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_num_data_valid[1] in module instrumentation_wrapper_move_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_num_data_valid[0] in module instrumentation_wrapper_move_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_fifo_cap[1] in module instrumentation_wrapper_move_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_fifo_cap[0] in module instrumentation_wrapper_move_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_c_num_data_valid[2] in module instrumentation_wrapper_entry_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_c_num_data_valid[1] in module instrumentation_wrapper_entry_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_c_num_data_valid[0] in module instrumentation_wrapper_entry_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_c_fifo_cap[2] in module instrumentation_wrapper_entry_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_c_fifo_cap[1] in module instrumentation_wrapper_entry_proc is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_c_fifo_cap[0] in module instrumentation_wrapper_entry_proc is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 3390.844 ; gain = 435.734 ; free physical = 64282 ; free virtual = 482934
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2514.358; parent = 2381.770; children = 132.589
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4344.887; parent = 3390.848; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 3405.688 ; gain = 450.578 ; free physical = 64549 ; free virtual = 483204
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2514.358; parent = 2381.770; children = 132.589
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4359.730; parent = 3405.691; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 3405.688 ; gain = 450.578 ; free physical = 64517 ; free virtual = 483172
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2514.358; parent = 2381.770; children = 132.589
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4359.730; parent = 3405.691; children = 954.039
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3405.688 ; gain = 0.000 ; free physical = 64369 ; free virtual = 483023
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvm1802.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_instrumentation_wrapper_0_0/constraints/instrumentation_wrapper_ooc.xdc] for cell 'inst'
+create_clock: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 3569.730 ; gain = 13.234 ; free physical = 63714 ; free virtual = 482375
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.gen/sources_1/bd/vmk180_thin/ip/vmk180_thin_instrumentation_wrapper_0_0/constraints/instrumentation_wrapper_ooc.xdc] for cell 'inst'
+Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3569.730 ; gain = 0.000 ; free physical = 63699 ; free virtual = 482360
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3569.730 ; gain = 0.000 ; free physical = 63675 ; free virtual = 482336
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/proj/xbuilds/SWIP/2022.2_1014_8888/installs/lin64/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 3569.730 ; gain = 614.621 ; free physical = 63439 ; free virtual = 482105
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2531.648; parent = 2399.167; children = 132.589
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4523.773; parent = 3569.734; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcvm1802-vsva2197-2MP-e-S
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 3569.730 ; gain = 614.621 ; free physical = 63477 ; free virtual = 482143
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2531.648; parent = 2399.167; children = 132.589
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4523.773; parent = 3569.734; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 3569.730 ; gain = 614.621 ; free physical = 63465 ; free virtual = 482131
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2531.648; parent = 2399.167; children = 132.589
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4523.773; parent = 3569.734; children = 954.039
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'instrumentation_wrapper_ctrl_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'instrumentation_wrapper_ctrl_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'ap_CS_iter1_fsm_reg' in module 'instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s'
+INFO: [Synth 8-802] inferred FSM for state register 'ap_CS_iter2_fsm_reg' in module 'instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s'
+INFO: [Synth 8-802] inferred FSM for state register 'ap_CS_iter1_fsm_reg' in module 'instrumentation_wrapper_move_ap_uint_392_s'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'instrumentation_wrapper_ctrl_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'instrumentation_wrapper_ctrl_s_axi'
+INFO: [Synth 8-6904] The RAM "instrumentation_wrapper_fifo_w32_d34_A_ram:/mem_reg" of size (depth=33 x width=32) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+  ap_ST_iter1_fsm_state0 |                               01 |                               01
+  ap_ST_iter1_fsm_state2 |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'ap_CS_iter1_fsm_reg' in module 'instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+  ap_ST_iter2_fsm_state0 |                               01 |                               01
+  ap_ST_iter2_fsm_state3 |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'ap_CS_iter2_fsm_reg' in module 'instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+  ap_ST_iter1_fsm_state0 |                               01 |                               01
+  ap_ST_iter1_fsm_state2 |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'ap_CS_iter1_fsm_reg' in module 'instrumentation_wrapper_move_ap_uint_392_s'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 3569.730 ; gain = 614.621 ; free physical = 63385 ; free virtual = 482055
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2531.648; parent = 2399.167; children = 132.589
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4523.773; parent = 3569.734; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 2     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    7 Bit       Adders := 2     
+	   2 Input    6 Bit       Adders := 2     
+	   2 Input    5 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 4     
++---XORs : 
+	   2 Input     16 Bit         XORs := 72    
+	   2 Input      8 Bit         XORs := 2     
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	              400 Bit    Registers := 1     
+	              392 Bit    Registers := 4     
+	               32 Bit    Registers := 15    
+	                8 Bit    Registers := 6     
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 39    
++---RAMs : 
+	               1K Bit	(33 X 32 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input  400 Bit        Muxes := 1     
+	   2 Input  392 Bit        Muxes := 3     
+	   2 Input   32 Bit        Muxes := 7     
+	   2 Input   16 Bit        Muxes := 25    
+	   2 Input    8 Bit        Muxes := 2     
+	   2 Input    7 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 4     
+	   2 Input    5 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 3     
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 4     
+	   2 Input    2 Bit        Muxes := 14    
+	   4 Input    2 Bit        Muxes := 2     
+	   3 Input    2 Bit        Muxes := 3     
+	   2 Input    1 Bit        Muxes := 32    
+	   3 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1968 (col length:164)
+BRAMs: 1934 (col length: RAMB18 168 RAMB36 84)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-6904] The RAM "inst/instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_U0/timestamps_fifo_U/U_instrumentation_wrapper_fifo_w32_d34_A_ram/mem_reg" of size (depth=33 x width=32) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+WARNING: [Synth 8-7129] Port finnix0_num_data_valid[1] in module instrumentation_wrapper_move_ap_uint_392_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_num_data_valid[0] in module instrumentation_wrapper_move_ap_uint_392_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_fifo_cap[1] in module instrumentation_wrapper_move_ap_uint_392_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_fifo_cap[0] in module instrumentation_wrapper_move_ap_uint_392_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[15] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[14] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[13] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[12] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[11] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[10] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[9] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[8] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[7] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[6] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[5] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[4] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[3] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[2] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_dout[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_num_data_valid[2] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_num_data_valid[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_num_data_valid[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_fifo_cap[2] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_fifo_cap[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cfg_fifo_cap[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port status_i[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port status_i[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_num_data_valid[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_num_data_valid[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_fifo_cap[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnix0_fifo_cap[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_num_data_valid[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_num_data_valid[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_fifo_cap[1] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_fifo_cap[0] in module instrumentation_wrapper_instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_num_data_valid[1] in module instrumentation_wrapper_move_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_num_data_valid[0] in module instrumentation_wrapper_move_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_fifo_cap[1] in module instrumentation_wrapper_move_ap_uint_8_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port finnox0_fifo_cap[0] in module instrumentation_wrapper_move_ap_uint_8_s is either unconnected or has no load
+INFO: [Synth 8-6904] The RAM "inst/instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_U0/timestamps_fifo_U/U_instrumentation_wrapper_fifo_w32_d34_A_ram/mem_reg" of size (depth=33 x width=32) is automatically implemented using LUTRAM. BRAM implementation would be inefficient 
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_wstate_reg[0]) is unused and will be removed from module instrumentation_wrapper_ctrl_s_axi.
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_rstate_reg[0]) is unused and will be removed from module instrumentation_wrapper_ctrl_s_axi.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 3701.809 ; gain = 746.699 ; free physical = 62387 ; free virtual = 481080
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2821.278; parent = 2688.827; children = 132.589
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4655.852; parent = 3701.812; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++-------------------------------------------------------+------------------------------------------------------------------------+-----------+----------------------+--------------+
+|Module Name                                            | RTL Object                                                             | Inference | Size (Depth x Width) | Primitives   | 
++-------------------------------------------------------+------------------------------------------------------------------------+-----------+----------------------+--------------+
+|inst/instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_U0 | timestamps_fifo_U/U_instrumentation_wrapper_fifo_w32_d34_A_ram/mem_reg | Implied   | 64 x 32              | RAM64M8 x 5  | 
++-------------------------------------------------------+------------------------------------------------------------------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:59 ; elapsed = 00:01:07 . Memory (MB): peak = 4212.340 ; gain = 1257.230 ; free physical = 58575 ; free virtual = 477299
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3409.288; parent = 3271.406; children = 137.882
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5166.383; parent = 4212.344; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 4272.965 ; gain = 1317.855 ; free physical = 59372 ; free virtual = 478092
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3450.050; parent = 3309.525; children = 140.524
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5227.008; parent = 4272.969; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping Report
++-------------------------------------------------------+------------------------------------------------------------------------+-----------+----------------------+--------------+
+|Module Name                                            | RTL Object                                                             | Inference | Size (Depth x Width) | Primitives   | 
++-------------------------------------------------------+------------------------------------------------------------------------+-----------+----------------------+--------------+
+|inst/instrument_34u_16u_1u_1u_ap_uint_392_ap_uint_8_U0 | timestamps_fifo_U/U_instrumentation_wrapper_fifo_w32_d34_A_ram/mem_reg | Implied   | 64 x 32              | RAM64M8 x 5  | 
++-------------------------------------------------------+------------------------------------------------------------------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5816] Retiming module `instrumentation_wrapper`
+   Worst Slack before retiming is 1704 and worst slack after retiming is 1704
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `instrumentation_wrapper' done
+
+
+INFO: [Synth 8-11328] No retiming is needed, due to no register satisfying retiming conditions
+INFO: [Synth 8-5816] Retiming module `vmk180_thin_instrumentation_wrapper_0_0`
+   Worst Slack before retiming is 1704 and worst slack after retiming is 1704
+   Numbers of local forward move = 0, and local backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `vmk180_thin_instrumentation_wrapper_0_0' done
+
+
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:04 ; elapsed = 00:01:12 . Memory (MB): peak = 4280.973 ; gain = 1325.863 ; free physical = 60380 ; free virtual = 479091
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3452.335; parent = 3311.770; children = 140.565
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5235.016; parent = 4280.977; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:08 ; elapsed = 00:01:16 . Memory (MB): peak = 4280.973 ; gain = 1325.863 ; free physical = 69812 ; free virtual = 488517
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3486.961; parent = 3337.229; children = 149.732
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5235.016; parent = 4280.977; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:08 ; elapsed = 00:01:16 . Memory (MB): peak = 4280.973 ; gain = 1325.863 ; free physical = 69788 ; free virtual = 488493
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3486.961; parent = 3337.229; children = 149.732
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5235.016; parent = 4280.977; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:08 ; elapsed = 00:01:16 . Memory (MB): peak = 4280.973 ; gain = 1325.863 ; free physical = 69759 ; free virtual = 488464
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3487.395; parent = 3337.662; children = 149.732
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5235.016; parent = 4280.977; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:08 ; elapsed = 00:01:17 . Memory (MB): peak = 4280.973 ; gain = 1325.863 ; free physical = 69741 ; free virtual = 488446
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3487.395; parent = 3337.662; children = 149.732
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5235.016; parent = 4280.977; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:08 ; elapsed = 00:01:17 . Memory (MB): peak = 4280.973 ; gain = 1325.863 ; free physical = 69709 ; free virtual = 488414
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3487.633; parent = 3337.900; children = 149.732
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5235.016; parent = 4280.977; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:08 ; elapsed = 00:01:17 . Memory (MB): peak = 4280.973 ; gain = 1325.863 ; free physical = 69672 ; free virtual = 488377
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3487.633; parent = 3337.900; children = 149.732
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5235.016; parent = 4280.977; children = 954.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Dynamic Shift Register Report:
++------------+----------------+--------+------------+--------+---------+--------+--------+--------+
+|Module Name | RTL Name       | Length | Data Width | SRL16E | SRLC32E | Mux F7 | Mux F8 | Mux F9 | 
++------------+----------------+--------+------------+--------+---------+--------+--------+--------+
+|dsrl        | SRL_SIG_reg[2] | 32     | 32         | 32     | 0       | 0      | 0      | 0      | 
+|dsrl__1     | SRL_SIG_reg[2] | 32     | 32         | 32     | 0       | 0      | 0      | 0      | 
++------------+----------------+--------+------------+--------+---------+--------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |LOOKAHEAD8 |    12|
+|3     |LUT1       |     7|
+|4     |LUT2       |    18|
+|5     |LUT3       |  1123|
+|6     |LUT4       |   584|
+|7     |LUT5       |    85|
+|8     |LUT6       |    82|
+|9     |LUT6CY     |    96|
+|10    |LUT6       |     2|
+|11    |RAM64M8    |     5|
+|12    |SRL16E     |    17|
+|13    |FDRE       |  1718|
+|14    |FDSE       |   801|
++------+-----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:08 ; elapsed = 00:01:17 . Memory (MB): peak = 4280.973 ; gain = 1325.863 ; free physical = 69721 ; free virtual = 488426
+Synthesis current peak Physical Memory [PSS] (MB): peak = 3487.633; parent = 3337.900; children = 149.732
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 5235.016; parent = 4280.977; children = 954.039
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 42 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:59 ; elapsed = 00:01:08 . Memory (MB): peak = 4280.973 ; gain = 1161.820 ; free physical = 69953 ; free virtual = 488658
+Synthesis Optimization Complete : Time (s): cpu = 00:01:08 ; elapsed = 00:01:18 . Memory (MB): peak = 4280.980 ; gain = 1325.863 ; free physical = 70072 ; free virtual = 488777
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 4288.973 ; gain = 0.000 ; free physical = 72884 ; free virtual = 491589
+INFO: [Netlist 29-17] Analyzing 103 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Chipscope 16-579] Latest version is versal_cips_v3_3 for versal_cips_v3_2
+INFO: [Constraints 18-6359] No Clock Expansion Window constraints config file entry for device xcvm1802.  GCLK Deskew mode will be Off and cannot be enabled via GCLK_DESKEW override.
+INFO: [Constraints 18-5720] The default GCLK Deskew mode is Off.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4302.848 ; gain = 0.000 ; free physical = 73116 ; free virtual = 491821
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 103 instances were transformed.
+  LUT6CY => LUT6CY (LUTCY1, LUTCY2): 96 instances
+  LUT6_2 => LUT6_2 (LUT5, LUT6): 2 instances
+  RAM64M8 => RAM64M8 (RAMD64E5(x8), VCC): 5 instances
+
+Synth Design complete, checksum: 28c21ab5
+INFO: [Common 17-83] Releasing license: Synthesis
+85 Infos, 87 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:31 ; elapsed = 00:01:41 . Memory (MB): peak = 4302.848 ; gain = 2152.355 ; free physical = 73299 ; free virtual = 492004
+INFO: [Common 17-600] The following parameters have non-default value.
+general.maxThreads
+INFO: [Common 17-1381] The checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP vmk180_thin_instrumentation_wrapper_0_0, cache-ID = a84cf457de5ca73c
+INFO: [Coretcl 2-1174] Renamed 15 cell refs.
+INFO: [Common 17-1381] The checkpoint '/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/vivado/vpl/prj/prj.runs/vmk180_thin_instrumentation_wrapper_0_0_synth_1/vmk180_thin_instrumentation_wrapper_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file vmk180_thin_instrumentation_wrapper_0_0_utilization_synth.rpt -pb vmk180_thin_instrumentation_wrapper_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 15 10:46:38 2024...

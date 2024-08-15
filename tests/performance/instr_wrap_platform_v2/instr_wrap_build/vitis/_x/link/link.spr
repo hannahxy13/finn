@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="link" dir="" srcset="sources_1">
+  <FileSets>
+    <FileSet Name="kernel_finn_design" Type="DesignSrcs">
+      <Config/>
+    </FileSet>
+    <FileSet Name="kernel_instrumentation_wrapper" Type="DesignSrcs">
+      <File Path="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/xo/instrumentation_wrapper/instrumentation_wrapper/cpu_sources/top_instrumentation_wrapper.cpp"/>
+      <Config/>
+    </FileSet>
+    <FileSet Name="sources_1" Type="DesignSrcs">
+      <Config/>
+    </FileSet>
+  </FileSets>
+  <Runs>
+    <Run Id="run_link" Type="Ft102:LinkHwTarget" SrcSet="sources_1" Description="" Dir="run_link">
+      <Strategy>
+        <StratHandle Name="" Flow="Link HW 2018"/>
+        <Step Id="system_link">
+          <Option Id="ConfigFileStr">/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/syslinkConfig.ini</Option>
+          <Option Id="OptionsStrList"></Option>
+        </Step>
+        <Step Id="cf2sw">
+          <Option Id="OptionsStrList"></Option>
+        </Step>
+        <Step Id="rtd2_system_diagram"/>
+        <Step Id="vpl">
+          <Option Id="ConfigFileStr">/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/_x/link/int/vplConfig.ini</Option>
+          <Option Id="OptionsStrList"></Option>
+        </Step>
+        <Step Id="rtdgen"/>
+        <Step Id="xclbinutil">
+          <Option Id="OptionsStrList"></Option>
+        </Step>
+        <Step Id="xclbinutilinfo">
+          <Option Id="OptionsStrList"></Option>
+        </Step>
+        <Step Id="xclbinutil2nd" EnableStepBool="0"/>
+        <Step Id="generate_sc_driver"/>
+      </Strategy>
+      <GeneratedRun Dir="run_link" File="gen_run.xml"/>
+    </Run>
+  </Runs>
+</project>

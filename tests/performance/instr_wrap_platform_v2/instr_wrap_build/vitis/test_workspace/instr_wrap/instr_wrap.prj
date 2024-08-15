@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="instr_wrap" location="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/test_workspace/instr_wrap" platform="/scratch/hannayan/finn_instr_wrap_test/finn/tests/performance/instr_wrap_platform_v2/instr_wrap_build/vitis/test_workspace/test_platform/export/test_platform/test_platform.xpfm" platformUID="xilinx.com:vmk180:vmk180_thin:1.0(custom)" systemProject="instr_wrap_system" sysConfig="test_platform" runtime="C/C++" cpu="standalone_domain" cpuInstance="CIPS_0_pspmc_0_psv_cortexa72_0" os="standalone" language="CPP" mssSignature="4254fa880ef625326a017b9b76707a72">
+  <configuration name="Debug" id="xilinx.gnu.arm.a53.exe.debug.957154113">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.arm.a53.exe.release.1449814363">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="empty_application"/>
+</sdkproject:SdkProject>

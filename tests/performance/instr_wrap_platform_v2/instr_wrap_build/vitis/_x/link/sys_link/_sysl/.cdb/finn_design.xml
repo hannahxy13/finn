@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xd:repository xmlns:xd="http://www.xilinx.com/xd" xd:vendor="xilinx_finn" xd:library="finn" xd:name="finn_design" xd:version="1.0">
+    <xd:component xd:vendor="xilinx_finn" xd:library="finn" xd:name="finn_design" xd:version="1.0" xd:type="accelerator">
+        <xd:busInterface xd:name="s_axis_0" xd:busTypeRef="axis" xd:mode="slave" xd:direction="in" xd:dataWidth="392" xd:hasTlast="false" xd:clockRef="AP_CLK"/>
+        <xd:busInterface xd:name="m_axis_0" xd:busTypeRef="axis" xd:mode="master" xd:direction="out" xd:dataWidth="8" xd:hasTlast="true" xd:clockRef="AP_CLK"/>
+        <xd:busInterface xd:name="AP_CLK" xd:busTypeRef="clock" xd:mode="slave" xd:direction="in" xd:library="signal" xd:port="ap_clk" xd:resetRef="AP_RST_N"/>
+        <xd:busInterface xd:name="AP_RST_N" xd:busTypeRef="reset" xd:mode="slave" xd:direction="in" xd:library="signal" xd:port="ap_rst_n" xd:clockRef="AP_CLK" xd:activeLevel="low"/>
+    </xd:component>
+</xd:repository>
